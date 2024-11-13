@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppliancePointOfSale")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c6fa28283d5731c1ed9c2d7a1215a5e089f33c4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20b8573c9cc1bd5e71ee4761fd551edff627c681")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppliancePointOfSale")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppliancePointOfSale")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

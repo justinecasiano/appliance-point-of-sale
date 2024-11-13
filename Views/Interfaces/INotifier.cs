@@ -1,4 +1,4 @@
-﻿namespace AppliancePointOfSale.Views;
+﻿namespace AppliancePointOfSale.Views.Interfaces;
 
 public interface INotifier
 {

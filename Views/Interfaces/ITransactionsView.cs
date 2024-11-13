@@ -1,8 +1,11 @@
-﻿namespace AppliancePointOfSale.Views;
+﻿using System.Transactions;
+
+namespace AppliancePointOfSale.Views.Interfaces;
 
 public interface ITransactionsView : INotifier
 {
     string SelectedTransaction { get; set; }
+    Transaction Transaction { get; set;  }
     string SearchValue { get; set; }
     string SortValue { get; set; }
 

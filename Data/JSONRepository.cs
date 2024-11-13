@@ -8,110 +8,84 @@ namespace AppliancePointOfSale.Data;
 
 public class JSONRepository : IRepository
 {
-    private readonly string userJSONPath;
     private readonly string applianceJSONPath;
     private readonly string transactionJSONPath;
-    private readonly List<User> users;
-    private readonly List<Appliance> appliances;
-    private readonly List<Transaction> transactions;
+    private readonly List<Appliance>? appliances;
+    private readonly List<Transaction>? transactions;
 
-    public JSONRepository(string userJSONPath, string applianceJSONPath, string transactionJSONPath)
+    public JSONRepository(string applianceJSONPath, string transactionJSONPath)
     {
-        this.userJSONPath = userJSONPath;
         this.applianceJSONPath = applianceJSONPath;
         this.transactionJSONPath = transactionJSONPath;
 
-        users = GetAllUsers().ToList();
-        appliances = GetAllAppliance().ToList();
-        transactions = GetAllTransactions().ToList();
+        try
+        {
+            appliances = GetAllAppliance().ToList();
+            transactions = GetAllTransactions().ToList();
+        } catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
     }
 
-    private async Task<IEnumerable<T>> ReadJSON<T>()
+    private async Task<IEnumerable<T>>? ReadJSON<T>(string type)
     {
-        String path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, GetPath(typeof(T)));
-        await using FileStream fileStream = File.OpenRead(path);
-        var data = await JsonSerializer.DeserializeAsync<IEnumerable<T>>(fileStream);
-        return data!;
+        await using FileStream fileStream = File.OpenRead($"../../../{GetPath(type)}");
+        return await JsonSerializer.DeserializeAsync<IEnumerable<T>>(fileStream);
     }
 
-    private async Task WriteJson<T>(List<T> data)
+    private async Task WriteJson<T>(string type, List<T> data)
     {
-        String path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, GetPath(typeof(T)));
-        await using FileStream fileStream = File.Create(path);
+        await using FileStream fileStream = File.Create($"../../../{GetPath(type)}");
         await JsonSerializer.SerializeAsync(fileStream, data);
     }
 
-    private string GetPath<T>(T type) => type switch
+    private string GetPath(string type) => type switch
     {
-        User user => userJSONPath,
-        Appliance appliance => applianceJSONPath,
-        Transaction transaction => transactionJSONPath,
+        "appliance" => applianceJSONPath,
+        "transaction" => transactionJSONPath,
         _ => throw new Exception("Invalid type")
     };
 
-    public async void AddAppliance(Appliance appliance)
-    {
-        appliances.Add(appliance);
-        await WriteJson(appliances);
-    }
-
-    public async void AddTransaction(Transaction transaction)
-    {
-        transactions.Add(transaction);
-        await WriteJson(transactions);
-    }
-
-    public async void AddUser(User user)
-    {
-        users.Add(user);
-        await WriteJson(users);
-    }
-
-    public bool AuthenticateUser(string username, string password)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void DeleteAppliance(string ID)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<User> GetAllUsers() => ReadJSON<User>().Result;
-
-    public IEnumerable<Appliance> GetAllAppliance() => ReadJSON<Appliance>().Result;
-
-    public IEnumerable<Transaction> GetAllTransactions() => ReadJSON<Transaction>().Result;
-
-    public IEnumerable<Customer> GetAllCustomers() => transactions.Select(x => x.Customer).Distinct();
+    public IEnumerable<Appliance> GetAllAppliance() => ReadJSON<Appliance>("appliance").Result;
 
     public Appliance GetAppliance(string identifier)
     {
         throw new NotImplementedException();
     }
 
+    public async void AddAppliance(Appliance appliance)
+    {
+        appliances.Add(appliance);
+        await WriteJson("appliance", appliances);
+    }
+    public void UpdateAppliance(Appliance appliance)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void RemoveAppliance(string ID)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<Customer> GetAllCustomers() => transactions.Select(x => x.Customer).Distinct();
+
     public Customer GetCustomer(string FullName)
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<Transaction> GetAllTransactions() => ReadJSON<Transaction>("transaction").Result;
 
     public Transaction GetTransaction(string ID)
     {
         throw new NotImplementedException();
     }
 
-    public User GetUser(string username)
+    public async void AddTransaction(Transaction transaction)
     {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateAppliance(Appliance appliance)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateUser(User user)
-    {
-        throw new NotImplementedException();
+        transactions.Add(transaction);
+        await WriteJson("transaction", transactions);
     }
 }

@@ -8,13 +8,7 @@ public interface IRepository
     Appliance GetAppliance(String identifier);
     void AddAppliance(Appliance appliance);
     void UpdateAppliance(Appliance appliance);
-    void DeleteAppliance(String ID);
-
-    IEnumerable<User> GetAllUsers();
-    User GetUser(String username);
-    void AddUser(User user);
-    void UpdateUser(User user);
-    bool AuthenticateUser(String username, String password);
+    void RemoveAppliance(String ID);
 
     IEnumerable<Customer> GetAllCustomers();
     Customer GetCustomer(String FullName);

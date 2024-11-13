@@ -22,11 +22,8 @@ public class Transaction
     public decimal? Change { get; set; }
     public Image? receipt { get; set; }
 
-    public Transaction(Customer customer, List<LineItem> lineItems, decimal? discount)
+    public Transaction()
     {
         ID = Guid.NewGuid().ToString();
-        Customer = customer;
-        LineItems = lineItems;
-        Discount = discount;
     }
 }
