@@ -6,11 +6,10 @@ public interface IRepository
 {
     List<Appliance> Appliances { get; set; }
     List<Transaction> Transactions { get; set; }
+    Appliance GetAppliance(string id);
     IEnumerable<Appliance> GetAllAppliance();
-    Appliance GetAppliance(String identifier);
     void UpdateAppliance(Appliance appliance);
-
+    Transaction GetTransaction(string id);
     IEnumerable<Transaction> GetAllTransactions();
-    Transaction GetTransaction(String ID);
     void AddTransaction(Transaction transaction);
 }

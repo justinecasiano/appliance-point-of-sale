@@ -56,7 +56,7 @@
             flpHitbox.Location = new Point(3, 3);
             flpHitbox.Margin = new Padding(0);
             flpHitbox.Name = "flpHitbox";
-            flpHitbox.Size = new Size(249, 229);
+            flpHitbox.Size = new Size(249, 232);
             flpHitbox.TabIndex = 1;
             flpHitbox.Click += flpHitbox_Click;
             // 
@@ -101,7 +101,6 @@
             flowLayoutPanel2.Controls.Add(lblStocks);
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(3, 203);
-            flowLayoutPanel2.Margin = new Padding(3, 3, 3, 0);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(252, 28);
             flowLayoutPanel2.TabIndex = 5;
@@ -142,7 +141,7 @@
             flpOptions.Controls.Add(btnAddToCheckout);
             flpOptions.Controls.Add(btnEditAppliance);
             flpOptions.Dock = DockStyle.Top;
-            flpOptions.Location = new Point(0, 231);
+            flpOptions.Location = new Point(0, 234);
             flpOptions.Margin = new Padding(0);
             flpOptions.Name = "flpOptions";
             flpOptions.Size = new Size(252, 30);
@@ -192,7 +191,7 @@
             Margin = new Padding(10);
             Name = "ApplianceItemView";
             Padding = new Padding(3);
-            Size = new Size(255, 235);
+            Size = new Size(255, 238);
             flpHitbox.ResumeLayout(false);
             flpHitbox.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);

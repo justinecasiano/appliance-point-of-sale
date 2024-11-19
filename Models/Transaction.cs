@@ -11,12 +11,12 @@ public class Transaction
     public decimal Discount { get => Customer.IsSeniorOrPwd ? (SubTotal * 0.2m) : 0; }
     public decimal AmountVAT { get => LineItems.Sum(x => (x.Price - x.Price / 1.12m) * x.Quantity); }
     public decimal AmountPaid { get; set; }
-    public decimal? Change { get => AmountPaid - Total; }
+    public decimal Change { get => Math.Abs(AmountPaid - Total); }
+    public decimal Total { get => SubTotal - Discount; }
     public string PaymentMode { get; set; }
     public string? ReferenceNumber;
-    public Image? receipt { get; set; }
-
-    public decimal Total { get => SubTotal - Discount; }
+    public Image? Receipt { get; set; }
+    public string Status { get; set; }
 
     public Transaction()
     {

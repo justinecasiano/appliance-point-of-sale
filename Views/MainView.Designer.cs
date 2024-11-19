@@ -53,7 +53,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1286, 57);
+            panel1.Size = new Size(1366, 57);
             panel1.TabIndex = 0;
             // 
             // btnLogout
@@ -65,7 +65,7 @@
             btnLogout.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnLogout.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Location = new Point(1230, 14);
+            btnLogout.Location = new Point(1310, 14);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(25, 31);
             btnLogout.TabIndex = 2;
@@ -109,7 +109,7 @@
             pnlSide.Dock = DockStyle.Left;
             pnlSide.Location = new Point(0, 57);
             pnlSide.Name = "pnlSide";
-            pnlSide.Size = new Size(65, 554);
+            pnlSide.Size = new Size(65, 711);
             pnlSide.TabIndex = 2;
             // 
             // btnTransaction
@@ -148,7 +148,7 @@
             pnlBack.Dock = DockStyle.Fill;
             pnlBack.Location = new Point(0, 0);
             pnlBack.Name = "pnlBack";
-            pnlBack.Size = new Size(1286, 611);
+            pnlBack.Size = new Size(1366, 768);
             pnlBack.TabIndex = 3;
             // 
             // pnlMiddle
@@ -156,14 +156,14 @@
             pnlMiddle.BorderStyle = BorderStyle.FixedSingle;
             pnlMiddle.Location = new Point(65, 57);
             pnlMiddle.Name = "pnlMiddle";
-            pnlMiddle.Size = new Size(1221, 554);
+            pnlMiddle.Size = new Size(1301, 711);
             pnlMiddle.TabIndex = 0;
             // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1286, 611);
+            ClientSize = new Size(1366, 768);
             Controls.Add(pnlSide);
             Controls.Add(panel1);
             Controls.Add(pnlBack);

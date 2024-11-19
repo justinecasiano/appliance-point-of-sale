@@ -13,11 +13,15 @@ public interface ICheckoutView : INotifier
     event EventHandler EditApplianceEvent;
     event EventHandler EditCustomerDetailsEvent;
     event EventHandler PaymentEvent;
+    event EventHandler ResetCheckoutEvent;
 
     void ClearSelectedAppliance();
     void AddLineItemView(LineItem item);
     void UpdateLineItemView(LineItem item);
     void EditCustomerDetails(Customer customer);
     void Payment(Transaction transaction);
-    void UpdateSidebar(Transaction transaction, bool breakdownOnly = false);
+    void GenerateReceipt(Transaction transaction);
+    bool ShouldReset(Transaction transaction);
+    void ResetCheckout(Transaction transaction);
+    void UpdateSummary(Transaction transaction, bool breakdownOnly = false);
 }

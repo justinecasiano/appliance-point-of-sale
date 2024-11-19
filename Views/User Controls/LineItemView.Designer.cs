@@ -28,54 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel3 = new Panel();
+            pnlQuantity = new Panel();
             lblQuantity = new Label();
             btnAdd = new Label();
             btnSubtract = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             lblApplianceName = new Label();
             lblPrice = new Label();
-            panel3.SuspendLayout();
+            pnlQuantity.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // panel3
+            // pnlQuantity
             // 
-            panel3.Controls.Add(lblQuantity);
-            panel3.Controls.Add(btnAdd);
-            panel3.Controls.Add(btnSubtract);
-            panel3.Dock = DockStyle.Left;
-            panel3.Location = new Point(0, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(89, 48);
-            panel3.TabIndex = 23;
+            pnlQuantity.Controls.Add(lblQuantity);
+            pnlQuantity.Controls.Add(btnAdd);
+            pnlQuantity.Controls.Add(btnSubtract);
+            pnlQuantity.Dock = DockStyle.Left;
+            pnlQuantity.Location = new Point(0, 0);
+            pnlQuantity.Name = "pnlQuantity";
+            pnlQuantity.Size = new Size(89, 47);
+            pnlQuantity.TabIndex = 23;
             // 
             // lblQuantity
             // 
             lblQuantity.AutoSize = true;
             lblQuantity.BackColor = Color.FromArgb(255, 214, 0);
-            lblQuantity.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
+            lblQuantity.Font = new Font("Inria Sans", 14F, FontStyle.Bold);
             lblQuantity.ForeColor = Color.Black;
-            lblQuantity.Location = new Point(23, 10);
-            lblQuantity.MaximumSize = new Size(40, 23);
-            lblQuantity.MinimumSize = new Size(40, 23);
+            lblQuantity.Location = new Point(25, 9);
+            lblQuantity.MaximumSize = new Size(40, 30);
+            lblQuantity.MinimumSize = new Size(40, 30);
             lblQuantity.Name = "lblQuantity";
-            lblQuantity.Size = new Size(40, 23);
+            lblQuantity.Size = new Size(40, 30);
             lblQuantity.TabIndex = 16;
             lblQuantity.Text = "1X";
-            lblQuantity.TextAlign = ContentAlignment.TopCenter;
+            lblQuantity.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnAdd
             // 
             btnAdd.AutoSize = true;
             btnAdd.BackColor = Color.Transparent;
             btnAdd.Cursor = Cursors.Hand;
-            btnAdd.Font = new Font("Inria Sans", 15F, FontStyle.Bold);
+            btnAdd.Font = new Font("Inria Sans", 18F, FontStyle.Bold);
             btnAdd.ForeColor = Color.FromArgb(56, 56, 56);
-            btnAdd.Location = new Point(61, 8);
+            btnAdd.Location = new Point(64, 8);
             btnAdd.Margin = new Padding(0);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(24, 25);
+            btnAdd.Size = new Size(27, 30);
             btnAdd.TabIndex = 17;
             btnAdd.Text = "+";
             btnAdd.Click += btnAdd_Click;
@@ -85,12 +85,12 @@
             btnSubtract.AutoSize = true;
             btnSubtract.BackColor = Color.Transparent;
             btnSubtract.Cursor = Cursors.Hand;
-            btnSubtract.Font = new Font("Inria Sans", 15F, FontStyle.Bold);
+            btnSubtract.Font = new Font("Inria Sans", 18F, FontStyle.Bold);
             btnSubtract.ForeColor = Color.FromArgb(56, 56, 56);
-            btnSubtract.Location = new Point(5, 9);
+            btnSubtract.Location = new Point(3, 9);
             btnSubtract.Margin = new Padding(0);
             btnSubtract.Name = "btnSubtract";
-            btnSubtract.Size = new Size(20, 25);
+            btnSubtract.Size = new Size(23, 30);
             btnSubtract.TabIndex = 18;
             btnSubtract.Text = "-";
             btnSubtract.Click += btnSubtract_Click;
@@ -102,19 +102,19 @@
             flowLayoutPanel1.Dock = DockStyle.Right;
             flowLayoutPanel1.Location = new Point(88, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(179, 48);
+            flowLayoutPanel1.Size = new Size(179, 47);
             flowLayoutPanel1.TabIndex = 24;
             // 
             // lblApplianceName
             // 
             lblApplianceName.AutoSize = true;
             lblApplianceName.Dock = DockStyle.Top;
-            lblApplianceName.Font = new Font("Inria Sans", 9F, FontStyle.Bold);
+            lblApplianceName.Font = new Font("Inria Sans", 10F, FontStyle.Bold);
             lblApplianceName.ForeColor = Color.FromArgb(63, 63, 63);
             lblApplianceName.Location = new Point(5, 5);
-            lblApplianceName.Margin = new Padding(5);
+            lblApplianceName.Margin = new Padding(5, 5, 5, 2);
             lblApplianceName.Name = "lblApplianceName";
-            lblApplianceName.Size = new Size(57, 15);
+            lblApplianceName.Size = new Size(66, 18);
             lblApplianceName.TabIndex = 26;
             lblApplianceName.Text = "Line Item";
             // 
@@ -122,7 +122,7 @@
             // 
             lblPrice.AutoSize = true;
             lblPrice.Dock = DockStyle.Fill;
-            lblPrice.Font = new Font("Inria Sans", 9F, FontStyle.Bold);
+            lblPrice.Font = new Font("Inria Sans", 10F, FontStyle.Bold);
             lblPrice.ForeColor = Color.Black;
             lblPrice.Location = new Point(3, 25);
             lblPrice.MaximumSize = new Size(170, 15);
@@ -140,19 +140,19 @@
             BackColor = Color.White;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(panel3);
+            Controls.Add(pnlQuantity);
             Margin = new Padding(0);
             Name = "LineItemView";
-            Size = new Size(267, 48);
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            Size = new Size(267, 47);
+            pnlQuantity.ResumeLayout(false);
+            pnlQuantity.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private Panel panel3;
+        private Panel pnlQuantity;
         private Label lblQuantity;
         private Label btnAdd;
         private Label btnSubtract;

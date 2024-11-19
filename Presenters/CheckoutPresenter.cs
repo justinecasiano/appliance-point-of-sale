@@ -19,9 +19,10 @@ public class CheckoutPresenter
         CheckoutView.UpdateLineItemEvent += UpdateLineItem;
         CheckoutView.EditCustomerDetailsEvent += EditCustomerDetails;
         CheckoutView.PaymentEvent += Payment;
+        CheckoutView.ResetCheckoutEvent += ResetCheckout;
 
         transaction = new Transaction() { LineItems = [], Customer = new Customer() };
-        CheckoutView.UpdateSidebar(transaction);
+        CheckoutView.UpdateSummary(transaction);
     }
 
     private void AddLineItem(object? sender, EventArgs e)
@@ -39,7 +40,7 @@ public class CheckoutPresenter
             }
         }
         else CheckoutView.Message = "Appliance not in stock";
-        CheckoutView.UpdateSidebar(transaction, true);
+        CheckoutView.UpdateSummary(transaction, true);
     }
 
     private void UpdateLineItem(object? sender, EventArgs e)
@@ -61,7 +62,7 @@ public class CheckoutPresenter
             CheckoutView.UpdateLineItemView(item);
             CheckoutView.Message = "Not enough stocks for the selected appliance";
         }
-        CheckoutView.UpdateSidebar(transaction, true);
+        CheckoutView.UpdateSummary(transaction, true);
     }
 
     private void EditAppliance(object? sender, EventArgs e)
@@ -80,10 +81,17 @@ public class CheckoutPresenter
         else
         {
             CheckoutView.Payment(transaction);
-
-            transaction = new Transaction() { LineItems = [], Customer = new Customer() };
-            CheckoutView.UpdateSidebar(transaction);
+            if (transaction.Status == "Failed") return;
+            CheckoutView.GenerateReceipt(transaction);
+            ResetCheckout(sender, e);
         }
+    }
+
+    private void ResetCheckout(object? sender, EventArgs e)
+    {
+        if (!CheckoutView.ShouldReset(transaction)) return;
+        transaction = new Transaction() { LineItems = [], Customer = new Customer() };
+        CheckoutView.ResetCheckout(transaction);
     }
 
     private bool IsLineItemPresent(string id) =>

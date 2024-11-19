@@ -26,6 +26,20 @@ public partial class LineItemView : UserControl
         AdjustHeight();
     }
 
+    public void HideControls()
+    {
+        btnAdd.Visible = false;
+        btnSubtract.Visible = false;
+        BorderStyle = BorderStyle.None;
+    }
+
+    public void UndoHideControls()
+    {
+        btnAdd.Visible = true;
+        btnSubtract.Visible = true;
+        BorderStyle = BorderStyle.FixedSingle;
+    }
+
     public void AdjustHeight()
     {
         if (lblApplianceName.Height > 15) this.Height += lblApplianceName.Height - 15;

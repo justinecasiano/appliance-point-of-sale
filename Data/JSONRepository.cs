@@ -48,10 +48,8 @@ public class JSONRepository : IRepository
 
     public IEnumerable<Appliance> GetAllAppliance() => ReadJSON<List<Appliance>>("appliance").Result;
 
-    public Appliance GetAppliance(string identifier)
-    {
-        return Appliances.Find(appliance => appliance.ID == identifier);
-    }
+    public Appliance GetAppliance(string id) =>
+        Appliances.Find(appliance => appliance.ID == id);
 
     public async void UpdateAppliance(Appliance appliance)
     {
@@ -61,10 +59,8 @@ public class JSONRepository : IRepository
 
     public IEnumerable<Transaction> GetAllTransactions() => ReadJSON<List<Transaction>>("transaction").Result;
 
-    public Transaction GetTransaction(string ID)
-    {
-        throw new NotImplementedException();
-    }
+    public Transaction GetTransaction(string id) =>
+        Transactions.Find(transaction => transaction.ID == id);
 
     public async void AddTransaction(Transaction transaction)
     {
