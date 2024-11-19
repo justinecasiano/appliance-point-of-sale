@@ -105,6 +105,7 @@
             // btnPay
             // 
             btnPay.BackColor = Color.FromArgb(192, 52, 40);
+            btnPay.Cursor = Cursors.Hand;
             btnPay.FlatAppearance.BorderSize = 0;
             btnPay.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 52, 40);
             btnPay.FlatStyle = FlatStyle.Flat;
@@ -121,6 +122,7 @@
             // btnBack
             // 
             btnBack.BackColor = Color.FromArgb(192, 52, 40);
+            btnBack.Cursor = Cursors.Hand;
             btnBack.FlatAppearance.BorderSize = 0;
             btnBack.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 52, 40);
             btnBack.FlatStyle = FlatStyle.Flat;

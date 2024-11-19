@@ -69,6 +69,7 @@
             // 
             btnAdd.AutoSize = true;
             btnAdd.BackColor = Color.Transparent;
+            btnAdd.Cursor = Cursors.Hand;
             btnAdd.Font = new Font("Inria Sans", 15F, FontStyle.Bold);
             btnAdd.ForeColor = Color.FromArgb(56, 56, 56);
             btnAdd.Location = new Point(61, 8);
@@ -83,6 +84,7 @@
             // 
             btnSubtract.AutoSize = true;
             btnSubtract.BackColor = Color.Transparent;
+            btnSubtract.Cursor = Cursors.Hand;
             btnSubtract.Font = new Font("Inria Sans", 15F, FontStyle.Bold);
             btnSubtract.ForeColor = Color.FromArgb(56, 56, 56);
             btnSubtract.Location = new Point(5, 9);

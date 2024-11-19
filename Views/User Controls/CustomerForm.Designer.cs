@@ -146,6 +146,7 @@
             // btnSubmit
             // 
             btnSubmit.BackColor = Color.FromArgb(192, 52, 40);
+            btnSubmit.Cursor = Cursors.Hand;
             btnSubmit.FlatAppearance.BorderSize = 0;
             btnSubmit.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 52, 40);
             btnSubmit.FlatStyle = FlatStyle.Flat;
@@ -162,6 +163,7 @@
             // btnBack
             // 
             btnBack.BackColor = Color.FromArgb(192, 52, 40);
+            btnBack.Cursor = Cursors.Hand;
             btnBack.FlatAppearance.BorderSize = 0;
             btnBack.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 52, 40);
             btnBack.FlatStyle = FlatStyle.Flat;

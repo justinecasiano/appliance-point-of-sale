@@ -60,6 +60,7 @@
             // 
             btnLogout.BackgroundImage = Properties.Resources.logout;
             btnLogout.BackgroundImageLayout = ImageLayout.Stretch;
+            btnLogout.Cursor = Cursors.Hand;
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnLogout.FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -115,6 +116,7 @@
             // 
             btnTransaction.BackgroundImage = Properties.Resources.transaction_icon_black;
             btnTransaction.BackgroundImageLayout = ImageLayout.Center;
+            btnTransaction.Cursor = Cursors.Hand;
             btnTransaction.Dock = DockStyle.Top;
             btnTransaction.FlatAppearance.BorderSize = 0;
             btnTransaction.FlatStyle = FlatStyle.Flat;
@@ -129,6 +131,7 @@
             // 
             btnCheckout.BackgroundImage = Properties.Resources.checkout_icon_white;
             btnCheckout.BackgroundImageLayout = ImageLayout.Center;
+            btnCheckout.Cursor = Cursors.Hand;
             btnCheckout.Dock = DockStyle.Top;
             btnCheckout.FlatAppearance.BorderSize = 0;
             btnCheckout.FlatStyle = FlatStyle.Flat;

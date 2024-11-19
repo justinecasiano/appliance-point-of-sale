@@ -51,6 +51,7 @@
             flpHitbox.Controls.Add(lblName);
             flpHitbox.Controls.Add(flowLayoutPanel2);
             flpHitbox.Controls.Add(flpOptions);
+            flpHitbox.Cursor = Cursors.Hand;
             flpHitbox.Dock = DockStyle.Fill;
             flpHitbox.Location = new Point(3, 3);
             flpHitbox.Margin = new Padding(0);
@@ -63,6 +64,7 @@
             // 
             pnlThumbnail.BackColor = Color.White;
             pnlThumbnail.BackgroundImageLayout = ImageLayout.Center;
+            pnlThumbnail.Cursor = Cursors.Hand;
             pnlThumbnail.Dock = DockStyle.Top;
             pnlThumbnail.Location = new Point(0, 0);
             pnlThumbnail.Margin = new Padding(0);
@@ -82,6 +84,7 @@
             // lblName
             // 
             lblName.AutoSize = true;
+            lblName.Cursor = Cursors.Hand;
             lblName.Dock = DockStyle.Top;
             lblName.Font = new Font("Inria Sans", 10F, FontStyle.Bold);
             lblName.ForeColor = Color.FromArgb(63, 63, 63);
@@ -106,11 +109,10 @@
             // lblPrice
             // 
             lblPrice.AutoSize = true;
-            lblPrice.Dock = DockStyle.Fill;
             lblPrice.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
             lblPrice.ForeColor = Color.FromArgb(56, 56, 56);
-            lblPrice.Location = new Point(10, 5);
-            lblPrice.Margin = new Padding(10, 5, 0, 10);
+            lblPrice.Location = new Point(5, 5);
+            lblPrice.Margin = new Padding(5, 5, 0, 10);
             lblPrice.MaximumSize = new Size(120, 18);
             lblPrice.MinimumSize = new Size(120, 18);
             lblPrice.Name = "lblPrice";
@@ -121,10 +123,11 @@
             // lblStocks
             // 
             lblStocks.AutoSize = true;
+            lblStocks.Cursor = Cursors.Hand;
             lblStocks.Font = new Font("Inria Sans", 10F, FontStyle.Bold);
             lblStocks.ForeColor = Color.FromArgb(112, 112, 112);
             lblStocks.Location = new Point(130, 5);
-            lblStocks.Margin = new Padding(0, 5, 10, 10);
+            lblStocks.Margin = new Padding(5, 5, 10, 10);
             lblStocks.MaximumSize = new Size(112, 18);
             lblStocks.MinimumSize = new Size(112, 18);
             lblStocks.Name = "lblStocks";
@@ -152,7 +155,7 @@
             btnAddToCheckout.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 5, 19);
             btnAddToCheckout.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 5, 19);
             btnAddToCheckout.FlatStyle = FlatStyle.Flat;
-            btnAddToCheckout.Font = new Font("Inria Sans", 10F, FontStyle.Bold);
+            btnAddToCheckout.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
             btnAddToCheckout.ForeColor = Color.White;
             btnAddToCheckout.Location = new Point(3, 3);
             btnAddToCheckout.Name = "btnAddToCheckout";
@@ -169,7 +172,7 @@
             btnEditAppliance.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 5, 19);
             btnEditAppliance.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 5, 19);
             btnEditAppliance.FlatStyle = FlatStyle.Flat;
-            btnEditAppliance.Font = new Font("Inria Sans", 10F, FontStyle.Bold);
+            btnEditAppliance.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
             btnEditAppliance.ForeColor = Color.White;
             btnEditAppliance.Location = new Point(185, 3);
             btnEditAppliance.Margin = new Padding(38, 3, 3, 3);

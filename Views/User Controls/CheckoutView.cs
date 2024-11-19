@@ -131,7 +131,11 @@ public partial class CheckoutView : UserControl, ICheckoutView
     private void Search(object? sender, EventArgs e)
     {
         ClearSelectedAppliance();
-        if (currentCategory != null) currentCategory.BackColor = Color.FromArgb(251, 251, 251);
+        if (currentCategory != null)
+        {
+            currentCategory.BackColor = Color.FromArgb(251, 251, 251);
+            currentCategory = null;
+        }
 
         var identifier = sender as string;
         var searchList = identifier == "" ? controls : controls.OfType<ApplianceItemView>().AsParallel()
@@ -149,8 +153,8 @@ public partial class CheckoutView : UserControl, ICheckoutView
 
     private void ShowByCategory(object? sender, string category)
     {
-        searchBox.Clear();
         ClearSelectedAppliance();
+        searchBox.Clear();
 
         var button = sender as Button;
         var controlsCategory = controls;

@@ -108,6 +108,7 @@
             // chkIsSeniorOrPwd
             // 
             chkIsSeniorOrPwd.AutoSize = true;
+            chkIsSeniorOrPwd.Cursor = Cursors.Hand;
             chkIsSeniorOrPwd.Font = new Font("Inria Sans", 10F);
             chkIsSeniorOrPwd.ForeColor = Color.FromArgb(65, 65, 65);
             chkIsSeniorOrPwd.Location = new Point(13, 239);
@@ -133,6 +134,7 @@
             // 
             lblPayTotalAmount.AutoSize = true;
             lblPayTotalAmount.BackColor = Color.FromArgb(255, 5, 19);
+            lblPayTotalAmount.Cursor = Cursors.Hand;
             lblPayTotalAmount.Font = new Font("Inria Sans", 16F, FontStyle.Bold);
             lblPayTotalAmount.ForeColor = Color.White;
             lblPayTotalAmount.Location = new Point(142, 494);
@@ -148,6 +150,7 @@
             // 
             lblPay.AutoSize = true;
             lblPay.BackColor = Color.FromArgb(255, 5, 19);
+            lblPay.Cursor = Cursors.Hand;
             lblPay.Font = new Font("Inria Sans", 16F, FontStyle.Bold);
             lblPay.ForeColor = Color.White;
             lblPay.Location = new Point(27, 494);
@@ -240,9 +243,9 @@
             label14.ForeColor = Color.FromArgb(56, 56, 56);
             label14.Location = new Point(0, 0);
             label14.Name = "label14";
-            label14.Size = new Size(168, 15);
+            label14.Size = new Size(122, 15);
             label14.TabIndex = 10;
-            label14.Text = "Senior/PWD Discount Amount:";
+            label14.Text = "Senior/PWD Discount:\r\n";
             // 
             // pnlVAT
             // 
@@ -321,6 +324,7 @@
             // btnEdit
             // 
             btnEdit.AutoSize = true;
+            btnEdit.Cursor = Cursors.Hand;
             btnEdit.Font = new Font("Inria Sans", 12F, FontStyle.Bold);
             btnEdit.ForeColor = Color.FromArgb(255, 5, 19);
             btnEdit.Location = new Point(263, 188);
@@ -463,6 +467,7 @@
             // btnPay
             // 
             btnPay.BackColor = Color.FromArgb(255, 5, 19);
+            btnPay.Cursor = Cursors.Hand;
             btnPay.FlatAppearance.BorderSize = 0;
             btnPay.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 5, 19);
             btnPay.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 5, 19);
@@ -506,6 +511,7 @@
             // cmbSort
             // 
             cmbSort.BackColor = Color.LightGray;
+            cmbSort.Cursor = Cursors.Hand;
             cmbSort.FlatStyle = FlatStyle.Flat;
             cmbSort.Font = new Font("Inria Sans", 12F, FontStyle.Bold);
             cmbSort.ForeColor = Color.FromArgb(137, 137, 137);
@@ -600,6 +606,7 @@
             // searchBox
             // 
             searchBox.BackColor = Color.Transparent;
+            searchBox.Cursor = Cursors.Hand;
             searchBox.Location = new Point(40, 31);
             searchBox.Name = "searchBox";
             searchBox.SearchEvent = null;

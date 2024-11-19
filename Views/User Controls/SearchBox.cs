@@ -25,6 +25,7 @@
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            if (txtSearch.Text == "") return;
             timer.Stop();
             timer.Start();
         }
