@@ -33,15 +33,9 @@
             pnlAmount = new Panel();
             lblAmount = new Label();
             label4 = new Label();
-            pnlSenior = new Panel();
-            lblSenior = new Label();
-            label14 = new Label();
-            pnlPWD = new Panel();
-            lblPWD = new Label();
-            label12 = new Label();
-            pnlDiscount = new Panel();
+            panel1 = new Panel();
             lblDiscount = new Label();
-            label9 = new Label();
+            label6 = new Label();
             pnlVAT = new Panel();
             lblVAT = new Label();
             label7 = new Label();
@@ -68,12 +62,11 @@
             label1 = new Label();
             btnSummary = new Button();
             pnlHighlight = new Panel();
+            searchBox = new SearchBox();
             pnlSummary.SuspendLayout();
             flpTransactionDetails.SuspendLayout();
             pnlAmount.SuspendLayout();
-            pnlSenior.SuspendLayout();
-            pnlPWD.SuspendLayout();
-            pnlDiscount.SuspendLayout();
+            panel1.SuspendLayout();
             pnlVAT.SuspendLayout();
             panel3.SuspendLayout();
             pnlTotalPaid.SuspendLayout();
@@ -97,7 +90,7 @@
             pnlSummary.Controls.Add(btnSummary);
             pnlSummary.Controls.Add(pnlHighlight);
             pnlSummary.Dock = DockStyle.Right;
-            pnlSummary.Location = new Point(797, 0);
+            pnlSummary.Location = new Point(904, 0);
             pnlSummary.Name = "pnlSummary";
             pnlSummary.Size = new Size(317, 554);
             pnlSummary.TabIndex = 3;
@@ -106,9 +99,7 @@
             // 
             flpTransactionDetails.AutoScroll = true;
             flpTransactionDetails.Controls.Add(pnlAmount);
-            flpTransactionDetails.Controls.Add(pnlSenior);
-            flpTransactionDetails.Controls.Add(pnlPWD);
-            flpTransactionDetails.Controls.Add(pnlDiscount);
+            flpTransactionDetails.Controls.Add(panel1);
             flpTransactionDetails.Controls.Add(pnlVAT);
             flpTransactionDetails.Controls.Add(panel3);
             flpTransactionDetails.Controls.Add(pnlTotalPaid);
@@ -156,86 +147,15 @@
             label4.TabIndex = 10;
             label4.Text = "Amount:";
             // 
-            // pnlSenior
+            // panel1
             // 
-            pnlSenior.Controls.Add(lblSenior);
-            pnlSenior.Controls.Add(label14);
-            pnlSenior.Location = new Point(3, 24);
-            pnlSenior.Name = "pnlSenior";
-            pnlSenior.Size = new Size(255, 15);
-            pnlSenior.TabIndex = 17;
-            // 
-            // lblSenior
-            // 
-            lblSenior.AutoSize = true;
-            lblSenior.Dock = DockStyle.Right;
-            lblSenior.Font = new Font("Inria Sans", 9F, FontStyle.Bold);
-            lblSenior.ForeColor = Color.FromArgb(56, 56, 56);
-            lblSenior.Location = new Point(149, 0);
-            lblSenior.MaximumSize = new Size(106, 19);
-            lblSenior.MinimumSize = new Size(106, 19);
-            lblSenior.Name = "lblSenior";
-            lblSenior.Size = new Size(106, 19);
-            lblSenior.TabIndex = 11;
-            lblSenior.Text = "₱ 0.00";
-            lblSenior.TextAlign = ContentAlignment.TopRight;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Dock = DockStyle.Left;
-            label14.Font = new Font("Inria Sans", 9F, FontStyle.Bold);
-            label14.ForeColor = Color.FromArgb(56, 56, 56);
-            label14.Location = new Point(0, 0);
-            label14.Name = "label14";
-            label14.Size = new Size(44, 15);
-            label14.TabIndex = 10;
-            label14.Text = "Senior:";
-            // 
-            // pnlPWD
-            // 
-            pnlPWD.Controls.Add(lblPWD);
-            pnlPWD.Controls.Add(label12);
-            pnlPWD.Location = new Point(3, 45);
-            pnlPWD.Name = "pnlPWD";
-            pnlPWD.Size = new Size(255, 15);
-            pnlPWD.TabIndex = 17;
-            // 
-            // lblPWD
-            // 
-            lblPWD.AutoSize = true;
-            lblPWD.Dock = DockStyle.Right;
-            lblPWD.Font = new Font("Inria Sans", 9F, FontStyle.Bold);
-            lblPWD.ForeColor = Color.FromArgb(56, 56, 56);
-            lblPWD.Location = new Point(149, 0);
-            lblPWD.MaximumSize = new Size(106, 19);
-            lblPWD.MinimumSize = new Size(106, 19);
-            lblPWD.Name = "lblPWD";
-            lblPWD.Size = new Size(106, 19);
-            lblPWD.TabIndex = 11;
-            lblPWD.Text = "₱ 0.00";
-            lblPWD.TextAlign = ContentAlignment.TopRight;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Dock = DockStyle.Left;
-            label12.Font = new Font("Inria Sans", 9F, FontStyle.Bold);
-            label12.ForeColor = Color.FromArgb(56, 56, 56);
-            label12.Location = new Point(0, 0);
-            label12.Name = "label12";
-            label12.Size = new Size(35, 15);
-            label12.TabIndex = 10;
-            label12.Text = "PWD:";
-            // 
-            // pnlDiscount
-            // 
-            pnlDiscount.Controls.Add(lblDiscount);
-            pnlDiscount.Controls.Add(label9);
-            pnlDiscount.Location = new Point(3, 66);
-            pnlDiscount.Name = "pnlDiscount";
-            pnlDiscount.Size = new Size(255, 15);
-            pnlDiscount.TabIndex = 17;
+            panel1.Controls.Add(lblDiscount);
+            panel1.Controls.Add(label6);
+            panel1.Location = new Point(1, 22);
+            panel1.Margin = new Padding(1);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(255, 15);
+            panel1.TabIndex = 20;
             // 
             // lblDiscount
             // 
@@ -252,23 +172,23 @@
             lblDiscount.Text = "₱ 0.00";
             lblDiscount.TextAlign = ContentAlignment.TopRight;
             // 
-            // label9
+            // label6
             // 
-            label9.AutoSize = true;
-            label9.Dock = DockStyle.Left;
-            label9.Font = new Font("Inria Sans", 9F, FontStyle.Bold);
-            label9.ForeColor = Color.FromArgb(56, 56, 56);
-            label9.Location = new Point(0, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(57, 15);
-            label9.TabIndex = 10;
-            label9.Text = "Discount:";
+            label6.AutoSize = true;
+            label6.Dock = DockStyle.Left;
+            label6.Font = new Font("Inria Sans", 9F, FontStyle.Bold);
+            label6.ForeColor = Color.FromArgb(56, 56, 56);
+            label6.Location = new Point(0, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(122, 15);
+            label6.TabIndex = 10;
+            label6.Text = "Senior/PWD Discount:";
             // 
             // pnlVAT
             // 
             pnlVAT.Controls.Add(lblVAT);
             pnlVAT.Controls.Add(label7);
-            pnlVAT.Location = new Point(3, 87);
+            pnlVAT.Location = new Point(3, 41);
             pnlVAT.Name = "pnlVAT";
             pnlVAT.Size = new Size(255, 15);
             pnlVAT.TabIndex = 17;
@@ -304,7 +224,7 @@
             // 
             panel3.Controls.Add(lblTotalAmount);
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(3, 108);
+            panel3.Location = new Point(3, 62);
             panel3.Name = "panel3";
             panel3.Size = new Size(255, 15);
             panel3.TabIndex = 19;
@@ -340,7 +260,7 @@
             // 
             pnlTotalPaid.Controls.Add(lblTotalPaid);
             pnlTotalPaid.Controls.Add(label16);
-            pnlTotalPaid.Location = new Point(3, 129);
+            pnlTotalPaid.Location = new Point(3, 83);
             pnlTotalPaid.Name = "pnlTotalPaid";
             pnlTotalPaid.Size = new Size(255, 15);
             pnlTotalPaid.TabIndex = 18;
@@ -376,7 +296,7 @@
             // 
             pnlChange.Controls.Add(lblChange);
             pnlChange.Controls.Add(label5);
-            pnlChange.Location = new Point(3, 150);
+            pnlChange.Location = new Point(3, 104);
             pnlChange.Name = "pnlChange";
             pnlChange.Size = new Size(255, 15);
             pnlChange.TabIndex = 17;
@@ -570,26 +490,32 @@
             pnlHighlight.Size = new Size(315, 10);
             pnlHighlight.TabIndex = 0;
             // 
+            // searchBox
+            // 
+            searchBox.BackColor = Color.Transparent;
+            searchBox.Location = new Point(40, 31);
+            searchBox.Name = "searchBox";
+            searchBox.SearchEvent = null;
+            searchBox.Size = new Size(749, 33);
+            searchBox.TabIndex = 23;
+            // 
             // TransactionsView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             BackgroundImage = Properties.Resources.mainview_bg;
+            Controls.Add(searchBox);
             Controls.Add(pnlSummary);
             Name = "TransactionsView";
-            Size = new Size(1114, 554);
+            Size = new Size(1221, 554);
             pnlSummary.ResumeLayout(false);
             pnlSummary.PerformLayout();
             flpTransactionDetails.ResumeLayout(false);
             pnlAmount.ResumeLayout(false);
             pnlAmount.PerformLayout();
-            pnlSenior.ResumeLayout(false);
-            pnlSenior.PerformLayout();
-            pnlPWD.ResumeLayout(false);
-            pnlPWD.PerformLayout();
-            pnlDiscount.ResumeLayout(false);
-            pnlDiscount.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             pnlVAT.ResumeLayout(false);
             pnlVAT.PerformLayout();
             panel3.ResumeLayout(false);
@@ -610,15 +536,6 @@
         private Panel pnlAmount;
         private Label lblAmount;
         private Label label4;
-        private Panel pnlSenior;
-        private Label lblSenior;
-        private Label label14;
-        private Panel pnlPWD;
-        private Label lblPWD;
-        private Label label12;
-        private Panel pnlDiscount;
-        private Label lblDiscount;
-        private Label label9;
         private Panel pnlVAT;
         private Label lblVAT;
         private Label label7;
@@ -645,5 +562,9 @@
         private Label label1;
         private Button btnSummary;
         private Panel pnlHighlight;
+        private SearchBox searchBox;
+        private Panel panel1;
+        private Label lblDiscount;
+        private Label label6;
     }
 }

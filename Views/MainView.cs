@@ -1,44 +1,40 @@
 ﻿using AppliancePointOfSale.Models;
 using AppliancePointOfSale.Views.Interfaces;
 
-namespace AppliancePointOfSale.Views
+namespace AppliancePointOfSale.Views;
+
+public partial class MainView : Form, IMainView
 {
-    public partial class MainView : Form, IMainView
+
+    public Panel PlaceHolder { get => pnlMiddle; }
+    public event EventHandler ChangeViewEvent;
+
+    public MainView()
     {
+        InitializeComponent();
+    }
 
-        public Form Dialog { get; init; }
-        public Panel PlaceHolder { get => pnlMiddle; }
-        public string Message { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    private void btnLogout_Click(object sender, EventArgs e)
+    {
+        var selected = MessageBox.Show(this, "Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        if (selected == DialogResult.Yes) Application.Exit();
+    }
 
-        private bool IsMenuOpen;
+    private void btnCheckout_Click(object sender, EventArgs e)
+    {
+        btnCheckout.BackgroundImage = Properties.Resources.checkout_icon_white;
+        btnTransaction.BackgroundImage = Properties.Resources.transaction_icon_black;
 
-        public event EventHandler ChangeViewEvent;
-        public event EventHandler NotifyEvent;
+        Task.Delay(200).Wait();
+        ChangeViewEvent.Invoke(sender, e);
+    }
 
-        public MainView()
-        {
-            InitializeComponent();
-            Dialog = new Dialog();
-        }
+    private void btnTransaction_Click(object sender, EventArgs e)
+    {
+        btnTransaction.BackgroundImage = Properties.Resources.transaction_icon_white;
+        btnCheckout.BackgroundImage = Properties.Resources.checkout_icon_black;
 
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            if (IsMenuOpen)
-            {
-                pnlSide.Size = new Size(76, 554);
-            }
-            else
-            {
-                pnlSide.Size = new Size(200, 554);
-            }
-            IsMenuOpen = !IsMenuOpen;
-            Dialog.ShowDialog();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            var selected = MessageBox.Show(this, "Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (selected == DialogResult.Yes) Application.Exit();
-        }
+        Task.Delay(200).Wait();
+        ChangeViewEvent.Invoke(sender, e);
     }
 }

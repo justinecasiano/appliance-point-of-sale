@@ -10,5 +10,4 @@ public class Appliance
     public required string Category { get; set; }
     public List<string>? Sizes { get; set; }
     public List<string>? Colors { get; set; }
-    public Image thumbnail { get; set; }
 }

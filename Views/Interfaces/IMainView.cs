@@ -1,8 +1,7 @@
 ﻿namespace AppliancePointOfSale.Views.Interfaces;
 
-public interface IMainView : INotifier
+public interface IMainView 
 {
-    Form Dialog { get; init; }
     Panel PlaceHolder { get; }
     event EventHandler ChangeViewEvent;
 }

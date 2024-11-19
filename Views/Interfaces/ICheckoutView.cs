@@ -1,20 +1,23 @@
 ﻿using AppliancePointOfSale.Models;
+using AppliancePointOfSale.Views.User_Controls;
 
 namespace AppliancePointOfSale.Views.Interfaces;
 
 public interface ICheckoutView : INotifier
 {
-    string SelectedAppliance { get; set; }
-    Transaction Transaction { get; set; }
-    string SearchValue { get; set; }
-    string SortValue { get; set; }
+    decimal Amount { get; set; }
 
-    event EventHandler CheckoutEvent;
+    event EventHandler AddLineItemEvent;
+    event EventHandler UpdateLineItemEvent;
+    event EventHandler ApplianceSelectedEvent;
+    event EventHandler EditApplianceEvent;
     event EventHandler EditCustomerDetailsEvent;
-    event EventHandler AddQuantityEvent;
-    event EventHandler SubtractQuantityEvent;
     event EventHandler PaymentEvent;
-    event EventHandler GenerateReceiptEvent;
-    event EventHandler SearchEvent;
-    event EventHandler SortEvent;
+
+    void ClearSelectedAppliance();
+    void AddLineItemView(LineItem item);
+    void UpdateLineItemView(LineItem item);
+    void EditCustomerDetails(Customer customer);
+    void Payment(Transaction transaction);
+    void UpdateSidebar(Transaction transaction, bool breakdownOnly = false);
 }

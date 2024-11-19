@@ -29,6 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Assets\appliances-backup.json">
+      <SubType>UserControl</SubType>
+    </None>
     <None Update="Assets\transactions.json">
       <SubType>UserControl</SubType>
     </None>

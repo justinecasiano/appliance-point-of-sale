@@ -2,7 +2,7 @@
 
 namespace AppliancePointOfSale.Views.Interfaces;
 
-public interface ITransactionsView : INotifier
+public interface ITransactionsView 
 {
     string SelectedTransaction { get; set; }
     Transaction Transaction { get; set;  }

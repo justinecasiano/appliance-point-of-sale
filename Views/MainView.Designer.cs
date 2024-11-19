@@ -34,9 +34,12 @@
             btnLogo = new Button();
             btnMenu = new Button();
             pnlSide = new Panel();
+            btnTransaction = new Button();
+            btnCheckout = new Button();
             pnlBack = new Panel();
             pnlMiddle = new Panel();
             panel1.SuspendLayout();
+            pnlSide.SuspendLayout();
             pnlBack.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,7 +53,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1184, 57);
+            panel1.Size = new Size(1286, 57);
             panel1.TabIndex = 0;
             // 
             // btnLogout
@@ -61,7 +64,7 @@
             btnLogout.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnLogout.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Location = new Point(1137, 14);
+            btnLogout.Location = new Point(1230, 14);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(25, 31);
             btnLogout.TabIndex = 2;
@@ -95,17 +98,46 @@
             btnMenu.Size = new Size(32, 23);
             btnMenu.TabIndex = 0;
             btnMenu.UseVisualStyleBackColor = true;
-            btnMenu.Click += btnMenu_Click;
             // 
             // pnlSide
             // 
             pnlSide.BackColor = Color.White;
             pnlSide.BorderStyle = BorderStyle.FixedSingle;
+            pnlSide.Controls.Add(btnTransaction);
+            pnlSide.Controls.Add(btnCheckout);
             pnlSide.Dock = DockStyle.Left;
             pnlSide.Location = new Point(0, 57);
             pnlSide.Name = "pnlSide";
-            pnlSide.Size = new Size(70, 554);
+            pnlSide.Size = new Size(65, 554);
             pnlSide.TabIndex = 2;
+            // 
+            // btnTransaction
+            // 
+            btnTransaction.BackgroundImage = Properties.Resources.transaction_icon_black;
+            btnTransaction.BackgroundImageLayout = ImageLayout.Center;
+            btnTransaction.Dock = DockStyle.Top;
+            btnTransaction.FlatAppearance.BorderSize = 0;
+            btnTransaction.FlatStyle = FlatStyle.Flat;
+            btnTransaction.Location = new Point(0, 57);
+            btnTransaction.Name = "btnTransaction";
+            btnTransaction.Size = new Size(63, 57);
+            btnTransaction.TabIndex = 1;
+            btnTransaction.UseVisualStyleBackColor = true;
+            btnTransaction.Click += btnTransaction_Click;
+            // 
+            // btnCheckout
+            // 
+            btnCheckout.BackgroundImage = Properties.Resources.checkout_icon_white;
+            btnCheckout.BackgroundImageLayout = ImageLayout.Center;
+            btnCheckout.Dock = DockStyle.Top;
+            btnCheckout.FlatAppearance.BorderSize = 0;
+            btnCheckout.FlatStyle = FlatStyle.Flat;
+            btnCheckout.Location = new Point(0, 0);
+            btnCheckout.Name = "btnCheckout";
+            btnCheckout.Size = new Size(63, 57);
+            btnCheckout.TabIndex = 0;
+            btnCheckout.UseVisualStyleBackColor = true;
+            btnCheckout.Click += btnCheckout_Click;
             // 
             // pnlBack
             // 
@@ -113,22 +145,22 @@
             pnlBack.Dock = DockStyle.Fill;
             pnlBack.Location = new Point(0, 0);
             pnlBack.Name = "pnlBack";
-            pnlBack.Size = new Size(1184, 611);
+            pnlBack.Size = new Size(1286, 611);
             pnlBack.TabIndex = 3;
             // 
             // pnlMiddle
             // 
             pnlMiddle.BorderStyle = BorderStyle.FixedSingle;
-            pnlMiddle.Location = new Point(70, 57);
+            pnlMiddle.Location = new Point(65, 57);
             pnlMiddle.Name = "pnlMiddle";
-            pnlMiddle.Size = new Size(1114, 554);
+            pnlMiddle.Size = new Size(1221, 554);
             pnlMiddle.TabIndex = 0;
             // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 611);
+            ClientSize = new Size(1286, 611);
             Controls.Add(pnlSide);
             Controls.Add(panel1);
             Controls.Add(pnlBack);
@@ -138,6 +170,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Hanabishi - POS";
             panel1.ResumeLayout(false);
+            pnlSide.ResumeLayout(false);
             pnlBack.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -151,5 +184,7 @@
         private Panel pnlSide;
         private Panel pnlBack;
         private Panel pnlMiddle;
+        private Button btnCheckout;
+        private Button btnTransaction;
     }
 }

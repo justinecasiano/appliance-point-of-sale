@@ -7,20 +7,16 @@ public class Transaction
     public string ID { get; set; }
     public required List<LineItem> LineItems { get; set; }
     public required Customer Customer { get; set; }
-    public decimal? Discount { get; set; }
-    public decimal VAT = 0.12m;
-    public decimal Total
-    {
-        get
-        {
-            var totalSum = LineItems.Sum(x => x.TotalPrice);
-            totalSum = totalSum + (VAT * totalSum);
-            return Discount.HasValue ? totalSum - (Discount.Value * totalSum) : totalSum;
-        }
-    }
+    public decimal SubTotal { get => LineItems.Sum(x => x.TotalPrice); }
+    public decimal Discount { get => Customer.IsSeniorOrPwd ? (SubTotal * 0.2m) : 0; }
+    public decimal AmountVAT { get => LineItems.Sum(x => (x.Price - x.Price / 1.12m) * x.Quantity); }
     public decimal AmountPaid { get; set; }
-    public decimal? Change { get; set; }
+    public decimal? Change { get => AmountPaid - Total; }
+    public string PaymentMode { get; set; }
+    public string? ReferenceNumber;
     public Image? receipt { get; set; }
+
+    public decimal Total { get => SubTotal - Discount; }
 
     public Transaction()
     {

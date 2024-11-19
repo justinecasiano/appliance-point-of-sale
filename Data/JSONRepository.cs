@@ -1,7 +1,4 @@
 ﻿using AppliancePointOfSale.Models;
-using System.CodeDom;
-using System.Reflection;
-using System.Text;
 using System.Text.Json;
 
 namespace AppliancePointOfSale.Data;
@@ -10,8 +7,8 @@ public class JSONRepository : IRepository
 {
     private readonly string applianceJSONPath;
     private readonly string transactionJSONPath;
-    private readonly List<Appliance>? appliances;
-    private readonly List<Transaction>? transactions;
+    public List<Appliance> Appliances { get; set; }
+    public List<Transaction> Transactions { get; set; }
 
     public JSONRepository(string applianceJSONPath, string transactionJSONPath)
     {
@@ -20,21 +17,23 @@ public class JSONRepository : IRepository
 
         try
         {
-            appliances = GetAllAppliance().ToList();
-            transactions = GetAllTransactions().ToList();
-        } catch (Exception e)
+            Appliances = GetAllAppliance().ToList();
+            Transactions = GetAllTransactions().ToList();
+        }
+        catch (Exception e)
         {
             Console.WriteLine(e.Message);
         }
+        if (Transactions == null) Transactions = new List<Transaction>();
     }
 
-    private async Task<IEnumerable<T>>? ReadJSON<T>(string type)
+    private async Task<T>? ReadJSON<T>(string type)
     {
-        await using FileStream fileStream = File.OpenRead($"../../../{GetPath(type)}");
-        return await JsonSerializer.DeserializeAsync<IEnumerable<T>>(fileStream);
+        await using var fileStream = File.OpenRead($"../../../{GetPath(type)}");
+        return await JsonSerializer.DeserializeAsync<T>(fileStream);
     }
 
-    private async Task WriteJson<T>(string type, List<T> data)
+    private async Task WriteJson<T>(string type, T data)
     {
         await using FileStream fileStream = File.Create($"../../../{GetPath(type)}");
         await JsonSerializer.SerializeAsync(fileStream, data);
@@ -47,36 +46,20 @@ public class JSONRepository : IRepository
         _ => throw new Exception("Invalid type")
     };
 
-    public IEnumerable<Appliance> GetAllAppliance() => ReadJSON<Appliance>("appliance").Result;
+    public IEnumerable<Appliance> GetAllAppliance() => ReadJSON<List<Appliance>>("appliance").Result;
 
     public Appliance GetAppliance(string identifier)
     {
-        throw new NotImplementedException();
+        return Appliances.Find(appliance => appliance.ID == identifier);
     }
 
-    public async void AddAppliance(Appliance appliance)
+    public async void UpdateAppliance(Appliance appliance)
     {
-        appliances.Add(appliance);
-        await WriteJson("appliance", appliances);
-    }
-    public void UpdateAppliance(Appliance appliance)
-    {
-        throw new NotImplementedException();
+        Appliances.Find(appliances => appliances.ID == appliance.ID).Stocks = appliance.Stocks;
+        await WriteJson("appliance", Appliances);
     }
 
-    public void RemoveAppliance(string ID)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Customer> GetAllCustomers() => transactions.Select(x => x.Customer).Distinct();
-
-    public Customer GetCustomer(string FullName)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Transaction> GetAllTransactions() => ReadJSON<Transaction>("transaction").Result;
+    public IEnumerable<Transaction> GetAllTransactions() => ReadJSON<List<Transaction>>("transaction").Result;
 
     public Transaction GetTransaction(string ID)
     {
@@ -85,7 +68,7 @@ public class JSONRepository : IRepository
 
     public async void AddTransaction(Transaction transaction)
     {
-        transactions.Add(transaction);
-        await WriteJson("transaction", transactions);
+        Transactions.Add(transaction);
+        await WriteJson("transaction", Transactions);
     }
 }

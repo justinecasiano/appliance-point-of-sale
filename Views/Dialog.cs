@@ -7,8 +7,13 @@ public partial class Dialog : Form
         InitializeComponent();
     }
 
-    private void btnClose_Click(object sender, EventArgs e)
+    public void Add(UserControl control)
     {
-        this.Close();
+        Size = control.Size;
+        control.Dock = DockStyle.Fill;
+
+        Controls.Clear();
+        Controls.Add(control);
     }
+
 }
