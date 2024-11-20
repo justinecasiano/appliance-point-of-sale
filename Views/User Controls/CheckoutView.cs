@@ -113,11 +113,14 @@ public partial class CheckoutView : UserControl, ICheckoutView
 
     public void GenerateReceipt(Transaction transaction)
     {
+        pnlTotalPaid.Visible = pnlChange.Visible = true;
+        pnlSummary.Visible = false;
         HideAndResizeElements();
         var image = new Bitmap(pnlSummary.Width, pnlSummary.Height);
         pnlSummary.DrawToBitmap(image, new Rectangle(0, 0, image.Width, image.Height));
         image.Save($"../../../Assets/Receipts/{transaction.ID}.png", ImageFormat.Png);
         UndoHideAndResizeElements();
+        pnlSummary.Visible = true;
     }
 
     public bool ShouldReset(Transaction transaction)
@@ -225,11 +228,11 @@ public partial class CheckoutView : UserControl, ICheckoutView
     }
     public void HideAndResizeElements()
     {
-        btnReset.Visible = false;
-        btnEdit.Visible = false;
-        lblReferenceNo.Visible = true;
-        pnlTotalPaid.Visible = true;
-        pnlChange.Visible = true;
+        btnReset.Visible = btnEdit.Visible = lblPayTotalAmount.Visible = false;
+        lblReferenceNo.Visible = pnlTotalPaid.Visible = pnlChange.Visible = true;
+
+        lblPay.Text = "SUCCESSFUL TRANSACTION!";
+        lblPay.Font = new Font("Inria Sans", 15, FontStyle.Bold);
 
         int addtlHeight = 0, customerDetailsHeight = 0;
         foreach (Control control in flpCustomer.Controls) customerDetailsHeight += control.Height;
@@ -248,25 +251,24 @@ public partial class CheckoutView : UserControl, ICheckoutView
         else subtractHeight = flpLineItems.Height - lineItemsHeight;
         flpLineItems.Height = lineItemsHeight;
 
-        addtlHeight += lblTotalPaid.Height + 6;
-        flpTransactionDetails.Height += lblTotalPaid.Height + 6;
-        addtlHeight += lblChange.Height + 6;
-        flpTransactionDetails.Height += lblChange.Height + 6;
+        addtlHeight += pnlTotalPaid.Height + 6 + pnlChange.Height + 6;
+        flpTransactionDetails.Height += pnlTotalPaid.Height + 6 + pnlChange.Height + 6;
 
-        flpPlaceholder.Height -= subtractHeight;
         flpPlaceholder.Height += addtlHeight;
+        flpPlaceholder.Height -= subtractHeight;
+
         pnlSummary.Dock = DockStyle.None;
-        pnlSummary.Height -= subtractHeight;
         pnlSummary.Height += addtlHeight;
+        pnlSummary.Height -= subtractHeight;
     }
 
     public void UndoHideAndResizeElements()
     {
-        btnReset.Visible = true;
-        btnEdit.Visible = true;
-        lblReferenceNo.Visible = false;
-        pnlTotalPaid.Visible = false;
-        pnlChange.Visible = false;
+        btnReset.Visible = btnEdit.Visible = lblPayTotalAmount.Visible = true;
+        lblReferenceNo.Visible = pnlTotalPaid.Visible = pnlChange.Visible = false;
+        lblPay.Text = "PAY";
+        lblPay.Font = new Font("Inria Sans", 16, FontStyle.Bold);
+
 
         foreach (LineItemView item in flpLineItems.Controls) item.UndoHideControls();
         flpCustomer.Height = 119;
@@ -290,6 +292,5 @@ public partial class CheckoutView : UserControl, ICheckoutView
         btnPay.Click += (s, e) => PaymentEvent.Invoke(s, e);
         lblPay.Click += (s, e) => PaymentEvent.Invoke(s, e);
         lblPayTotalAmount.Click += (s, e) => PaymentEvent.Invoke(s, e);
-        button1.Click += (s, e) => PaymentEvent.Invoke(s, e);
     }
 }

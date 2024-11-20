@@ -575,6 +575,8 @@
             lblPay.Font = new Font("Inria Sans", 16F, FontStyle.Bold);
             lblPay.ForeColor = Color.White;
             lblPay.Location = new Point(7, 8);
+            lblPay.MaximumSize = new Size(0, 28);
+            lblPay.MinimumSize = new Size(0, 28);
             lblPay.Name = "lblPay";
             lblPay.Size = new Size(48, 28);
             lblPay.TabIndex = 24;
@@ -598,7 +600,7 @@
             lblTransactionID.AutoSize = true;
             lblTransactionID.Font = new Font("Inria Sans", 11F);
             lblTransactionID.ForeColor = Color.FromArgb(65, 65, 65);
-            lblTransactionID.Location = new Point(23, 152);
+            lblTransactionID.Location = new Point(22, 152);
             lblTransactionID.Name = "lblTransactionID";
             lblTransactionID.Size = new Size(130, 19);
             lblTransactionID.TabIndex = 5;
@@ -610,7 +612,7 @@
             lblDate.AutoSize = true;
             lblDate.Font = new Font("Inria Sans", 11F);
             lblDate.ForeColor = Color.FromArgb(65, 65, 65);
-            lblDate.Location = new Point(25, 131);
+            lblDate.Location = new Point(23, 131);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(176, 19);
             lblDate.TabIndex = 4;
@@ -872,7 +874,6 @@
         private Label btnReset;
         private FlowLayoutPanel flpPlaceholder;
         private Panel btnPay;
-        private Label lblPayTotalAmount;
         private Label lblPay;
         private Custom_Controls.CustomFlowLayout flpLineItems;
         private FlowLayoutPanel flpTransactionDetails;
@@ -899,5 +900,6 @@
         private Panel panel1;
         private Panel panel3;
         private Label label5;
+        private Label lblPayTotalAmount;
     }
 }

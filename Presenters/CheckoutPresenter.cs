@@ -83,13 +83,15 @@ public class CheckoutPresenter
             CheckoutView.Payment(transaction);
             if (transaction.Status == "Failed") return;
             CheckoutView.GenerateReceipt(transaction);
+            // Show success message of transaction successful and added to the transaction history
             ResetCheckout(sender, e);
         }
     }
 
     private void ResetCheckout(object? sender, EventArgs e)
     {
-        if (!CheckoutView.ShouldReset(transaction)) return;
+        if ((sender as Control).Name == "btnReset")
+            if (!CheckoutView.ShouldReset(transaction)) return;
         transaction = new Transaction() { LineItems = [], Customer = new Customer() };
         CheckoutView.ResetCheckout(transaction);
     }
