@@ -38,10 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WinFormAnimation" Version="1.6.0.4" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Assets\Receipts\" />
   </ItemGroup>
 

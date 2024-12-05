@@ -6,12 +6,24 @@ namespace AppliancePointOfSale.Views;
 public partial class MainView : Form, IMainView
 {
 
-    public Panel PlaceHolder { get => pnlMiddle; }
+    public List<UserControl> Views { get; set; }
     public event EventHandler ChangeViewEvent;
+    private string CurrentView { get; set; }
 
     public MainView()
     {
         InitializeComponent();
+    }
+
+    public void ChangeView(string view)
+    {
+        if (CurrentView == view) return;
+        CurrentView = view;
+
+        pnlMiddle.Visible = false;
+        pnlMiddle.Controls.Clear();
+        pnlMiddle.Controls.Add(Views.Find(v => v.Name == view));
+        pnlMiddle.Visible = true;
     }
 
     private void btnLogout_Click(object sender, EventArgs e)
@@ -26,7 +38,7 @@ public partial class MainView : Form, IMainView
         btnTransaction.BackgroundImage = Properties.Resources.transaction_icon_black;
 
         Task.Delay(200).Wait();
-        ChangeViewEvent.Invoke(sender, e);
+        ChangeViewEvent.Invoke("CheckoutView", e);
     }
 
     private void btnTransaction_Click(object sender, EventArgs e)
@@ -35,6 +47,6 @@ public partial class MainView : Form, IMainView
         btnCheckout.BackgroundImage = Properties.Resources.checkout_icon_black;
 
         Task.Delay(200).Wait();
-        ChangeViewEvent.Invoke(sender, e);
+        ChangeViewEvent.Invoke("TransactionsView", e);
     }
 }

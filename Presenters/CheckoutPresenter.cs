@@ -9,20 +9,21 @@ public class CheckoutPresenter
 {
     private Transaction transaction;
     public IRepository Repository { get; init; }
-    public ICheckoutView CheckoutView { get; init; }
+    public ICheckoutView CheckoutView;
 
     public CheckoutPresenter(IRepository repository)
     {
         Repository = repository;
+        CheckoutView = new CheckoutView(AddLineItem, EditAppliance);
+        transaction = new Transaction() { LineItems = [], Customer = new Customer() };
+        CheckoutView.UpdateSummary(transaction);
+        CheckoutView.GenerateApplianceList(Repository.Appliances);
 
-        CheckoutView = new CheckoutView(Repository.Appliances, AddLineItem, EditAppliance);
+        Repository.OnUpdateApplianceEvent += (s, e) => CheckoutView.GenerateApplianceList(Repository.Appliances);
         CheckoutView.UpdateLineItemEvent += UpdateLineItem;
         CheckoutView.EditCustomerDetailsEvent += EditCustomerDetails;
         CheckoutView.PaymentEvent += Payment;
         CheckoutView.ResetCheckoutEvent += ResetCheckout;
-
-        transaction = new Transaction() { LineItems = [], Customer = new Customer() };
-        CheckoutView.UpdateSummary(transaction);
     }
 
     private void AddLineItem(object? sender, EventArgs e)
@@ -67,11 +68,29 @@ public class CheckoutPresenter
 
     private void EditAppliance(object? sender, EventArgs e)
     {
+        var appliances = Repository.Appliances;
+        var appliance = sender as Appliance;
+
+        if (appliance.Stocks < 0) CheckoutView.Message = "Stocks cannot be negative";
+        else if (appliance.Stocks > 99) CheckoutView.Message = "Stocks cannot be greater than 99";
+        else
+        {
+            var edited = appliances.Find(x => x.ID == appliance.ID);
+            edited.Stocks = appliance.Stocks;
+            Repository.UpdateAppliance(edited);
+            CheckoutView.EditAppliance(appliance);
+            MessageBox.Show("Stocks successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+        }
     }
 
     private void EditCustomerDetails(object? sender, EventArgs e)
     {
         CheckoutView.EditCustomerDetails(transaction.Customer);
+        if (transaction.Customer.FullName != null)
+        {
+            MessageBox.Show("Customer details successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+            CheckoutView.UpdateSummary(transaction);
+        }
     }
 
     private void Payment(object? sender, EventArgs e)
@@ -81,17 +100,19 @@ public class CheckoutPresenter
         else
         {
             CheckoutView.Payment(transaction);
-            if (transaction.Status == "Failed") return;
+            if (transaction.Status != "Success") return;
+
             CheckoutView.GenerateReceipt(transaction);
-            // Show success message of transaction successful and added to the transaction history
+            Repository.AddTransaction(transaction);
+            //Show success message of transaction successful and added to the transaction history
+            MessageBox.Show("Transaction successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
             ResetCheckout(sender, e);
         }
     }
 
     private void ResetCheckout(object? sender, EventArgs e)
     {
-        if ((sender as Control).Name == "btnReset")
-            if (!CheckoutView.ShouldReset(transaction)) return;
+        if ((sender as Control).Name == "btnReset" && !CheckoutView.ShouldReset(transaction)) return;
         transaction = new Transaction() { LineItems = [], Customer = new Customer() };
         CheckoutView.ResetCheckout(transaction);
     }

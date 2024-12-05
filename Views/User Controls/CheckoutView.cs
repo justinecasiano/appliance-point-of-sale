@@ -1,21 +1,12 @@
 ﻿using AppliancePointOfSale.Models;
 using AppliancePointOfSale.Views.Interfaces;
 using AppliancePointOfSale.Views.User_Controls;
-using System.Data.Common;
 using System.Drawing.Imaging;
 
 namespace AppliancePointOfSale.Views;
 
 public partial class CheckoutView : UserControl, ICheckoutView
 {
-    public decimal Amount
-    {
-        get => decimal.Parse(lblAmount.Text.Replace("₱", "")); set
-        {
-            lblAmount.Text = $"₱ {value:N2}";
-            TotalAmount = value;
-        }
-    }
     public string message;
     public string Message
     {
@@ -26,12 +17,6 @@ public partial class CheckoutView : UserControl, ICheckoutView
             NotifyEvent.Invoke(null, null);
         }
     }
-    public decimal TotalAmount { get => decimal.Parse(lblChange.Text.Replace("₱", "")); set => lblChange.Text = $"₱ {value:N2}"; }
-
-    private Dialog dialog;
-    private Control[] controls;
-    private Button currentCategory;
-    private ApplianceItemView SelectedAppliance { get; set; }
 
     public event EventHandler AddLineItemEvent;
     public event EventHandler UpdateLineItemEvent;
@@ -40,50 +25,40 @@ public partial class CheckoutView : UserControl, ICheckoutView
     public event EventHandler EditCustomerDetailsEvent;
     public event EventHandler PaymentEvent;
     public event EventHandler ResetCheckoutEvent;
+    public event EventHandler SortByEvent;
     public event EventHandler NotifyEvent;
 
-    public CheckoutView(List<Appliance> appliances, EventHandler addLineItem, EventHandler editAppliance)
+    private List<ApplianceItemView> appliances;
+    private ApplianceItemView selectedAppliance;
+    private Appliance currentlyEditing;
+    private Panel currentCategory;
+    private Dialog dialog;
+
+    public CheckoutView(EventHandler addLineItem, EventHandler editAppliance)
     {
         InitializeComponent();
+        dialog = new Dialog();
+
         searchBox.SearchEvent += Search;
         ApplianceSelectedEvent += ApplianceSelected;
         AddLineItemEvent += addLineItem;
-        EditApplianceEvent += editAppliance;
+        EditApplianceEvent = editAppliance;
         NotifyEvent += Notify;
-
-        dialog = new Dialog();
-        appliances.ForEach((appliance) => flpAppliancesList.Controls.Add(new ApplianceItemView(appliance, ApplianceSelectedEvent, AddLineItemEvent, EditApplianceEvent)));
-        controls = flpAppliancesList.Controls.OfType<Control>().ToArray();
 
         SetClickEvents();
     }
 
-    private void ApplianceSelected(object? sender, EventArgs e)
+    public void GenerateApplianceList(List<Appliance> appliances)
     {
-        var isSame = false;
-        var selected = sender as ApplianceItemView;
-        if (SelectedAppliance == selected || SelectedAppliance != null)
-        {
-            if (SelectedAppliance == selected) isSame = true;
-            ClearSelectedAppliance();
-        }
-
-        if (SelectedAppliance != selected && !isSame)
-        {
-            selected.Height += 30;
-            selected.BackColor = Color.FromArgb(255, 5, 19);
-            SelectedAppliance = selected;
-        }
-    }
-
-    public void ClearSelectedAppliance()
-    {
-        if (SelectedAppliance != null)
-        {
-            SelectedAppliance.Height -= 30;
-            SelectedAppliance.BackColor = Color.White;
-            SelectedAppliance = null;
-        }
+        this.appliances = new List<ApplianceItemView>();
+        foreach (var appliance in appliances)
+            this.appliances.Add(new ApplianceItemView(
+                appliance,
+                ApplianceSelectedEvent,
+                AddLineItemEvent,
+                EditApplianceEvent,
+                (value) => currentlyEditing = value));
+        RefreshListView(this.appliances);
     }
 
     public void AddLineItemView(LineItem item)
@@ -95,8 +70,45 @@ public partial class CheckoutView : UserControl, ICheckoutView
     {
         var view = (LineItemView)flpLineItems.Controls.Find(item.ID, true)[0];
         if (item.Quantity == 0) flpLineItems.Controls.Remove(view);
-
         else view.Quantity = item.Quantity;
+    }
+
+    private void ApplianceSelected(object? sender, EventArgs e)
+    {
+        if (currentlyEditing != null) return;
+        var selected = sender as ApplianceItemView;
+        var isSame = false;
+
+        if (selectedAppliance != null)
+        {
+            if (selectedAppliance == selected) isSame = true;
+            ClearSelectedAppliance();
+        }
+
+        if (selectedAppliance != selected && !isSame)
+        {
+            selected.Height += 28;
+            selected.BackColor = Color.FromArgb(255, 5, 19);
+            selectedAppliance = selected;
+        }
+    }
+
+    public void ClearSelectedAppliance()
+    {
+        if (selectedAppliance != null)
+        {
+            selectedAppliance.Height -= 28;
+            selectedAppliance.BackColor = Color.White;
+            selectedAppliance = null;
+        }
+    }
+
+    public void EditAppliance(Appliance appliance)
+    {
+        ToggleCategory();
+        var view = appliances.Find(x => appliance.ID == x.ID);
+        view.Stocks = appliance.Stocks.ToString();
+        currentlyEditing = null;
     }
 
     public void EditCustomerDetails(Customer customer)
@@ -116,9 +128,14 @@ public partial class CheckoutView : UserControl, ICheckoutView
         pnlTotalPaid.Visible = pnlChange.Visible = true;
         pnlSummary.Visible = false;
         HideAndResizeElements();
+
+        var path = $"../../../Assets/Receipts/{transaction.ID}.png";
+        transaction.ReceiptImagePath = path;
+
         var image = new Bitmap(pnlSummary.Width, pnlSummary.Height);
         pnlSummary.DrawToBitmap(image, new Rectangle(0, 0, image.Width, image.Height));
-        image.Save($"../../../Assets/Receipts/{transaction.ID}.png", ImageFormat.Png);
+        image.Save(path, ImageFormat.Png);
+
         UndoHideAndResizeElements();
         pnlSummary.Visible = true;
     }
@@ -145,54 +162,97 @@ public partial class CheckoutView : UserControl, ICheckoutView
         UpdateSummary(transaction);
     }
 
+    private void RefreshListView(List<ApplianceItemView> appliancesView)
+    {
+        flpAppliancesList.Controls.Clear();
+        flpAppliancesList.Controls.AddRange(appliancesView.ToArray());
+    }
+
     private void Search(object? sender, EventArgs e)
     {
-        ClearSelectedAppliance();
-        if (currentCategory != null)
+        if (currentlyEditing != null)
         {
-            currentCategory.BackColor = Color.FromArgb(251, 251, 251);
-            currentCategory = null;
+            searchBox.Clear();
+            return;
         }
+        ClearSelectedAppliance();
+        if (currentCategory != null) ToggleCategory();
 
         var identifier = sender as string;
-        var searchList = identifier == "" ? controls : controls.OfType<ApplianceItemView>().AsParallel()
+        var searchList = identifier == "" ? appliances : appliances.AsParallel()
             .Where((appliance) =>
             appliance.ID.Contains(identifier, StringComparison.OrdinalIgnoreCase) ||
             appliance.ApplianceName.Contains(identifier, StringComparison.OrdinalIgnoreCase) ||
             appliance.Price.Contains(identifier, StringComparison.OrdinalIgnoreCase) ||
-            appliance.Stock.Contains(identifier, StringComparison.OrdinalIgnoreCase) ||
+            appliance.Stocks.Contains(identifier, StringComparison.OrdinalIgnoreCase) ||
             appliance.Category.Contains(identifier, StringComparison.OrdinalIgnoreCase)
-            ).ToArray();
+            ).ToList();
 
-        flpAppliancesList.Controls.Clear();
-        flpAppliancesList.Controls.AddRange(searchList);
+        RefreshListView(searchList);
     }
 
     private void ShowByCategory(object? sender, string category)
     {
-        ClearSelectedAppliance();
-        searchBox.Clear();
+        if (currentlyEditing != null) return;
 
-        var button = sender as Button;
-        var controlsCategory = controls;
+        searchBox.Clear();
+        ClearSelectedAppliance();
+
         var isSameCategory = false;
+        var panel = sender as Panel;
+        var controlsCategory = appliances;
 
         if (currentCategory != null)
         {
-            currentCategory.BackColor = Color.FromArgb(251, 251, 251);
-            if (string.Equals(category, currentCategory.Text, StringComparison.OrdinalIgnoreCase)) isSameCategory = true;
-            currentCategory = null;
+            if (string.Equals(panel.Name, currentCategory.Name, StringComparison.OrdinalIgnoreCase)) isSameCategory = true;
+            ToggleCategory();
         }
 
         if (currentCategory == null && !isSameCategory)
         {
-            currentCategory = button;
-            button.BackColor = Color.FromArgb(192, 52, 40);
-            controlsCategory = controls.Where(x => ((ApplianceItemView)x).Category == category).ToArray();
+            ToggleCategory(panel);
+            controlsCategory = appliances.AsParallel().Where(x => x.Category == category).ToList();
         }
 
-        flpAppliancesList.Controls.Clear();
-        flpAppliancesList.Controls.AddRange(controlsCategory);
+        RefreshListView(controlsCategory);
+    }
+
+    private void ToggleCategory(Panel panel = null)
+    {
+        if (currentCategory != null)
+        {
+            currentCategory.BackColor = Color.FromArgb(251, 251, 251);
+            foreach (Label label in currentCategory.Controls) label.Visible = false;
+            foreach (Label label in currentCategory.Controls)
+            {
+                if (label.Name == "picAirConditioning") label.Image = Properties.Resources.air_conditioning_icon_black;
+                else if (label.Name == "picEntertainment") label.Image = Properties.Resources.entertainment_icon_black;
+                else if (label.Name == "picGarmentCare") label.Image = Properties.Resources.garment_care_icon_black;
+                else if (label.Name == "picKitchen") label.Image = Properties.Resources.kitchen_icon_black;
+                else if (label.Name == "picCleaningSterilizing") label.Image = Properties.Resources.cleaning_sterilizing_icon_black;
+                else if (label.Name == "picFansAndAirCoolers") label.Image = Properties.Resources.fans_and_air_coolers_icon_black;
+                else label.ForeColor = Color.Black;
+            }
+            foreach (Label label in currentCategory.Controls) label.Visible = true;
+            currentCategory = null;
+        }
+        else if (panel != null)
+        {
+            panel.BackColor = Color.FromArgb(192, 52, 40);
+            foreach (Label label in panel.Controls) label.Visible = false;
+            foreach (Label label in panel.Controls)
+            {
+                if (label.Name == "picAirConditioning") label.Image = Properties.Resources.air_conditioning_icon_white;
+                else if (label.Name == "picEntertainment") label.Image = Properties.Resources.entertainment_icon_white;
+                else if (label.Name == "picGarmentCare") label.Image = Properties.Resources.garment_care_icon_white;
+                else if (label.Name == "picKitchen") label.Image = Properties.Resources.kitchen_icon_white;
+                else if (label.Name == "picCleaningSterilizing") label.Image = Properties.Resources.cleaning_sterilizing_icon_white;
+                else if (label.Name == "picFansAndAirCoolers") label.Image = Properties.Resources.fans_and_air_coolers_icon_white;
+                else label.ForeColor = Color.White;
+            }
+            foreach (Label label in panel.Controls) label.Visible = true;
+            currentCategory = panel;
+        }
     }
 
     private void Notify(object? sender, EventArgs e)
@@ -281,12 +341,24 @@ public partial class CheckoutView : UserControl, ICheckoutView
 
     private void SetClickEvents()
     {
-        btnAirConditioning.Click += (s, e) => ShowByCategory(s, "Air Conditioning");
-        btnEntertainment.Click += (s, e) => ShowByCategory(s, "Entertainment");
-        btnGarmentCare.Click += (s, e) => ShowByCategory(s, "Garment Care");
-        btnKitchen.Click += (s, e) => ShowByCategory(s, "Kitchen");
-        btnCleaningSterilizing.Click += (s, e) => ShowByCategory(s, "Cleaning Sterilizing");
-        btnFansAndAirCoolers.Click += (s, e) => ShowByCategory(s, "Fans and Air Coolers");
+        pnlAirConditioning.Click += (s, e) => ShowByCategory(s, "Air Conditioning");
+        foreach (Control control in pnlAirConditioning.Controls) control.Click += (s, e) => ShowByCategory(pnlAirConditioning, "Air Conditioning");
+
+        pnlEntertainment.Click += (s, e) => ShowByCategory(s, "Entertainment");
+        foreach (Control control in pnlEntertainment.Controls) control.Click += (s, e) => ShowByCategory(pnlEntertainment, "Entertainment");
+
+        pnlGarmentCare.Click += (s, e) => ShowByCategory(s, "Garment Care");
+        foreach (Control control in pnlGarmentCare.Controls) control.Click += (s, e) => ShowByCategory(pnlGarmentCare, "Garment Care");
+
+        pnlKitchen.Click += (s, e) => ShowByCategory(s, "Kitchen");
+        foreach (Control control in pnlKitchen.Controls) control.Click += (s, e) => ShowByCategory(pnlKitchen, "Kitchen");
+
+        pnlCleaningSterilizing.Click += (s, e) => ShowByCategory(s, "Cleaning Sterilizing");
+        foreach (Control control in pnlCleaningSterilizing.Controls) control.Click += (s, e) => ShowByCategory(pnlCleaningSterilizing, "Cleaning Sterilizing");
+
+        pnlFansAndAirCoolers.Click += (s, e) => ShowByCategory(s, "Fans and Air Coolers");
+        foreach (Control control in pnlFansAndAirCoolers.Controls) control.Click += (s, e) => ShowByCategory(pnlFansAndAirCoolers, "Fans and Air Coolers");
+
         btnEdit.Click += (s, e) => EditCustomerDetailsEvent.Invoke(s, e);
         btnReset.Click += (s, e) => ResetCheckoutEvent.Invoke(s, e);
         btnPay.Click += (s, e) => PaymentEvent.Invoke(s, e);

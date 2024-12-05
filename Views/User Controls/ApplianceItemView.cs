@@ -1,29 +1,49 @@
 ﻿using AppliancePointOfSale.Models;
-using System.ComponentModel;
 
 namespace AppliancePointOfSale.Views.User_Controls;
 
 public partial class ApplianceItemView : UserControl
 {
-    public string ID { get => Name; }
-    public string ApplianceName { get => lblName.Text; }
-    public string Price { get => lblPrice.Text; }
-    public string Stock { get => lblStocks.Text; }
-    public string Category { get; init; }
+    public string ID { get => Name; set => Name = value; }
+    public string ApplianceName { get => lblName.Text; set => lblName.Text = value; }
+    public string Price { get => lblPrice.Text; set => lblPrice.Text = value; }
+    public string Stocks { get => lblStocks.Text; set => lblStocks.Text = (int.Parse(value) > 0 ? $"In Stock: {value}" : "Out of Stock"); }
+    public string Category;
 
-    private EventHandler ApplianceSelectedEvent { get; set; }
-    private EventHandler AddLineItemEvent { get; set; }
-    private EventHandler EditApplianceEvent { get; set; }
+    private string path;
+    public string Thumbnail
+    {
+        get => path;
+        set
+        {
+            path = $@"../../../Assets/Appliances/{value}.png";
+            pnlThumbnail.BackgroundImage = Image.FromFile(path);
+        }
+    }
 
-    public ApplianceItemView(Appliance appliance, EventHandler applianceSelectedEvent, EventHandler addLineItemEvent, EventHandler editApplianceEvent)
+    private Appliance appliance;
+    private Action<Appliance> currentlyEditing;
+    private EventHandler ApplianceSelectedEvent;
+    private EventHandler AddLineItemEvent;
+    private EventHandler EditApplianceEvent;
+
+    public ApplianceItemView(
+        Appliance appliance,
+        EventHandler applianceSelectedEvent,
+        EventHandler addLineItemEvent,
+        EventHandler editApplianceEvent,
+        Action<Appliance> currentlyEditing)
     {
         InitializeComponent();
         Name = appliance.ID;
         Category = appliance.Category;
-        lblName.Text = appliance.Name;
-        lblPrice.Text = $"₱ {appliance.Price:N2}";
-        lblStocks.Text = appliance.InStock ? $"In Stock: {appliance.Stocks}" : "Out of Stock";
-        pnlThumbnail.BackgroundImage = Image.FromFile($@"../../../Assets/Appliances/{appliance.Category}/{appliance.Name}.png");
+        ApplianceName = appliance.Name;
+        Price = $"₱ {appliance.Price:N2}";
+        Stocks = appliance.Stocks.ToString();
+        Thumbnail = $"{appliance.Category}/{appliance.Name}";
+        this.appliance = appliance;
+        this.currentlyEditing = currentlyEditing;
+        numEditStocks.Value = appliance.Stocks;
 
         ApplianceSelectedEvent += applianceSelectedEvent;
         AddLineItemEvent += addLineItemEvent;
@@ -44,19 +64,31 @@ public partial class ApplianceItemView : UserControl
         lblPrice.Click += flpHitbox_Click;
         lblStocks.Click += flpHitbox_Click;
     }
-
-    private void flpHitbox_Click(object sender, EventArgs e)
-    {
-        ApplianceSelectedEvent.Invoke(this, e);
-    }
-
-    private void btnAddToCheckout_Click(object sender, EventArgs e)
-    {
-        AddLineItemEvent.Invoke(Name, e);
-    }
-
     private void btnEditAppliance_Click(object sender, EventArgs e)
     {
-        EditApplianceEvent.Invoke(Name, e);
+        currentlyEditing(appliance);
+        pnlEditStocks.Visible = true;
+        pnlInfo.Visible = false;
+        Height -= 26;
+    }
+
+    private void btnCancelEdit_Click(object sender, EventArgs e)
+    {
+        currentlyEditing(null);
+        pnlEditStocks.Visible = false;
+        pnlInfo.Visible = true;
+        Height += 26;
+    }
+
+    private void flpHitbox_Click(object sender, EventArgs e)
+        => ApplianceSelectedEvent.Invoke(this, e);
+
+    private void btnAddToCheckout_Click(object sender, EventArgs e)
+        => AddLineItemEvent.Invoke(Name, e);
+
+    private void btnConfirmEdit_Click(object sender, EventArgs e)
+    {
+        appliance.Stocks = (int)numEditStocks.Value;
+        EditApplianceEvent.Invoke(appliance, e);
     }
 }

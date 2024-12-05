@@ -15,11 +15,13 @@ public class Transaction
     public decimal Total { get => SubTotal - Discount; }
     public string PaymentMode { get; set; }
     public string? ReferenceNumber;
-    public Image? Receipt { get; set; }
+    public string ReceiptImagePath { get; set; }
+    public DateTime Date { get; set; }
     public string Status { get; set; }
 
     public Transaction()
     {
         ID = Guid.NewGuid().ToString();
+        Date = DateTime.Now;
     }
 }

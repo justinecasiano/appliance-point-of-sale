@@ -25,7 +25,11 @@
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (txtSearch.Text == "") return;
+            if (txtSearch.Text == "")
+            {
+                SearchEvent?.Invoke(SearchValue, e);
+                return;
+            }
             timer.Stop();
             timer.Start();
         }

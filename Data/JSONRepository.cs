@@ -5,25 +5,21 @@ namespace AppliancePointOfSale.Data;
 
 public class JSONRepository : IRepository
 {
-    private readonly string applianceJSONPath;
-    private readonly string transactionJSONPath;
     public List<Appliance> Appliances { get; set; }
     public List<Transaction> Transactions { get; set; }
+
+    private readonly string applianceJSONPath;
+    private readonly string transactionJSONPath;
+
+    public event EventHandler OnUpdateApplianceEvent;
+    public event EventHandler OnAddTransactionEvent;
 
     public JSONRepository(string applianceJSONPath, string transactionJSONPath)
     {
         this.applianceJSONPath = applianceJSONPath;
         this.transactionJSONPath = transactionJSONPath;
-
-        try
-        {
-            Appliances = GetAllAppliance().ToList();
-            Transactions = GetAllTransactions().ToList();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
+        Appliances = GetAllAppliance().Result.ToList();
+        Transactions = GetAllTransactions().Result.ToList();
         if (Transactions == null) Transactions = new List<Transaction>();
     }
 
@@ -37,6 +33,7 @@ public class JSONRepository : IRepository
     {
         await using FileStream fileStream = File.Create($"../../../{GetPath(type)}");
         await JsonSerializer.SerializeAsync(fileStream, data);
+        await fileStream.FlushAsync();
     }
 
     private string GetPath(string type) => type switch
@@ -46,18 +43,21 @@ public class JSONRepository : IRepository
         _ => throw new Exception("Invalid type")
     };
 
-    public IEnumerable<Appliance> GetAllAppliance() => ReadJSON<List<Appliance>>("appliance").Result;
+    public async Task<IEnumerable<Appliance>> GetAllAppliance() => await ReadJSON<List<Appliance>>("appliance");
 
     public Appliance GetAppliance(string id) =>
         Appliances.Find(appliance => appliance.ID == id);
 
     public async void UpdateAppliance(Appliance appliance)
     {
-        Appliances.Find(appliances => appliances.ID == appliance.ID).Stocks = appliance.Stocks;
+        var match = Appliances.Find(x => x.ID == appliance.ID);
+        match.Stocks = appliance.Stocks;
         await WriteJson("appliance", Appliances);
+        Appliances = (await GetAllAppliance()).ToList();
+        OnUpdateApplianceEvent.Invoke(this, EventArgs.Empty);
     }
 
-    public IEnumerable<Transaction> GetAllTransactions() => ReadJSON<List<Transaction>>("transaction").Result;
+    public async Task<IEnumerable<Transaction>> GetAllTransactions() => await ReadJSON<List<Transaction>>("transaction");
 
     public Transaction GetTransaction(string id) =>
         Transactions.Find(transaction => transaction.ID == id);
@@ -66,5 +66,7 @@ public class JSONRepository : IRepository
     {
         Transactions.Add(transaction);
         await WriteJson("transaction", Transactions);
+        Transactions = (await GetAllTransactions()).ToList();
+        OnAddTransactionEvent.Invoke(this, EventArgs.Empty);
     }
 }

@@ -118,40 +118,79 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="air_conditioning_icon_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\air-conditioning-icon-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kitchen-icon-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\kitchen-icon-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cleaning-sterilizing-icon-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\cleaning-sterilizing-icon-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hamburger-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\hamburger-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hanabishi-logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\hanabishi-logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mainview-bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\mainview-bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="InriaSans_Bold1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\InriaSans-Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="InriaSans_Light1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\InriaSans-Light.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="InriaSans_Italic1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\InriaSans-Italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="InriaSans_Light1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\InriaSans-Light.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="InriaSans_Regular1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\InriaSans-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="checkout_icon_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\checkout-icon-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="transactios-list-bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\transactios-list-bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checkout_icon_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\checkout-icon-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="transaction_icon_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\transaction-icon-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="kitchen-icon-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\kitchen-icon-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mainview-bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\mainview-bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InriaSans_Regular1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\InriaSans-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="InriaSans_Bold1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\InriaSans-Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="transaction_icon_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\transaction-icon-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garment-care-icon-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\garment-care-icon-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hanabishi-logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\hanabishi-logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checkout_icon_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\checkout-icon-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="entertainment-icon-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\entertainment-icon-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garment-care-icon-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\garment-care-icon-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cleaning-sterilizing-icon-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\cleaning-sterilizing-icon-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="air_conditioning_icon_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\air-conditioning-icon-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="entertainment-icon-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\entertainment-icon-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="transaction_icon_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\transaction-icon-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fans-and-air-coolers-icon-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\fans-and-air-coolers-icon-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fans-and-air-coolers-icon-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\fans-and-air-coolers-icon-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

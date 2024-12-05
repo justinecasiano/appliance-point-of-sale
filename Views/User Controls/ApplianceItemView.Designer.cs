@@ -32,14 +32,20 @@
             pnlThumbnail = new Panel();
             panel2 = new Panel();
             lblName = new Label();
-            flowLayoutPanel2 = new FlowLayoutPanel();
+            pnlEditStocks = new Panel();
+            btnCancelEdit = new Button();
+            btnConfirmEdit = new Button();
+            numEditStocks = new NumericUpDown();
+            pnlInfo = new FlowLayoutPanel();
             lblPrice = new Label();
             lblStocks = new Label();
             flpOptions = new FlowLayoutPanel();
             btnAddToCheckout = new Button();
             btnEditAppliance = new Button();
             flpHitbox.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
+            pnlEditStocks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numEditStocks).BeginInit();
+            pnlInfo.SuspendLayout();
             flpOptions.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,7 +55,8 @@
             flpHitbox.Controls.Add(pnlThumbnail);
             flpHitbox.Controls.Add(panel2);
             flpHitbox.Controls.Add(lblName);
-            flpHitbox.Controls.Add(flowLayoutPanel2);
+            flpHitbox.Controls.Add(pnlEditStocks);
+            flpHitbox.Controls.Add(pnlInfo);
             flpHitbox.Controls.Add(flpOptions);
             flpHitbox.Cursor = Cursors.Hand;
             flpHitbox.Dock = DockStyle.Fill;
@@ -95,15 +102,79 @@
             lblName.TabIndex = 3;
             lblName.Text = "Hanabishi Portable Airconditioner ";
             // 
-            // flowLayoutPanel2
+            // pnlEditStocks
             // 
-            flowLayoutPanel2.Controls.Add(lblPrice);
-            flowLayoutPanel2.Controls.Add(lblStocks);
-            flowLayoutPanel2.Dock = DockStyle.Top;
-            flowLayoutPanel2.Location = new Point(3, 203);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(252, 28);
-            flowLayoutPanel2.TabIndex = 5;
+            pnlEditStocks.Controls.Add(btnCancelEdit);
+            pnlEditStocks.Controls.Add(btnConfirmEdit);
+            pnlEditStocks.Controls.Add(numEditStocks);
+            pnlEditStocks.Location = new Point(0, 202);
+            pnlEditStocks.Margin = new Padding(0, 2, 0, 3);
+            pnlEditStocks.Name = "pnlEditStocks";
+            pnlEditStocks.Size = new Size(243, 29);
+            pnlEditStocks.TabIndex = 6;
+            pnlEditStocks.Visible = false;
+            // 
+            // btnCancelEdit
+            // 
+            btnCancelEdit.BackColor = Color.FromArgb(255, 5, 19);
+            btnCancelEdit.FlatAppearance.BorderColor = Color.White;
+            btnCancelEdit.FlatAppearance.BorderSize = 0;
+            btnCancelEdit.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 5, 19);
+            btnCancelEdit.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 5, 19);
+            btnCancelEdit.FlatStyle = FlatStyle.Flat;
+            btnCancelEdit.Font = new Font("Inria Sans", 10F, FontStyle.Bold);
+            btnCancelEdit.ForeColor = Color.White;
+            btnCancelEdit.Location = new Point(178, 3);
+            btnCancelEdit.Margin = new Padding(38, 3, 3, 3);
+            btnCancelEdit.Name = "btnCancelEdit";
+            btnCancelEdit.Size = new Size(63, 24);
+            btnCancelEdit.TabIndex = 3;
+            btnCancelEdit.Text = "CANCEL";
+            btnCancelEdit.UseVisualStyleBackColor = false;
+            btnCancelEdit.Click += btnCancelEdit_Click;
+            // 
+            // btnConfirmEdit
+            // 
+            btnConfirmEdit.BackColor = Color.ForestGreen;
+            btnConfirmEdit.FlatAppearance.BorderColor = Color.White;
+            btnConfirmEdit.FlatAppearance.BorderSize = 0;
+            btnConfirmEdit.FlatAppearance.MouseDownBackColor = Color.ForestGreen;
+            btnConfirmEdit.FlatAppearance.MouseOverBackColor = Color.ForestGreen;
+            btnConfirmEdit.FlatStyle = FlatStyle.Flat;
+            btnConfirmEdit.Font = new Font("Inria Sans", 10F, FontStyle.Bold);
+            btnConfirmEdit.ForeColor = Color.White;
+            btnConfirmEdit.Location = new Point(104, 3);
+            btnConfirmEdit.Margin = new Padding(38, 3, 3, 3);
+            btnConfirmEdit.Name = "btnConfirmEdit";
+            btnConfirmEdit.Size = new Size(74, 24);
+            btnConfirmEdit.TabIndex = 2;
+            btnConfirmEdit.Text = "CONFIRM";
+            btnConfirmEdit.UseVisualStyleBackColor = false;
+            btnConfirmEdit.Click += btnConfirmEdit_Click;
+            // 
+            // numEditStocks
+            // 
+            numEditStocks.BorderStyle = BorderStyle.FixedSingle;
+            numEditStocks.Font = new Font("Inria Sans", 12F, FontStyle.Bold);
+            numEditStocks.ForeColor = Color.FromArgb(63, 63, 63);
+            numEditStocks.Location = new Point(3, 0);
+            numEditStocks.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
+            numEditStocks.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
+            numEditStocks.Name = "numEditStocks";
+            numEditStocks.RightToLeft = RightToLeft.No;
+            numEditStocks.Size = new Size(95, 28);
+            numEditStocks.TabIndex = 0;
+            // 
+            // pnlInfo
+            // 
+            pnlInfo.Controls.Add(lblPrice);
+            pnlInfo.Controls.Add(lblStocks);
+            pnlInfo.Dock = DockStyle.Top;
+            pnlInfo.Location = new Point(0, 236);
+            pnlInfo.Margin = new Padding(0, 2, 0, 3);
+            pnlInfo.Name = "pnlInfo";
+            pnlInfo.Size = new Size(252, 28);
+            pnlInfo.TabIndex = 5;
             // 
             // lblPrice
             // 
@@ -141,7 +212,7 @@
             flpOptions.Controls.Add(btnAddToCheckout);
             flpOptions.Controls.Add(btnEditAppliance);
             flpOptions.Dock = DockStyle.Top;
-            flpOptions.Location = new Point(0, 234);
+            flpOptions.Location = new Point(0, 267);
             flpOptions.Margin = new Padding(0);
             flpOptions.Name = "flpOptions";
             flpOptions.Size = new Size(252, 30);
@@ -194,8 +265,10 @@
             Size = new Size(255, 238);
             flpHitbox.ResumeLayout(false);
             flpHitbox.PerformLayout();
-            flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel2.PerformLayout();
+            pnlEditStocks.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numEditStocks).EndInit();
+            pnlInfo.ResumeLayout(false);
+            pnlInfo.PerformLayout();
             flpOptions.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -207,10 +280,14 @@
         private Panel panel2;
         private Label lblName;
         private Label lblPrice;
-        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel pnlInfo;
         private Label lblStocks;
         private FlowLayoutPanel flpOptions;
         private Button btnAddToCheckout;
         private Button btnEditAppliance;
+        private Panel pnlEditStocks;
+        private NumericUpDown numEditStocks;
+        private Button btnConfirmEdit;
+        private Button btnCancelEdit;
     }
 }

@@ -34,10 +34,10 @@
             lblFullName = new Label();
             chkIsSeniorOrPwd = new CheckBox();
             lblContact = new Label();
-            lblPaymentMode = new Label();
             lblReferenceNo = new Label();
             lblEmail = new Label();
             lblAddress = new Label();
+            lblPaymentMode = new Label();
             btnEdit = new Label();
             panel3 = new Panel();
             label5 = new Label();
@@ -76,14 +76,32 @@
             label2 = new Label();
             label6 = new Label();
             cmbSort = new ComboBox();
-            btnFansAndAirCoolers = new Button();
-            btnCleaningSterilizing = new Button();
-            btnKitchen = new Button();
-            btnGarmentCare = new Button();
-            btnEntertainment = new Button();
-            btnAirConditioning = new Button();
             flpAppliancesList = new Custom_Controls.CustomFlowLayout();
             searchBox = new User_Controls.SearchBox();
+            pnlAirConditioning = new Panel();
+            picAirConditioning = new Label();
+            label12 = new Label();
+            label9 = new Label();
+            pnlEntertainment = new Panel();
+            picEntertainment = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            pnlKitchen = new Panel();
+            picKitchen = new Label();
+            label18 = new Label();
+            label19 = new Label();
+            pnlGarmentCare = new Panel();
+            picGarmentCare = new Label();
+            label21 = new Label();
+            label22 = new Label();
+            pnlFansAndAirCoolers = new Panel();
+            picFansAndAirCoolers = new Label();
+            label24 = new Label();
+            label25 = new Label();
+            pnlCleaningSterilizing = new Panel();
+            picCleaningSterilizing = new Label();
+            label27 = new Label();
+            label28 = new Label();
             pnlSummary.SuspendLayout();
             flpPlaceholder.SuspendLayout();
             flpCustomer.SuspendLayout();
@@ -95,6 +113,12 @@
             pnlTotalPaid.SuspendLayout();
             pnlChange.SuspendLayout();
             btnPay.SuspendLayout();
+            pnlAirConditioning.SuspendLayout();
+            pnlEntertainment.SuspendLayout();
+            pnlKitchen.SuspendLayout();
+            pnlGarmentCare.SuspendLayout();
+            pnlFansAndAirCoolers.SuspendLayout();
+            pnlCleaningSterilizing.SuspendLayout();
             SuspendLayout();
             // 
             // pnlSummary
@@ -126,7 +150,7 @@
             flpPlaceholder.Controls.Add(panel1);
             flpPlaceholder.Controls.Add(flpTransactionDetails);
             flpPlaceholder.Controls.Add(btnPay);
-            flpPlaceholder.Location = new Point(19, 174);
+            flpPlaceholder.Location = new Point(14, 174);
             flpPlaceholder.Name = "flpPlaceholder";
             flpPlaceholder.Size = new Size(297, 515);
             flpPlaceholder.TabIndex = 27;
@@ -137,10 +161,10 @@
             flpCustomer.Controls.Add(lblFullName);
             flpCustomer.Controls.Add(chkIsSeniorOrPwd);
             flpCustomer.Controls.Add(lblContact);
-            flpCustomer.Controls.Add(lblPaymentMode);
             flpCustomer.Controls.Add(lblReferenceNo);
             flpCustomer.Controls.Add(lblEmail);
             flpCustomer.Controls.Add(lblAddress);
+            flpCustomer.Controls.Add(lblPaymentMode);
             flpCustomer.FlowDirection = FlowDirection.TopDown;
             flpCustomer.Location = new Point(0, 0);
             flpCustomer.Margin = new Padding(0);
@@ -156,9 +180,10 @@
             lblFullName.ForeColor = Color.Black;
             lblFullName.Location = new Point(3, 0);
             lblFullName.Margin = new Padding(3, 0, 5, 0);
-            lblFullName.MaximumSize = new Size(230, 0);
+            lblFullName.MaximumSize = new Size(210, 0);
+            lblFullName.MinimumSize = new Size(210, 0);
             lblFullName.Name = "lblFullName";
-            lblFullName.Size = new Size(122, 19);
+            lblFullName.Size = new Size(210, 19);
             lblFullName.TabIndex = 10;
             lblFullName.Text = "Customer Name: ";
             // 
@@ -187,35 +212,24 @@
             lblContact.ForeColor = Color.FromArgb(65, 65, 65);
             lblContact.Location = new Point(3, 42);
             lblContact.Margin = new Padding(3, 0, 5, 0);
-            lblContact.MaximumSize = new Size(230, 0);
+            lblContact.MaximumSize = new Size(210, 0);
+            lblContact.MinimumSize = new Size(210, 0);
             lblContact.Name = "lblContact";
-            lblContact.Size = new Size(116, 19);
+            lblContact.Size = new Size(210, 19);
             lblContact.TabIndex = 10;
             lblContact.Text = "Contact Number";
-            // 
-            // lblPaymentMode
-            // 
-            lblPaymentMode.AutoSize = true;
-            lblPaymentMode.Font = new Font("Inria Sans", 11F);
-            lblPaymentMode.ForeColor = Color.FromArgb(65, 65, 65);
-            lblPaymentMode.Location = new Point(3, 61);
-            lblPaymentMode.Margin = new Padding(3, 0, 5, 0);
-            lblPaymentMode.MaximumSize = new Size(230, 0);
-            lblPaymentMode.Name = "lblPaymentMode";
-            lblPaymentMode.Size = new Size(128, 19);
-            lblPaymentMode.TabIndex = 12;
-            lblPaymentMode.Text = "Mode of Payment: ";
             // 
             // lblReferenceNo
             // 
             lblReferenceNo.AutoSize = true;
             lblReferenceNo.Font = new Font("Inria Sans", 11F);
             lblReferenceNo.ForeColor = Color.FromArgb(65, 65, 65);
-            lblReferenceNo.Location = new Point(3, 80);
+            lblReferenceNo.Location = new Point(3, 61);
             lblReferenceNo.Margin = new Padding(3, 0, 5, 0);
-            lblReferenceNo.MaximumSize = new Size(230, 0);
+            lblReferenceNo.MaximumSize = new Size(210, 0);
+            lblReferenceNo.MinimumSize = new Size(210, 0);
             lblReferenceNo.Name = "lblReferenceNo";
-            lblReferenceNo.Size = new Size(93, 19);
+            lblReferenceNo.Size = new Size(210, 19);
             lblReferenceNo.TabIndex = 13;
             lblReferenceNo.Text = "Reference #:";
             lblReferenceNo.Visible = false;
@@ -225,11 +239,12 @@
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Inria Sans", 11F);
             lblEmail.ForeColor = Color.FromArgb(65, 65, 65);
-            lblEmail.Location = new Point(3, 99);
+            lblEmail.Location = new Point(3, 80);
             lblEmail.Margin = new Padding(3, 0, 5, 0);
-            lblEmail.MaximumSize = new Size(230, 0);
+            lblEmail.MaximumSize = new Size(210, 0);
+            lblEmail.MinimumSize = new Size(210, 0);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(99, 19);
+            lblEmail.Size = new Size(210, 19);
             lblEmail.TabIndex = 10;
             lblEmail.Text = "Email Address";
             // 
@@ -238,13 +253,28 @@
             lblAddress.AutoSize = true;
             lblAddress.Font = new Font("Inria Sans", 11F);
             lblAddress.ForeColor = Color.FromArgb(65, 65, 65);
-            lblAddress.Location = new Point(3, 118);
+            lblAddress.Location = new Point(3, 99);
             lblAddress.Margin = new Padding(3, 0, 5, 0);
-            lblAddress.MaximumSize = new Size(230, 0);
+            lblAddress.MaximumSize = new Size(210, 0);
+            lblAddress.MinimumSize = new Size(210, 0);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(60, 19);
+            lblAddress.Size = new Size(210, 19);
             lblAddress.TabIndex = 11;
             lblAddress.Text = "Address";
+            // 
+            // lblPaymentMode
+            // 
+            lblPaymentMode.AutoSize = true;
+            lblPaymentMode.Font = new Font("Inria Sans", 11F);
+            lblPaymentMode.ForeColor = Color.FromArgb(65, 65, 65);
+            lblPaymentMode.Location = new Point(3, 118);
+            lblPaymentMode.Margin = new Padding(3, 0, 5, 0);
+            lblPaymentMode.MaximumSize = new Size(210, 0);
+            lblPaymentMode.MinimumSize = new Size(210, 0);
+            lblPaymentMode.Name = "lblPaymentMode";
+            lblPaymentMode.Size = new Size(210, 19);
+            lblPaymentMode.TabIndex = 12;
+            lblPaymentMode.Text = "Mode of Payment: ";
             // 
             // btnEdit
             // 
@@ -312,7 +342,7 @@
             flpTransactionDetails.FlowDirection = FlowDirection.TopDown;
             flpTransactionDetails.Location = new Point(3, 363);
             flpTransactionDetails.Name = "flpTransactionDetails";
-            flpTransactionDetails.Size = new Size(288, 96);
+            flpTransactionDetails.Size = new Size(293, 96);
             flpTransactionDetails.TabIndex = 27;
             flpTransactionDetails.WrapContents = false;
             // 
@@ -329,10 +359,9 @@
             // lblAmount
             // 
             lblAmount.AutoSize = true;
-            lblAmount.Dock = DockStyle.Right;
             lblAmount.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
             lblAmount.ForeColor = Color.FromArgb(56, 56, 56);
-            lblAmount.Location = new Point(161, 0);
+            lblAmount.Location = new Point(166, 0);
             lblAmount.MaximumSize = new Size(106, 19);
             lblAmount.MinimumSize = new Size(106, 19);
             lblAmount.Name = "lblAmount";
@@ -366,10 +395,9 @@
             // lblDiscount
             // 
             lblDiscount.AutoSize = true;
-            lblDiscount.Dock = DockStyle.Right;
             lblDiscount.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
             lblDiscount.ForeColor = Color.FromArgb(56, 56, 56);
-            lblDiscount.Location = new Point(161, 0);
+            lblDiscount.Location = new Point(166, 0);
             lblDiscount.MaximumSize = new Size(106, 19);
             lblDiscount.MinimumSize = new Size(106, 19);
             lblDiscount.Name = "lblDiscount";
@@ -403,10 +431,9 @@
             // lblVAT
             // 
             lblVAT.AutoSize = true;
-            lblVAT.Dock = DockStyle.Right;
             lblVAT.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
             lblVAT.ForeColor = Color.FromArgb(56, 56, 56);
-            lblVAT.Location = new Point(161, 0);
+            lblVAT.Location = new Point(166, 0);
             lblVAT.MaximumSize = new Size(106, 19);
             lblVAT.MinimumSize = new Size(106, 19);
             lblVAT.Name = "lblVAT";
@@ -440,10 +467,9 @@
             // lblTotal
             // 
             lblTotal.AutoSize = true;
-            lblTotal.Dock = DockStyle.Right;
             lblTotal.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
             lblTotal.ForeColor = Color.FromArgb(56, 56, 56);
-            lblTotal.Location = new Point(161, 0);
+            lblTotal.Location = new Point(166, 0);
             lblTotal.MaximumSize = new Size(106, 19);
             lblTotal.MinimumSize = new Size(106, 19);
             lblTotal.Name = "lblTotal";
@@ -478,10 +504,9 @@
             // lblTotalPaid
             // 
             lblTotalPaid.AutoSize = true;
-            lblTotalPaid.Dock = DockStyle.Right;
             lblTotalPaid.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
             lblTotalPaid.ForeColor = Color.FromArgb(56, 56, 56);
-            lblTotalPaid.Location = new Point(161, 0);
+            lblTotalPaid.Location = new Point(166, 0);
             lblTotalPaid.MaximumSize = new Size(106, 19);
             lblTotalPaid.MinimumSize = new Size(106, 19);
             lblTotalPaid.Name = "lblTotalPaid";
@@ -516,10 +541,9 @@
             // lblChange
             // 
             lblChange.AutoSize = true;
-            lblChange.Dock = DockStyle.Right;
             lblChange.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
             lblChange.ForeColor = Color.FromArgb(56, 56, 56);
-            lblChange.Location = new Point(161, 0);
+            lblChange.Location = new Point(166, 0);
             lblChange.MaximumSize = new Size(106, 19);
             lblChange.MinimumSize = new Size(106, 19);
             lblChange.Name = "lblChange";
@@ -546,9 +570,10 @@
             btnPay.Controls.Add(lblPayTotalAmount);
             btnPay.Controls.Add(lblPay);
             btnPay.Cursor = Cursors.Hand;
-            btnPay.Location = new Point(3, 465);
+            btnPay.Location = new Point(6, 465);
+            btnPay.Margin = new Padding(6, 3, 3, 3);
             btnPay.Name = "btnPay";
-            btnPay.Size = new Size(270, 45);
+            btnPay.Size = new Size(275, 45);
             btnPay.TabIndex = 26;
             // 
             // lblPayTotalAmount
@@ -600,7 +625,7 @@
             lblTransactionID.AutoSize = true;
             lblTransactionID.Font = new Font("Inria Sans", 11F);
             lblTransactionID.ForeColor = Color.FromArgb(65, 65, 65);
-            lblTransactionID.Location = new Point(22, 152);
+            lblTransactionID.Location = new Point(17, 152);
             lblTransactionID.Name = "lblTransactionID";
             lblTransactionID.Size = new Size(130, 19);
             lblTransactionID.TabIndex = 5;
@@ -612,7 +637,7 @@
             lblDate.AutoSize = true;
             lblDate.Font = new Font("Inria Sans", 11F);
             lblDate.ForeColor = Color.FromArgb(65, 65, 65);
-            lblDate.Location = new Point(23, 131);
+            lblDate.Location = new Point(18, 131);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(176, 19);
             lblDate.TabIndex = 4;
@@ -707,78 +732,6 @@
             cmbSort.TabIndex = 15;
             cmbSort.Text = "Sort by:";
             // 
-            // btnFansAndAirCoolers
-            // 
-            btnFansAndAirCoolers.BackColor = Color.FromArgb(251, 251, 251);
-            btnFansAndAirCoolers.FlatAppearance.BorderSize = 0;
-            btnFansAndAirCoolers.FlatStyle = FlatStyle.Flat;
-            btnFansAndAirCoolers.Location = new Point(778, 98);
-            btnFansAndAirCoolers.Name = "btnFansAndAirCoolers";
-            btnFansAndAirCoolers.Size = new Size(130, 105);
-            btnFansAndAirCoolers.TabIndex = 20;
-            btnFansAndAirCoolers.Text = "FANS AND AIR COOLERS";
-            btnFansAndAirCoolers.UseVisualStyleBackColor = false;
-            // 
-            // btnCleaningSterilizing
-            // 
-            btnCleaningSterilizing.BackColor = Color.FromArgb(251, 251, 251);
-            btnCleaningSterilizing.FlatAppearance.BorderSize = 0;
-            btnCleaningSterilizing.FlatStyle = FlatStyle.Flat;
-            btnCleaningSterilizing.Location = new Point(637, 98);
-            btnCleaningSterilizing.Name = "btnCleaningSterilizing";
-            btnCleaningSterilizing.Size = new Size(130, 105);
-            btnCleaningSterilizing.TabIndex = 19;
-            btnCleaningSterilizing.Text = "CLEANING STERILIZING";
-            btnCleaningSterilizing.UseVisualStyleBackColor = false;
-            // 
-            // btnKitchen
-            // 
-            btnKitchen.BackColor = Color.FromArgb(251, 251, 251);
-            btnKitchen.FlatAppearance.BorderSize = 0;
-            btnKitchen.FlatStyle = FlatStyle.Flat;
-            btnKitchen.Location = new Point(495, 98);
-            btnKitchen.Name = "btnKitchen";
-            btnKitchen.Size = new Size(130, 105);
-            btnKitchen.TabIndex = 18;
-            btnKitchen.Text = "KITCHEN";
-            btnKitchen.UseVisualStyleBackColor = false;
-            // 
-            // btnGarmentCare
-            // 
-            btnGarmentCare.BackColor = Color.FromArgb(251, 251, 251);
-            btnGarmentCare.FlatAppearance.BorderSize = 0;
-            btnGarmentCare.FlatStyle = FlatStyle.Flat;
-            btnGarmentCare.Location = new Point(354, 98);
-            btnGarmentCare.Name = "btnGarmentCare";
-            btnGarmentCare.Size = new Size(130, 105);
-            btnGarmentCare.TabIndex = 17;
-            btnGarmentCare.Text = "GARMENT CARE";
-            btnGarmentCare.UseVisualStyleBackColor = false;
-            // 
-            // btnEntertainment
-            // 
-            btnEntertainment.BackColor = Color.FromArgb(251, 251, 251);
-            btnEntertainment.FlatAppearance.BorderSize = 0;
-            btnEntertainment.FlatStyle = FlatStyle.Flat;
-            btnEntertainment.Location = new Point(213, 98);
-            btnEntertainment.Name = "btnEntertainment";
-            btnEntertainment.Size = new Size(130, 105);
-            btnEntertainment.TabIndex = 9;
-            btnEntertainment.Text = "ENTERTAINMENT";
-            btnEntertainment.UseVisualStyleBackColor = false;
-            // 
-            // btnAirConditioning
-            // 
-            btnAirConditioning.BackColor = Color.FromArgb(251, 251, 251);
-            btnAirConditioning.FlatAppearance.BorderSize = 0;
-            btnAirConditioning.FlatStyle = FlatStyle.Flat;
-            btnAirConditioning.Location = new Point(72, 98);
-            btnAirConditioning.Name = "btnAirConditioning";
-            btnAirConditioning.Size = new Size(130, 105);
-            btnAirConditioning.TabIndex = 8;
-            btnAirConditioning.Text = "AIR CONDITIONING";
-            btnAirConditioning.UseVisualStyleBackColor = false;
-            // 
             // flpAppliancesList
             // 
             flpAppliancesList.AutoScroll = true;
@@ -798,22 +751,298 @@
             searchBox.Size = new Size(834, 33);
             searchBox.TabIndex = 22;
             // 
+            // pnlAirConditioning
+            // 
+            pnlAirConditioning.BackColor = Color.FromArgb(251, 251, 251);
+            pnlAirConditioning.Controls.Add(picAirConditioning);
+            pnlAirConditioning.Controls.Add(label12);
+            pnlAirConditioning.Controls.Add(label9);
+            pnlAirConditioning.Cursor = Cursors.Hand;
+            pnlAirConditioning.Location = new Point(72, 98);
+            pnlAirConditioning.Name = "pnlAirConditioning";
+            pnlAirConditioning.Size = new Size(130, 105);
+            pnlAirConditioning.TabIndex = 23;
+            // 
+            // picAirConditioning
+            // 
+            picAirConditioning.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
+            picAirConditioning.ForeColor = Color.FromArgb(56, 56, 56);
+            picAirConditioning.Image = Properties.Resources.air_conditioning_icon_black;
+            picAirConditioning.Location = new Point(16, 11);
+            picAirConditioning.Name = "picAirConditioning";
+            picAirConditioning.Size = new Size(36, 36);
+            picAirConditioning.TabIndex = 2;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
+            label12.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
+            label12.ForeColor = Color.FromArgb(56, 56, 56);
+            label12.Location = new Point(13, 60);
+            label12.Name = "label12";
+            label12.Size = new Size(88, 13);
+            label12.TabIndex = 1;
+            label12.Text = "AIR CONDITIONING";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
+            label9.ForeColor = Color.FromArgb(56, 56, 56);
+            label9.Location = new Point(12, 74);
+            label9.Name = "label9";
+            label9.Size = new Size(58, 19);
+            label9.TabIndex = 0;
+            label9.Text = "5 items";
+            // 
+            // pnlEntertainment
+            // 
+            pnlEntertainment.BackColor = Color.FromArgb(251, 251, 251);
+            pnlEntertainment.Controls.Add(picEntertainment);
+            pnlEntertainment.Controls.Add(label15);
+            pnlEntertainment.Controls.Add(label16);
+            pnlEntertainment.Cursor = Cursors.Hand;
+            pnlEntertainment.Location = new Point(213, 98);
+            pnlEntertainment.Name = "pnlEntertainment";
+            pnlEntertainment.Size = new Size(130, 105);
+            pnlEntertainment.TabIndex = 24;
+            // 
+            // picEntertainment
+            // 
+            picEntertainment.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
+            picEntertainment.ForeColor = Color.FromArgb(56, 56, 56);
+            picEntertainment.Image = Properties.Resources.entertainment_icon_black;
+            picEntertainment.Location = new Point(16, 11);
+            picEntertainment.Name = "picEntertainment";
+            picEntertainment.Size = new Size(36, 36);
+            picEntertainment.TabIndex = 2;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.BackColor = Color.Transparent;
+            label15.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
+            label15.ForeColor = Color.FromArgb(56, 56, 56);
+            label15.Location = new Point(13, 60);
+            label15.Name = "label15";
+            label15.Size = new Size(80, 13);
+            label15.TabIndex = 1;
+            label15.Text = "ENTERTAINMENT";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.BackColor = Color.Transparent;
+            label16.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
+            label16.ForeColor = Color.FromArgb(56, 56, 56);
+            label16.Location = new Point(12, 74);
+            label16.Name = "label16";
+            label16.Size = new Size(58, 19);
+            label16.TabIndex = 0;
+            label16.Text = "5 items";
+            // 
+            // pnlKitchen
+            // 
+            pnlKitchen.BackColor = Color.FromArgb(251, 251, 251);
+            pnlKitchen.Controls.Add(picKitchen);
+            pnlKitchen.Controls.Add(label18);
+            pnlKitchen.Controls.Add(label19);
+            pnlKitchen.Cursor = Cursors.Hand;
+            pnlKitchen.Location = new Point(495, 98);
+            pnlKitchen.Name = "pnlKitchen";
+            pnlKitchen.Size = new Size(130, 105);
+            pnlKitchen.TabIndex = 26;
+            // 
+            // picKitchen
+            // 
+            picKitchen.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
+            picKitchen.ForeColor = Color.FromArgb(56, 56, 56);
+            picKitchen.Image = Properties.Resources.kitchen_icon_black;
+            picKitchen.Location = new Point(16, 11);
+            picKitchen.Name = "picKitchen";
+            picKitchen.Size = new Size(36, 36);
+            picKitchen.TabIndex = 2;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.BackColor = Color.Transparent;
+            label18.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
+            label18.ForeColor = Color.FromArgb(56, 56, 56);
+            label18.Location = new Point(13, 60);
+            label18.Name = "label18";
+            label18.Size = new Size(45, 13);
+            label18.TabIndex = 1;
+            label18.Text = "KITCHEN";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.BackColor = Color.Transparent;
+            label19.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
+            label19.ForeColor = Color.FromArgb(56, 56, 56);
+            label19.Location = new Point(12, 74);
+            label19.Name = "label19";
+            label19.Size = new Size(58, 19);
+            label19.TabIndex = 0;
+            label19.Text = "5 items";
+            // 
+            // pnlGarmentCare
+            // 
+            pnlGarmentCare.BackColor = Color.FromArgb(251, 251, 251);
+            pnlGarmentCare.Controls.Add(picGarmentCare);
+            pnlGarmentCare.Controls.Add(label21);
+            pnlGarmentCare.Controls.Add(label22);
+            pnlGarmentCare.Cursor = Cursors.Hand;
+            pnlGarmentCare.Location = new Point(354, 98);
+            pnlGarmentCare.Name = "pnlGarmentCare";
+            pnlGarmentCare.Size = new Size(130, 105);
+            pnlGarmentCare.TabIndex = 25;
+            // 
+            // picGarmentCare
+            // 
+            picGarmentCare.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
+            picGarmentCare.ForeColor = Color.FromArgb(56, 56, 56);
+            picGarmentCare.Image = Properties.Resources.garment_care_icon_black;
+            picGarmentCare.Location = new Point(16, 11);
+            picGarmentCare.Name = "picGarmentCare";
+            picGarmentCare.Size = new Size(36, 36);
+            picGarmentCare.TabIndex = 2;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.BackColor = Color.Transparent;
+            label21.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
+            label21.ForeColor = Color.FromArgb(56, 56, 56);
+            label21.Location = new Point(13, 60);
+            label21.Name = "label21";
+            label21.Size = new Size(74, 13);
+            label21.TabIndex = 1;
+            label21.Text = "GARMENT CARE";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.BackColor = Color.Transparent;
+            label22.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
+            label22.ForeColor = Color.FromArgb(56, 56, 56);
+            label22.Location = new Point(12, 74);
+            label22.Name = "label22";
+            label22.Size = new Size(58, 19);
+            label22.TabIndex = 0;
+            label22.Text = "5 items";
+            // 
+            // pnlFansAndAirCoolers
+            // 
+            pnlFansAndAirCoolers.BackColor = Color.FromArgb(251, 251, 251);
+            pnlFansAndAirCoolers.Controls.Add(picFansAndAirCoolers);
+            pnlFansAndAirCoolers.Controls.Add(label24);
+            pnlFansAndAirCoolers.Controls.Add(label25);
+            pnlFansAndAirCoolers.Cursor = Cursors.Hand;
+            pnlFansAndAirCoolers.Location = new Point(778, 98);
+            pnlFansAndAirCoolers.Name = "pnlFansAndAirCoolers";
+            pnlFansAndAirCoolers.Size = new Size(130, 105);
+            pnlFansAndAirCoolers.TabIndex = 28;
+            // 
+            // picFansAndAirCoolers
+            // 
+            picFansAndAirCoolers.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
+            picFansAndAirCoolers.ForeColor = Color.FromArgb(56, 56, 56);
+            picFansAndAirCoolers.Image = Properties.Resources.fans_and_air_coolers_icon_black;
+            picFansAndAirCoolers.Location = new Point(16, 11);
+            picFansAndAirCoolers.Name = "picFansAndAirCoolers";
+            picFansAndAirCoolers.Size = new Size(36, 36);
+            picFansAndAirCoolers.TabIndex = 2;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.BackColor = Color.Transparent;
+            label24.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
+            label24.ForeColor = Color.FromArgb(56, 56, 56);
+            label24.Location = new Point(13, 60);
+            label24.Name = "label24";
+            label24.Size = new Size(108, 13);
+            label24.TabIndex = 1;
+            label24.Text = "FANS AND AIR COOLERS";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.BackColor = Color.Transparent;
+            label25.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
+            label25.ForeColor = Color.FromArgb(56, 56, 56);
+            label25.Location = new Point(12, 74);
+            label25.Name = "label25";
+            label25.Size = new Size(58, 19);
+            label25.TabIndex = 0;
+            label25.Text = "5 items";
+            // 
+            // pnlCleaningSterilizing
+            // 
+            pnlCleaningSterilizing.BackColor = Color.FromArgb(251, 251, 251);
+            pnlCleaningSterilizing.Controls.Add(picCleaningSterilizing);
+            pnlCleaningSterilizing.Controls.Add(label27);
+            pnlCleaningSterilizing.Controls.Add(label28);
+            pnlCleaningSterilizing.Cursor = Cursors.Hand;
+            pnlCleaningSterilizing.Location = new Point(637, 98);
+            pnlCleaningSterilizing.Name = "pnlCleaningSterilizing";
+            pnlCleaningSterilizing.Size = new Size(130, 105);
+            pnlCleaningSterilizing.TabIndex = 27;
+            // 
+            // picCleaningSterilizing
+            // 
+            picCleaningSterilizing.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
+            picCleaningSterilizing.ForeColor = Color.FromArgb(56, 56, 56);
+            picCleaningSterilizing.Image = Properties.Resources.cleaning_sterilizing_icon_black;
+            picCleaningSterilizing.Location = new Point(16, 11);
+            picCleaningSterilizing.Name = "picCleaningSterilizing";
+            picCleaningSterilizing.Size = new Size(36, 36);
+            picCleaningSterilizing.TabIndex = 2;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.BackColor = Color.Transparent;
+            label27.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
+            label27.ForeColor = Color.FromArgb(56, 56, 56);
+            label27.Location = new Point(13, 60);
+            label27.Name = "label27";
+            label27.Size = new Size(106, 13);
+            label27.TabIndex = 1;
+            label27.Text = "CLEANING STERILIZING";
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.BackColor = Color.Transparent;
+            label28.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
+            label28.ForeColor = Color.FromArgb(56, 56, 56);
+            label28.Location = new Point(12, 74);
+            label28.Name = "label28";
+            label28.Size = new Size(58, 19);
+            label28.TabIndex = 0;
+            label28.Text = "5 items";
+            // 
             // CheckoutView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             BackgroundImage = Properties.Resources.mainview_bg;
+            Controls.Add(pnlFansAndAirCoolers);
+            Controls.Add(pnlCleaningSterilizing);
+            Controls.Add(pnlKitchen);
+            Controls.Add(pnlEntertainment);
+            Controls.Add(pnlGarmentCare);
+            Controls.Add(pnlAirConditioning);
             Controls.Add(searchBox);
             Controls.Add(flpAppliancesList);
-            Controls.Add(btnFansAndAirCoolers);
-            Controls.Add(btnCleaningSterilizing);
-            Controls.Add(btnKitchen);
-            Controls.Add(btnGarmentCare);
             Controls.Add(cmbSort);
             Controls.Add(label6);
-            Controls.Add(btnEntertainment);
-            Controls.Add(btnAirConditioning);
             Controls.Add(label2);
             Controls.Add(pnlSummary);
             Name = "CheckoutView";
@@ -839,6 +1068,18 @@
             pnlChange.PerformLayout();
             btnPay.ResumeLayout(false);
             btnPay.PerformLayout();
+            pnlAirConditioning.ResumeLayout(false);
+            pnlAirConditioning.PerformLayout();
+            pnlEntertainment.ResumeLayout(false);
+            pnlEntertainment.PerformLayout();
+            pnlKitchen.ResumeLayout(false);
+            pnlKitchen.PerformLayout();
+            pnlGarmentCare.ResumeLayout(false);
+            pnlGarmentCare.PerformLayout();
+            pnlFansAndAirCoolers.ResumeLayout(false);
+            pnlFansAndAirCoolers.PerformLayout();
+            pnlCleaningSterilizing.ResumeLayout(false);
+            pnlCleaningSterilizing.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -862,12 +1103,6 @@
         private Label label2;
         private Label label6;
         private ComboBox cmbSort;
-        private Button btnFansAndAirCoolers;
-        private Button btnCleaningSterilizing;
-        private Button btnKitchen;
-        private Button btnGarmentCare;
-        private Button btnEntertainment;
-        private Button btnAirConditioning;
         private Custom_Controls.CustomFlowLayout flpAppliancesList;
         private User_Controls.SearchBox searchBox;
         private CheckBox chkIsSeniorOrPwd;
@@ -901,5 +1136,29 @@
         private Panel panel3;
         private Label label5;
         private Label lblPayTotalAmount;
+        private Panel pnlAirConditioning;
+        private Label label9;
+        private Label label12;
+        private Label picAirConditioning;
+        private Panel pnlEntertainment;
+        private Label picEntertainment;
+        private Label label15;
+        private Label label16;
+        private Panel pnlKitchen;
+        private Label picKitchen;
+        private Label label18;
+        private Label label19;
+        private Panel pnlGarmentCare;
+        private Label picGarmentCare;
+        private Label label21;
+        private Label label22;
+        private Panel pnlFansAndAirCoolers;
+        private Label picFansAndAirCoolers;
+        private Label label24;
+        private Label label25;
+        private Panel pnlCleaningSterilizing;
+        private Label picCleaningSterilizing;
+        private Label label27;
+        private Label label28;
     }
 }

@@ -28,6 +28,9 @@
     <Compile Update="Views\User Controls\SearchBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\User Controls\TransactionItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\User Controls\TransactionsView.cs">
       <SubType>UserControl</SubType>
     </Compile>

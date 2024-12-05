@@ -29,61 +29,101 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel9 = new Panel();
+            pnlSeniorOrPwd = new Panel();
+            panel12 = new Panel();
+            chkSeniorPwd = new CheckBox();
+            pnlAddress = new Panel();
             panel10 = new Panel();
             txtAddress = new TextBox();
-            panel7 = new Panel();
-            panel8 = new Panel();
-            txtEmailAddress = new TextBox();
             btnSubmit = new Button();
             btnBack = new Button();
-            panel5 = new Panel();
-            panel6 = new Panel();
-            txtPhoneNumber = new TextBox();
-            panel3 = new Panel();
+            pnlName = new Panel();
             panel4 = new Panel();
             txtName = new TextBox();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            panel8 = new Panel();
+            txtEmailAddress = new TextBox();
+            pnlEmail = new Panel();
+            panel6 = new Panel();
+            txtPhoneNumber = new TextBox();
+            pnlPhoneNumber = new Panel();
             panel1.SuspendLayout();
-            panel9.SuspendLayout();
+            pnlSeniorOrPwd.SuspendLayout();
+            panel12.SuspendLayout();
+            pnlAddress.SuspendLayout();
             panel10.SuspendLayout();
-            panel7.SuspendLayout();
-            panel8.SuspendLayout();
-            panel5.SuspendLayout();
-            panel6.SuspendLayout();
-            panel3.SuspendLayout();
+            pnlName.SuspendLayout();
             panel4.SuspendLayout();
+            panel8.SuspendLayout();
+            pnlEmail.SuspendLayout();
+            panel6.SuspendLayout();
+            pnlPhoneNumber.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(panel9);
-            panel1.Controls.Add(panel7);
+            panel1.Controls.Add(pnlSeniorOrPwd);
+            panel1.Controls.Add(pnlAddress);
+            panel1.Controls.Add(pnlEmail);
             panel1.Controls.Add(btnSubmit);
             panel1.Controls.Add(btnBack);
-            panel1.Controls.Add(panel5);
-            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(pnlPhoneNumber);
+            panel1.Controls.Add(pnlName);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(538, 496);
+            panel1.Size = new Size(538, 545);
             panel1.TabIndex = 0;
             // 
-            // panel9
+            // pnlSeniorOrPwd
             // 
-            panel9.BackColor = Color.FromArgb(172, 172, 172);
-            panel9.Controls.Add(panel10);
-            panel9.Location = new Point(46, 358);
-            panel9.Name = "panel9";
-            panel9.Padding = new Padding(1);
-            panel9.Size = new Size(448, 45);
-            panel9.TabIndex = 13;
+            pnlSeniorOrPwd.BackColor = Color.FromArgb(172, 172, 172);
+            pnlSeniorOrPwd.Controls.Add(panel12);
+            pnlSeniorOrPwd.Location = new Point(46, 414);
+            pnlSeniorOrPwd.Name = "pnlSeniorOrPwd";
+            pnlSeniorOrPwd.Padding = new Padding(1);
+            pnlSeniorOrPwd.Size = new Size(224, 45);
+            pnlSeniorOrPwd.TabIndex = 14;
+            // 
+            // panel12
+            // 
+            panel12.BackColor = Color.White;
+            panel12.Controls.Add(chkSeniorPwd);
+            panel12.Dock = DockStyle.Fill;
+            panel12.Location = new Point(1, 1);
+            panel12.Name = "panel12";
+            panel12.Padding = new Padding(15, 10, 15, 10);
+            panel12.Size = new Size(222, 43);
+            panel12.TabIndex = 5;
+            // 
+            // chkSeniorPwd
+            // 
+            chkSeniorPwd.AutoSize = true;
+            chkSeniorPwd.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
+            chkSeniorPwd.ForeColor = Color.FromArgb(65, 65, 65);
+            chkSeniorPwd.Location = new Point(15, 10);
+            chkSeniorPwd.Name = "chkSeniorPwd";
+            chkSeniorPwd.Size = new Size(134, 27);
+            chkSeniorPwd.TabIndex = 14;
+            chkSeniorPwd.Text = "SENIOR/PWD";
+            chkSeniorPwd.TextAlign = ContentAlignment.MiddleCenter;
+            chkSeniorPwd.UseVisualStyleBackColor = true;
+            // 
+            // pnlAddress
+            // 
+            pnlAddress.BackColor = Color.FromArgb(172, 172, 172);
+            pnlAddress.Controls.Add(panel10);
+            pnlAddress.Location = new Point(46, 358);
+            pnlAddress.Name = "pnlAddress";
+            pnlAddress.Padding = new Padding(1);
+            pnlAddress.Size = new Size(448, 45);
+            pnlAddress.TabIndex = 13;
             // 
             // panel10
             // 
@@ -108,40 +148,7 @@
             txtAddress.PlaceholderText = "ADDRESS";
             txtAddress.Size = new Size(416, 22);
             txtAddress.TabIndex = 3;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.FromArgb(172, 172, 172);
-            panel7.Controls.Add(panel8);
-            panel7.Location = new Point(47, 302);
-            panel7.Name = "panel7";
-            panel7.Padding = new Padding(1);
-            panel7.Size = new Size(447, 45);
-            panel7.TabIndex = 12;
-            // 
-            // panel8
-            // 
-            panel8.BackColor = Color.White;
-            panel8.Controls.Add(txtEmailAddress);
-            panel8.Dock = DockStyle.Fill;
-            panel8.Location = new Point(1, 1);
-            panel8.Name = "panel8";
-            panel8.Padding = new Padding(15, 10, 15, 10);
-            panel8.Size = new Size(445, 43);
-            panel8.TabIndex = 5;
-            // 
-            // txtEmailAddress
-            // 
-            txtEmailAddress.BorderStyle = BorderStyle.None;
-            txtEmailAddress.Dock = DockStyle.Fill;
-            txtEmailAddress.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
-            txtEmailAddress.ForeColor = Color.FromArgb(65, 65, 65);
-            txtEmailAddress.Location = new Point(15, 10);
-            txtEmailAddress.Margin = new Padding(0);
-            txtEmailAddress.Name = "txtEmailAddress";
-            txtEmailAddress.PlaceholderText = "EMAIL ADDRESS";
-            txtEmailAddress.Size = new Size(415, 22);
-            txtEmailAddress.TabIndex = 3;
+            txtAddress.TextChanged += txtAddress_TextChanged;
             // 
             // btnSubmit
             // 
@@ -152,7 +159,7 @@
             btnSubmit.FlatStyle = FlatStyle.Flat;
             btnSubmit.Font = new Font("Inria Sans", 16F, FontStyle.Bold);
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(215, 418);
+            btnSubmit.Location = new Point(215, 478);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(279, 48);
             btnSubmit.TabIndex = 11;
@@ -169,7 +176,7 @@
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Inria Sans", 16F, FontStyle.Bold);
             btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(47, 418);
+            btnBack.Location = new Point(46, 478);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(154, 48);
             btnBack.TabIndex = 10;
@@ -177,49 +184,15 @@
             btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
             // 
-            // panel5
+            // pnlName
             // 
-            panel5.BackColor = Color.FromArgb(172, 172, 172);
-            panel5.Controls.Add(panel6);
-            panel5.Location = new Point(47, 246);
-            panel5.Name = "panel5";
-            panel5.Padding = new Padding(1);
-            panel5.Size = new Size(447, 45);
-            panel5.TabIndex = 5;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.White;
-            panel6.Controls.Add(txtPhoneNumber);
-            panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(1, 1);
-            panel6.Name = "panel6";
-            panel6.Padding = new Padding(15, 10, 15, 10);
-            panel6.Size = new Size(445, 43);
-            panel6.TabIndex = 5;
-            // 
-            // txtPhoneNumber
-            // 
-            txtPhoneNumber.BorderStyle = BorderStyle.None;
-            txtPhoneNumber.Dock = DockStyle.Fill;
-            txtPhoneNumber.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
-            txtPhoneNumber.ForeColor = Color.FromArgb(65, 65, 65);
-            txtPhoneNumber.Location = new Point(15, 10);
-            txtPhoneNumber.Margin = new Padding(0);
-            txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.PlaceholderText = "PHONE NUMBER";
-            txtPhoneNumber.Size = new Size(415, 22);
-            txtPhoneNumber.TabIndex = 3;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(172, 172, 172);
-            panel3.Controls.Add(panel4);
-            panel3.Location = new Point(46, 190);
-            panel3.Name = "panel3";
-            panel3.Padding = new Padding(1);
-            panel3.Size = new Size(448, 45);
-            panel3.TabIndex = 4;
+            pnlName.BackColor = Color.FromArgb(172, 172, 172);
+            pnlName.Controls.Add(panel4);
+            pnlName.Location = new Point(46, 190);
+            pnlName.Name = "pnlName";
+            pnlName.Padding = new Padding(1);
+            pnlName.Size = new Size(448, 45);
+            pnlName.TabIndex = 4;
             // 
             // panel4
             // 
@@ -244,6 +217,7 @@
             txtName.PlaceholderText = "CUSTOMER NAME";
             txtName.Size = new Size(416, 22);
             txtName.TabIndex = 3;
+            txtName.TextChanged += txtName_TextChanged;
             // 
             // label2
             // 
@@ -277,6 +251,76 @@
             panel2.Size = new Size(232, 41);
             panel2.TabIndex = 0;
             // 
+            // panel8
+            // 
+            panel8.BackColor = Color.White;
+            panel8.Controls.Add(txtEmailAddress);
+            panel8.Dock = DockStyle.Fill;
+            panel8.Location = new Point(1, 1);
+            panel8.Name = "panel8";
+            panel8.Padding = new Padding(15, 10, 15, 10);
+            panel8.Size = new Size(445, 43);
+            panel8.TabIndex = 5;
+            // 
+            // txtEmailAddress
+            // 
+            txtEmailAddress.BorderStyle = BorderStyle.None;
+            txtEmailAddress.Dock = DockStyle.Fill;
+            txtEmailAddress.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
+            txtEmailAddress.ForeColor = Color.FromArgb(65, 65, 65);
+            txtEmailAddress.Location = new Point(15, 10);
+            txtEmailAddress.Margin = new Padding(0);
+            txtEmailAddress.Name = "txtEmailAddress";
+            txtEmailAddress.PlaceholderText = "EMAIL ADDRESS";
+            txtEmailAddress.Size = new Size(415, 22);
+            txtEmailAddress.TabIndex = 3;
+            txtEmailAddress.TextChanged += txtEmailAddress_TextChanged;
+            // 
+            // pnlEmail
+            // 
+            pnlEmail.BackColor = Color.FromArgb(172, 172, 172);
+            pnlEmail.Controls.Add(panel8);
+            pnlEmail.Location = new Point(47, 302);
+            pnlEmail.Name = "pnlEmail";
+            pnlEmail.Padding = new Padding(1);
+            pnlEmail.Size = new Size(447, 45);
+            pnlEmail.TabIndex = 12;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.White;
+            panel6.Controls.Add(txtPhoneNumber);
+            panel6.Dock = DockStyle.Fill;
+            panel6.Location = new Point(1, 1);
+            panel6.Name = "panel6";
+            panel6.Padding = new Padding(15, 10, 15, 10);
+            panel6.Size = new Size(445, 43);
+            panel6.TabIndex = 5;
+            // 
+            // txtPhoneNumber
+            // 
+            txtPhoneNumber.BorderStyle = BorderStyle.None;
+            txtPhoneNumber.Dock = DockStyle.Fill;
+            txtPhoneNumber.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
+            txtPhoneNumber.ForeColor = Color.FromArgb(65, 65, 65);
+            txtPhoneNumber.Location = new Point(15, 10);
+            txtPhoneNumber.Margin = new Padding(0);
+            txtPhoneNumber.Name = "txtPhoneNumber";
+            txtPhoneNumber.PlaceholderText = "PHONE NUMBER";
+            txtPhoneNumber.Size = new Size(415, 22);
+            txtPhoneNumber.TabIndex = 3;
+            txtPhoneNumber.TextChanged += txtPhoneNumber_TextChanged;
+            // 
+            // pnlPhoneNumber
+            // 
+            pnlPhoneNumber.BackColor = Color.FromArgb(172, 172, 172);
+            pnlPhoneNumber.Controls.Add(panel6);
+            pnlPhoneNumber.Location = new Point(47, 246);
+            pnlPhoneNumber.Name = "pnlPhoneNumber";
+            pnlPhoneNumber.Padding = new Padding(1);
+            pnlPhoneNumber.Size = new Size(447, 45);
+            pnlPhoneNumber.TabIndex = 5;
+            // 
             // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -285,21 +329,24 @@
             Controls.Add(panel1);
             Name = "CustomerForm";
             Padding = new Padding(2);
-            Size = new Size(542, 500);
+            Size = new Size(542, 549);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel9.ResumeLayout(false);
+            pnlSeniorOrPwd.ResumeLayout(false);
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
+            pnlAddress.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            panel3.ResumeLayout(false);
+            pnlName.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            pnlEmail.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            pnlPhoneNumber.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -310,18 +357,21 @@
         private Label label1;
         private Label label2;
         private TextBox txtName;
-        private Panel panel3;
+        private Panel pnlName;
         private Panel panel4;
-        private Panel panel5;
-        private Panel panel6;
-        private TextBox txtPhoneNumber;
         private Button btnBack;
         private Button btnSubmit;
-        private Panel panel9;
+        private Panel pnlAddress;
         private Panel panel10;
         private TextBox txtAddress;
-        private Panel panel7;
+        private CheckBox chkSeniorPwd;
+        private Panel pnlSeniorOrPwd;
+        private Panel panel12;
+        private Panel pnlEmail;
         private Panel panel8;
         private TextBox txtEmailAddress;
+        private Panel pnlPhoneNumber;
+        private Panel panel6;
+        private TextBox txtPhoneNumber;
     }
 }

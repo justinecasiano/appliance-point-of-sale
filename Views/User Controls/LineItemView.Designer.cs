@@ -54,7 +54,7 @@
             // 
             lblQuantity.AutoSize = true;
             lblQuantity.BackColor = Color.FromArgb(255, 214, 0);
-            lblQuantity.Font = new Font("Inria Sans", 14F, FontStyle.Bold);
+            lblQuantity.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
             lblQuantity.ForeColor = Color.Black;
             lblQuantity.Location = new Point(25, 9);
             lblQuantity.MaximumSize = new Size(40, 30);
