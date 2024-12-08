@@ -35,31 +35,31 @@
             pnlAddress = new Panel();
             panel10 = new Panel();
             txtAddress = new TextBox();
+            pnlEmail = new Panel();
+            panel8 = new Panel();
+            txtEmailAddress = new TextBox();
             btnSubmit = new Button();
             btnBack = new Button();
+            pnlPhoneNumber = new Panel();
+            panel6 = new Panel();
+            txtPhoneNumber = new TextBox();
             pnlName = new Panel();
             panel4 = new Panel();
             txtName = new TextBox();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
-            panel8 = new Panel();
-            txtEmailAddress = new TextBox();
-            pnlEmail = new Panel();
-            panel6 = new Panel();
-            txtPhoneNumber = new TextBox();
-            pnlPhoneNumber = new Panel();
             panel1.SuspendLayout();
             pnlSeniorOrPwd.SuspendLayout();
             panel12.SuspendLayout();
             pnlAddress.SuspendLayout();
             panel10.SuspendLayout();
+            pnlEmail.SuspendLayout();
+            panel8.SuspendLayout();
+            pnlPhoneNumber.SuspendLayout();
+            panel6.SuspendLayout();
             pnlName.SuspendLayout();
             panel4.SuspendLayout();
-            panel8.SuspendLayout();
-            pnlEmail.SuspendLayout();
-            panel6.SuspendLayout();
-            pnlPhoneNumber.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -150,6 +150,41 @@
             txtAddress.TabIndex = 3;
             txtAddress.TextChanged += txtAddress_TextChanged;
             // 
+            // pnlEmail
+            // 
+            pnlEmail.BackColor = Color.FromArgb(172, 172, 172);
+            pnlEmail.Controls.Add(panel8);
+            pnlEmail.Location = new Point(47, 302);
+            pnlEmail.Name = "pnlEmail";
+            pnlEmail.Padding = new Padding(1);
+            pnlEmail.Size = new Size(447, 45);
+            pnlEmail.TabIndex = 12;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.White;
+            panel8.Controls.Add(txtEmailAddress);
+            panel8.Dock = DockStyle.Fill;
+            panel8.Location = new Point(1, 1);
+            panel8.Name = "panel8";
+            panel8.Padding = new Padding(15, 10, 15, 10);
+            panel8.Size = new Size(445, 43);
+            panel8.TabIndex = 5;
+            // 
+            // txtEmailAddress
+            // 
+            txtEmailAddress.BorderStyle = BorderStyle.None;
+            txtEmailAddress.Dock = DockStyle.Fill;
+            txtEmailAddress.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
+            txtEmailAddress.ForeColor = Color.FromArgb(65, 65, 65);
+            txtEmailAddress.Location = new Point(15, 10);
+            txtEmailAddress.Margin = new Padding(0);
+            txtEmailAddress.Name = "txtEmailAddress";
+            txtEmailAddress.PlaceholderText = "EMAIL ADDRESS";
+            txtEmailAddress.Size = new Size(415, 22);
+            txtEmailAddress.TabIndex = 3;
+            txtEmailAddress.TextChanged += txtEmailAddress_TextChanged;
+            // 
             // btnSubmit
             // 
             btnSubmit.BackColor = Color.FromArgb(192, 52, 40);
@@ -183,6 +218,41 @@
             btnBack.Text = "BACK";
             btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
+            // 
+            // pnlPhoneNumber
+            // 
+            pnlPhoneNumber.BackColor = Color.FromArgb(172, 172, 172);
+            pnlPhoneNumber.Controls.Add(panel6);
+            pnlPhoneNumber.Location = new Point(47, 246);
+            pnlPhoneNumber.Name = "pnlPhoneNumber";
+            pnlPhoneNumber.Padding = new Padding(1);
+            pnlPhoneNumber.Size = new Size(447, 45);
+            pnlPhoneNumber.TabIndex = 5;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.White;
+            panel6.Controls.Add(txtPhoneNumber);
+            panel6.Dock = DockStyle.Fill;
+            panel6.Location = new Point(1, 1);
+            panel6.Name = "panel6";
+            panel6.Padding = new Padding(15, 10, 15, 10);
+            panel6.Size = new Size(445, 43);
+            panel6.TabIndex = 5;
+            // 
+            // txtPhoneNumber
+            // 
+            txtPhoneNumber.BorderStyle = BorderStyle.None;
+            txtPhoneNumber.Dock = DockStyle.Fill;
+            txtPhoneNumber.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
+            txtPhoneNumber.ForeColor = Color.FromArgb(65, 65, 65);
+            txtPhoneNumber.Location = new Point(15, 10);
+            txtPhoneNumber.Margin = new Padding(0);
+            txtPhoneNumber.Name = "txtPhoneNumber";
+            txtPhoneNumber.PlaceholderText = "PHONE NUMBER";
+            txtPhoneNumber.Size = new Size(415, 22);
+            txtPhoneNumber.TabIndex = 3;
+            txtPhoneNumber.TextChanged += txtPhoneNumber_TextChanged;
             // 
             // pnlName
             // 
@@ -251,76 +321,6 @@
             panel2.Size = new Size(232, 41);
             panel2.TabIndex = 0;
             // 
-            // panel8
-            // 
-            panel8.BackColor = Color.White;
-            panel8.Controls.Add(txtEmailAddress);
-            panel8.Dock = DockStyle.Fill;
-            panel8.Location = new Point(1, 1);
-            panel8.Name = "panel8";
-            panel8.Padding = new Padding(15, 10, 15, 10);
-            panel8.Size = new Size(445, 43);
-            panel8.TabIndex = 5;
-            // 
-            // txtEmailAddress
-            // 
-            txtEmailAddress.BorderStyle = BorderStyle.None;
-            txtEmailAddress.Dock = DockStyle.Fill;
-            txtEmailAddress.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
-            txtEmailAddress.ForeColor = Color.FromArgb(65, 65, 65);
-            txtEmailAddress.Location = new Point(15, 10);
-            txtEmailAddress.Margin = new Padding(0);
-            txtEmailAddress.Name = "txtEmailAddress";
-            txtEmailAddress.PlaceholderText = "EMAIL ADDRESS";
-            txtEmailAddress.Size = new Size(415, 22);
-            txtEmailAddress.TabIndex = 3;
-            txtEmailAddress.TextChanged += txtEmailAddress_TextChanged;
-            // 
-            // pnlEmail
-            // 
-            pnlEmail.BackColor = Color.FromArgb(172, 172, 172);
-            pnlEmail.Controls.Add(panel8);
-            pnlEmail.Location = new Point(47, 302);
-            pnlEmail.Name = "pnlEmail";
-            pnlEmail.Padding = new Padding(1);
-            pnlEmail.Size = new Size(447, 45);
-            pnlEmail.TabIndex = 12;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.White;
-            panel6.Controls.Add(txtPhoneNumber);
-            panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(1, 1);
-            panel6.Name = "panel6";
-            panel6.Padding = new Padding(15, 10, 15, 10);
-            panel6.Size = new Size(445, 43);
-            panel6.TabIndex = 5;
-            // 
-            // txtPhoneNumber
-            // 
-            txtPhoneNumber.BorderStyle = BorderStyle.None;
-            txtPhoneNumber.Dock = DockStyle.Fill;
-            txtPhoneNumber.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
-            txtPhoneNumber.ForeColor = Color.FromArgb(65, 65, 65);
-            txtPhoneNumber.Location = new Point(15, 10);
-            txtPhoneNumber.Margin = new Padding(0);
-            txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.PlaceholderText = "PHONE NUMBER";
-            txtPhoneNumber.Size = new Size(415, 22);
-            txtPhoneNumber.TabIndex = 3;
-            txtPhoneNumber.TextChanged += txtPhoneNumber_TextChanged;
-            // 
-            // pnlPhoneNumber
-            // 
-            pnlPhoneNumber.BackColor = Color.FromArgb(172, 172, 172);
-            pnlPhoneNumber.Controls.Add(panel6);
-            pnlPhoneNumber.Location = new Point(47, 246);
-            pnlPhoneNumber.Name = "pnlPhoneNumber";
-            pnlPhoneNumber.Padding = new Padding(1);
-            pnlPhoneNumber.Size = new Size(447, 45);
-            pnlPhoneNumber.TabIndex = 5;
-            // 
             // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -338,15 +338,15 @@
             pnlAddress.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
+            pnlEmail.ResumeLayout(false);
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            pnlPhoneNumber.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             pnlName.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
-            pnlEmail.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            pnlPhoneNumber.ResumeLayout(false);
             ResumeLayout(false);
         }
 

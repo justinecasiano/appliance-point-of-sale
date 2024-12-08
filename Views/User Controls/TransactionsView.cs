@@ -9,6 +9,7 @@ public partial class TransactionsView : UserControl, ITransactionsView
     public event EventHandler SearchEvent;
     public event EventHandler SortByEvent;
 
+    private string currentSort;
     private List<TransactionItemView> transactions;
     private TransactionItemView selectedTransaction;
 
@@ -17,6 +18,9 @@ public partial class TransactionsView : UserControl, ITransactionsView
         InitializeComponent();
         searchBox.SearchEvent += Search;
         ViewTransactionEvent += ViewTransaction;
+        SortByEvent += SortBy;
+
+        InitializeSortBy();
     }
 
     public void GenerateTransactionList(List<Transaction> transactions)
@@ -66,6 +70,13 @@ public partial class TransactionsView : UserControl, ITransactionsView
         }
     }
 
+    private void InitializeSortBy()
+    {
+        cboSortBy.Title = "Sort By: ";
+        cboSortBy.Items = ["ID", "Name", "Date"];
+        cboSortBy.SelectEvent += SortByEvent;
+    }
+
     private void RefreshListView(List<TransactionItemView> transactions)
     {
         var header = flpTransactionsList.Controls.Find("pnlHeader", false).FirstOrDefault();
@@ -79,6 +90,42 @@ public partial class TransactionsView : UserControl, ITransactionsView
 
     private void Search(object? sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        var identifier = sender as string;
+        var searchList = identifier == "" ? transactions : transactions.AsParallel()
+            .Where((transaction) =>
+            transaction.ID.Contains(identifier, StringComparison.OrdinalIgnoreCase) ||
+            transaction.CustomerName.Contains(identifier, StringComparison.OrdinalIgnoreCase) ||
+            transaction.Date.Contains(identifier, StringComparison.OrdinalIgnoreCase)
+            ).ToList();
+
+        RefreshListView(searchList);
+    }
+
+    private void SortBy(object? sender, EventArgs e)
+    {
+        searchBox.Clear();
+
+        bool isSame = false;
+        string sortValue = sender as string;
+        List<TransactionItemView> sortedTransactions = transactions;
+
+        if (currentSort != null)
+        {
+            if (currentSort == sortValue)
+            {
+                isSame = true;
+                cboSortBy.Title = "Sort by: ";
+            }
+            currentSort = null;
+        }
+
+        if (currentSort == null && !isSame)
+        {
+            if (sortValue == "ID") sortedTransactions = transactions.OrderBy(x => x.ID).ToList();
+            else if (sortValue == "Name") sortedTransactions = transactions.OrderBy(x => x.CustomerName).ToList();
+            else if (sortValue == "Date") sortedTransactions = transactions.OrderBy(x => x.Date).ToList();
+            currentSort = sortValue;
+        }
+        RefreshListView(sortedTransactions);
     }
 }

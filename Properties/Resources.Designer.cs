@@ -63,9 +63,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap air_conditioning_icon_black {
+        internal static System.Drawing.Bitmap air_conditioning_black {
             get {
-                object obj = ResourceManager.GetObject("air_conditioning_icon_black", resourceCulture);
+                object obj = ResourceManager.GetObject("air_conditioning_black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap air_conditioning_icon_white {
+        internal static System.Drawing.Bitmap air_conditioning_white {
             get {
-                object obj = ResourceManager.GetObject("air_conditioning_icon_white", resourceCulture);
+                object obj = ResourceManager.GetObject("air_conditioning_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cleaning_sterilizing_icon_black {
+        internal static System.Drawing.Bitmap cleaning_sterilizing_black {
             get {
-                object obj = ResourceManager.GetObject("cleaning-sterilizing-icon-black", resourceCulture);
+                object obj = ResourceManager.GetObject("cleaning_sterilizing_black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cleaning_sterilizing_icon_white {
+        internal static System.Drawing.Bitmap cleaning_sterilizing_white {
             get {
-                object obj = ResourceManager.GetObject("cleaning-sterilizing-icon-white", resourceCulture);
+                object obj = ResourceManager.GetObject("cleaning_sterilizing_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap entertainment_icon_black {
+        internal static System.Drawing.Bitmap entertainment_black {
             get {
-                object obj = ResourceManager.GetObject("entertainment-icon-black", resourceCulture);
+                object obj = ResourceManager.GetObject("entertainment_black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap entertainment_icon_white {
+        internal static System.Drawing.Bitmap entertainment_white {
             get {
-                object obj = ResourceManager.GetObject("entertainment-icon-white", resourceCulture);
+                object obj = ResourceManager.GetObject("entertainment_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fans_and_air_coolers_icon_black {
+        internal static System.Drawing.Bitmap fans_and_air_coolers_black {
             get {
-                object obj = ResourceManager.GetObject("fans-and-air-coolers-icon-black", resourceCulture);
+                object obj = ResourceManager.GetObject("fans_and_air_coolers_black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fans_and_air_coolers_icon_white {
+        internal static System.Drawing.Bitmap fans_and_air_coolers_white {
             get {
-                object obj = ResourceManager.GetObject("fans-and-air-coolers-icon-white", resourceCulture);
+                object obj = ResourceManager.GetObject("fans_and_air_coolers_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap garment_care_icon_black {
+        internal static System.Drawing.Bitmap garment_care_black {
             get {
-                object obj = ResourceManager.GetObject("garment-care-icon-black", resourceCulture);
+                object obj = ResourceManager.GetObject("garment_care_black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap garment_care_icon_white {
+        internal static System.Drawing.Bitmap garment_care_white {
             get {
-                object obj = ResourceManager.GetObject("garment-care-icon-white", resourceCulture);
+                object obj = ResourceManager.GetObject("garment_care_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +243,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap kitchen_icon_black {
+        internal static System.Drawing.Bitmap kitchen_black {
             get {
-                object obj = ResourceManager.GetObject("kitchen-icon-black", resourceCulture);
+                object obj = ResourceManager.GetObject("kitchen_black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +253,9 @@ namespace AppliancePointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap kitchen_icon_white {
+        internal static System.Drawing.Bitmap kitchen_white {
             get {
-                object obj = ResourceManager.GetObject("kitchen-icon-white", resourceCulture);
+                object obj = ResourceManager.GetObject("kitchen_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

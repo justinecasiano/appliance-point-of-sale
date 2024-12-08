@@ -4,6 +4,7 @@ namespace AppliancePointOfSale.Views.User_Controls;
 
 public partial class TransactionItemView : UserControl
 {
+    public Transaction Transaction;
     public string ID { get => lblTransactionID.Text; set => lblTransactionID.Text = value; }
     public string CustomerName { get => lblCustomerName.Text; set => lblCustomerName.Text = value; }
     public string Date { get => lblDate.Text; set => lblDate.Text = value; }
@@ -18,6 +19,7 @@ public partial class TransactionItemView : UserControl
         CustomerName = transaction.Customer.FullName;
         Date = transaction.Date.ToString("MM/dd/yyyy");
         ReceiptImagePath = transaction.ReceiptImagePath;
+        Transaction = transaction;
 
         ViewTransactionEvent += viewTransaction;
 

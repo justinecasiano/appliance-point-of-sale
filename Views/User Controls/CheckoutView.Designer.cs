@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckoutView));
             pnlSummary = new Panel();
             flpPlaceholder = new FlowLayoutPanel();
             flpCustomer = new FlowLayoutPanel();
@@ -75,33 +76,16 @@
             pnlHighlight = new Panel();
             label2 = new Label();
             label6 = new Label();
-            cmbSort = new ComboBox();
             flpAppliancesList = new Custom_Controls.CustomFlowLayout();
             searchBox = new User_Controls.SearchBox();
             pnlAirConditioning = new Panel();
-            picAirConditioning = new Label();
-            label12 = new Label();
-            label9 = new Label();
             pnlEntertainment = new Panel();
-            picEntertainment = new Label();
-            label15 = new Label();
-            label16 = new Label();
             pnlKitchen = new Panel();
-            picKitchen = new Label();
             label18 = new Label();
-            label19 = new Label();
             pnlGarmentCare = new Panel();
-            picGarmentCare = new Label();
-            label21 = new Label();
-            label22 = new Label();
             pnlFansAndAirCoolers = new Panel();
-            picFansAndAirCoolers = new Label();
-            label24 = new Label();
-            label25 = new Label();
             pnlCleaningSterilizing = new Panel();
-            picCleaningSterilizing = new Label();
-            label27 = new Label();
-            label28 = new Label();
+            cboSortBy = new User_Controls.CustomDropDown();
             pnlSummary.SuspendLayout();
             flpPlaceholder.SuspendLayout();
             flpCustomer.SuspendLayout();
@@ -113,12 +97,7 @@
             pnlTotalPaid.SuspendLayout();
             pnlChange.SuspendLayout();
             btnPay.SuspendLayout();
-            pnlAirConditioning.SuspendLayout();
-            pnlEntertainment.SuspendLayout();
             pnlKitchen.SuspendLayout();
-            pnlGarmentCare.SuspendLayout();
-            pnlFansAndAirCoolers.SuspendLayout();
-            pnlCleaningSterilizing.SuspendLayout();
             SuspendLayout();
             // 
             // pnlSummary
@@ -646,7 +625,7 @@
             // 
             // button1
             // 
-            button1.BackgroundImage = Properties.Resources.hanabishi_logo;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -718,20 +697,6 @@
             label6.TabIndex = 14;
             label6.Text = "APPLIANCES LIST";
             // 
-            // cmbSort
-            // 
-            cmbSort.BackColor = Color.LightGray;
-            cmbSort.Cursor = Cursors.Hand;
-            cmbSort.FlatStyle = FlatStyle.Flat;
-            cmbSort.Font = new Font("Inria Sans", 12F, FontStyle.Bold);
-            cmbSort.ForeColor = Color.FromArgb(137, 137, 137);
-            cmbSort.FormattingEnabled = true;
-            cmbSort.Location = new Point(234, 214);
-            cmbSort.Name = "cmbSort";
-            cmbSort.Size = new Size(84, 28);
-            cmbSort.TabIndex = 15;
-            cmbSort.Text = "Sort by:";
-            // 
             // flpAppliancesList
             // 
             flpAppliancesList.AutoScroll = true;
@@ -754,116 +719,36 @@
             // pnlAirConditioning
             // 
             pnlAirConditioning.BackColor = Color.FromArgb(251, 251, 251);
-            pnlAirConditioning.Controls.Add(picAirConditioning);
-            pnlAirConditioning.Controls.Add(label12);
-            pnlAirConditioning.Controls.Add(label9);
+            pnlAirConditioning.BackgroundImage = Properties.Resources.air_conditioning_black;
+            pnlAirConditioning.BackgroundImageLayout = ImageLayout.Stretch;
             pnlAirConditioning.Cursor = Cursors.Hand;
             pnlAirConditioning.Location = new Point(72, 98);
             pnlAirConditioning.Name = "pnlAirConditioning";
             pnlAirConditioning.Size = new Size(130, 105);
             pnlAirConditioning.TabIndex = 23;
             // 
-            // picAirConditioning
-            // 
-            picAirConditioning.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
-            picAirConditioning.ForeColor = Color.FromArgb(56, 56, 56);
-            picAirConditioning.Image = Properties.Resources.air_conditioning_icon_black;
-            picAirConditioning.Location = new Point(16, 11);
-            picAirConditioning.Name = "picAirConditioning";
-            picAirConditioning.Size = new Size(36, 36);
-            picAirConditioning.TabIndex = 2;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.Transparent;
-            label12.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
-            label12.ForeColor = Color.FromArgb(56, 56, 56);
-            label12.Location = new Point(13, 60);
-            label12.Name = "label12";
-            label12.Size = new Size(88, 13);
-            label12.TabIndex = 1;
-            label12.Text = "AIR CONDITIONING";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Transparent;
-            label9.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
-            label9.ForeColor = Color.FromArgb(56, 56, 56);
-            label9.Location = new Point(12, 74);
-            label9.Name = "label9";
-            label9.Size = new Size(58, 19);
-            label9.TabIndex = 0;
-            label9.Text = "5 items";
-            // 
             // pnlEntertainment
             // 
             pnlEntertainment.BackColor = Color.FromArgb(251, 251, 251);
-            pnlEntertainment.Controls.Add(picEntertainment);
-            pnlEntertainment.Controls.Add(label15);
-            pnlEntertainment.Controls.Add(label16);
+            pnlEntertainment.BackgroundImage = Properties.Resources.entertainment_black;
+            pnlEntertainment.BackgroundImageLayout = ImageLayout.Stretch;
             pnlEntertainment.Cursor = Cursors.Hand;
             pnlEntertainment.Location = new Point(213, 98);
             pnlEntertainment.Name = "pnlEntertainment";
             pnlEntertainment.Size = new Size(130, 105);
             pnlEntertainment.TabIndex = 24;
             // 
-            // picEntertainment
-            // 
-            picEntertainment.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
-            picEntertainment.ForeColor = Color.FromArgb(56, 56, 56);
-            picEntertainment.Image = Properties.Resources.entertainment_icon_black;
-            picEntertainment.Location = new Point(16, 11);
-            picEntertainment.Name = "picEntertainment";
-            picEntertainment.Size = new Size(36, 36);
-            picEntertainment.TabIndex = 2;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.BackColor = Color.Transparent;
-            label15.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
-            label15.ForeColor = Color.FromArgb(56, 56, 56);
-            label15.Location = new Point(13, 60);
-            label15.Name = "label15";
-            label15.Size = new Size(80, 13);
-            label15.TabIndex = 1;
-            label15.Text = "ENTERTAINMENT";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.BackColor = Color.Transparent;
-            label16.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
-            label16.ForeColor = Color.FromArgb(56, 56, 56);
-            label16.Location = new Point(12, 74);
-            label16.Name = "label16";
-            label16.Size = new Size(58, 19);
-            label16.TabIndex = 0;
-            label16.Text = "5 items";
-            // 
             // pnlKitchen
             // 
             pnlKitchen.BackColor = Color.FromArgb(251, 251, 251);
-            pnlKitchen.Controls.Add(picKitchen);
+            pnlKitchen.BackgroundImage = Properties.Resources.kitchen_black;
+            pnlKitchen.BackgroundImageLayout = ImageLayout.Stretch;
             pnlKitchen.Controls.Add(label18);
-            pnlKitchen.Controls.Add(label19);
             pnlKitchen.Cursor = Cursors.Hand;
             pnlKitchen.Location = new Point(495, 98);
             pnlKitchen.Name = "pnlKitchen";
             pnlKitchen.Size = new Size(130, 105);
             pnlKitchen.TabIndex = 26;
-            // 
-            // picKitchen
-            // 
-            picKitchen.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
-            picKitchen.ForeColor = Color.FromArgb(56, 56, 56);
-            picKitchen.Image = Properties.Resources.kitchen_icon_black;
-            picKitchen.Location = new Point(16, 11);
-            picKitchen.Name = "picKitchen";
-            picKitchen.Size = new Size(36, 36);
-            picKitchen.TabIndex = 2;
             // 
             // label18
             // 
@@ -871,168 +756,60 @@
             label18.BackColor = Color.Transparent;
             label18.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
             label18.ForeColor = Color.FromArgb(56, 56, 56);
-            label18.Location = new Point(13, 60);
+            label18.Location = new Point(155, 61);
             label18.Name = "label18";
             label18.Size = new Size(45, 13);
             label18.TabIndex = 1;
             label18.Text = "KITCHEN";
             // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.BackColor = Color.Transparent;
-            label19.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
-            label19.ForeColor = Color.FromArgb(56, 56, 56);
-            label19.Location = new Point(12, 74);
-            label19.Name = "label19";
-            label19.Size = new Size(58, 19);
-            label19.TabIndex = 0;
-            label19.Text = "5 items";
-            // 
             // pnlGarmentCare
             // 
             pnlGarmentCare.BackColor = Color.FromArgb(251, 251, 251);
-            pnlGarmentCare.Controls.Add(picGarmentCare);
-            pnlGarmentCare.Controls.Add(label21);
-            pnlGarmentCare.Controls.Add(label22);
+            pnlGarmentCare.BackgroundImage = Properties.Resources.garment_care_black;
+            pnlGarmentCare.BackgroundImageLayout = ImageLayout.Stretch;
             pnlGarmentCare.Cursor = Cursors.Hand;
             pnlGarmentCare.Location = new Point(354, 98);
             pnlGarmentCare.Name = "pnlGarmentCare";
             pnlGarmentCare.Size = new Size(130, 105);
             pnlGarmentCare.TabIndex = 25;
             // 
-            // picGarmentCare
-            // 
-            picGarmentCare.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
-            picGarmentCare.ForeColor = Color.FromArgb(56, 56, 56);
-            picGarmentCare.Image = Properties.Resources.garment_care_icon_black;
-            picGarmentCare.Location = new Point(16, 11);
-            picGarmentCare.Name = "picGarmentCare";
-            picGarmentCare.Size = new Size(36, 36);
-            picGarmentCare.TabIndex = 2;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.BackColor = Color.Transparent;
-            label21.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
-            label21.ForeColor = Color.FromArgb(56, 56, 56);
-            label21.Location = new Point(13, 60);
-            label21.Name = "label21";
-            label21.Size = new Size(74, 13);
-            label21.TabIndex = 1;
-            label21.Text = "GARMENT CARE";
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.BackColor = Color.Transparent;
-            label22.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
-            label22.ForeColor = Color.FromArgb(56, 56, 56);
-            label22.Location = new Point(12, 74);
-            label22.Name = "label22";
-            label22.Size = new Size(58, 19);
-            label22.TabIndex = 0;
-            label22.Text = "5 items";
-            // 
             // pnlFansAndAirCoolers
             // 
             pnlFansAndAirCoolers.BackColor = Color.FromArgb(251, 251, 251);
-            pnlFansAndAirCoolers.Controls.Add(picFansAndAirCoolers);
-            pnlFansAndAirCoolers.Controls.Add(label24);
-            pnlFansAndAirCoolers.Controls.Add(label25);
+            pnlFansAndAirCoolers.BackgroundImage = Properties.Resources.fans_and_air_coolers_black;
+            pnlFansAndAirCoolers.BackgroundImageLayout = ImageLayout.Stretch;
             pnlFansAndAirCoolers.Cursor = Cursors.Hand;
             pnlFansAndAirCoolers.Location = new Point(778, 98);
             pnlFansAndAirCoolers.Name = "pnlFansAndAirCoolers";
             pnlFansAndAirCoolers.Size = new Size(130, 105);
             pnlFansAndAirCoolers.TabIndex = 28;
             // 
-            // picFansAndAirCoolers
-            // 
-            picFansAndAirCoolers.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
-            picFansAndAirCoolers.ForeColor = Color.FromArgb(56, 56, 56);
-            picFansAndAirCoolers.Image = Properties.Resources.fans_and_air_coolers_icon_black;
-            picFansAndAirCoolers.Location = new Point(16, 11);
-            picFansAndAirCoolers.Name = "picFansAndAirCoolers";
-            picFansAndAirCoolers.Size = new Size(36, 36);
-            picFansAndAirCoolers.TabIndex = 2;
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.BackColor = Color.Transparent;
-            label24.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
-            label24.ForeColor = Color.FromArgb(56, 56, 56);
-            label24.Location = new Point(13, 60);
-            label24.Name = "label24";
-            label24.Size = new Size(108, 13);
-            label24.TabIndex = 1;
-            label24.Text = "FANS AND AIR COOLERS";
-            // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.BackColor = Color.Transparent;
-            label25.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
-            label25.ForeColor = Color.FromArgb(56, 56, 56);
-            label25.Location = new Point(12, 74);
-            label25.Name = "label25";
-            label25.Size = new Size(58, 19);
-            label25.TabIndex = 0;
-            label25.Text = "5 items";
-            // 
             // pnlCleaningSterilizing
             // 
             pnlCleaningSterilizing.BackColor = Color.FromArgb(251, 251, 251);
-            pnlCleaningSterilizing.Controls.Add(picCleaningSterilizing);
-            pnlCleaningSterilizing.Controls.Add(label27);
-            pnlCleaningSterilizing.Controls.Add(label28);
+            pnlCleaningSterilizing.BackgroundImage = Properties.Resources.cleaning_sterilizing_black;
+            pnlCleaningSterilizing.BackgroundImageLayout = ImageLayout.Stretch;
             pnlCleaningSterilizing.Cursor = Cursors.Hand;
             pnlCleaningSterilizing.Location = new Point(637, 98);
             pnlCleaningSterilizing.Name = "pnlCleaningSterilizing";
             pnlCleaningSterilizing.Size = new Size(130, 105);
             pnlCleaningSterilizing.TabIndex = 27;
             // 
-            // picCleaningSterilizing
+            // cboSortBy
             // 
-            picCleaningSterilizing.Font = new Font("Inria Sans", 8F, FontStyle.Bold);
-            picCleaningSterilizing.ForeColor = Color.FromArgb(56, 56, 56);
-            picCleaningSterilizing.Image = Properties.Resources.cleaning_sterilizing_icon_black;
-            picCleaningSterilizing.Location = new Point(16, 11);
-            picCleaningSterilizing.Name = "picCleaningSterilizing";
-            picCleaningSterilizing.Size = new Size(36, 36);
-            picCleaningSterilizing.TabIndex = 2;
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.BackColor = Color.Transparent;
-            label27.Font = new Font("Inria Sans", 7F, FontStyle.Bold);
-            label27.ForeColor = Color.FromArgb(56, 56, 56);
-            label27.Location = new Point(13, 60);
-            label27.Name = "label27";
-            label27.Size = new Size(106, 13);
-            label27.TabIndex = 1;
-            label27.Text = "CLEANING STERILIZING";
-            // 
-            // label28
-            // 
-            label28.AutoSize = true;
-            label28.BackColor = Color.Transparent;
-            label28.Font = new Font("Inria Sans", 11F, FontStyle.Bold);
-            label28.ForeColor = Color.FromArgb(56, 56, 56);
-            label28.Location = new Point(12, 74);
-            label28.Name = "label28";
-            label28.Size = new Size(58, 19);
-            label28.TabIndex = 0;
-            label28.Text = "5 items";
+            cboSortBy.Location = new Point(235, 214);
+            cboSortBy.Name = "cboSortBy";
+            cboSortBy.Size = new Size(21, 28);
+            cboSortBy.TabIndex = 0;
+            cboSortBy.Title = "";
             // 
             // CheckoutView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
-            BackgroundImage = Properties.Resources.mainview_bg;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            Controls.Add(cboSortBy);
             Controls.Add(pnlFansAndAirCoolers);
             Controls.Add(pnlCleaningSterilizing);
             Controls.Add(pnlKitchen);
@@ -1041,7 +818,6 @@
             Controls.Add(pnlAirConditioning);
             Controls.Add(searchBox);
             Controls.Add(flpAppliancesList);
-            Controls.Add(cmbSort);
             Controls.Add(label6);
             Controls.Add(label2);
             Controls.Add(pnlSummary);
@@ -1068,18 +844,8 @@
             pnlChange.PerformLayout();
             btnPay.ResumeLayout(false);
             btnPay.PerformLayout();
-            pnlAirConditioning.ResumeLayout(false);
-            pnlAirConditioning.PerformLayout();
-            pnlEntertainment.ResumeLayout(false);
-            pnlEntertainment.PerformLayout();
             pnlKitchen.ResumeLayout(false);
             pnlKitchen.PerformLayout();
-            pnlGarmentCare.ResumeLayout(false);
-            pnlGarmentCare.PerformLayout();
-            pnlFansAndAirCoolers.ResumeLayout(false);
-            pnlFansAndAirCoolers.PerformLayout();
-            pnlCleaningSterilizing.ResumeLayout(false);
-            pnlCleaningSterilizing.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1102,7 +868,6 @@
         private Panel pnlHighlight;
         private Label label2;
         private Label label6;
-        private ComboBox cmbSort;
         private Custom_Controls.CustomFlowLayout flpAppliancesList;
         private User_Controls.SearchBox searchBox;
         private CheckBox chkIsSeniorOrPwd;
@@ -1137,28 +902,12 @@
         private Label label5;
         private Label lblPayTotalAmount;
         private Panel pnlAirConditioning;
-        private Label label9;
-        private Label label12;
-        private Label picAirConditioning;
         private Panel pnlEntertainment;
-        private Label picEntertainment;
-        private Label label15;
-        private Label label16;
         private Panel pnlKitchen;
-        private Label picKitchen;
         private Label label18;
-        private Label label19;
         private Panel pnlGarmentCare;
-        private Label picGarmentCare;
-        private Label label21;
-        private Label label22;
         private Panel pnlFansAndAirCoolers;
-        private Label picFansAndAirCoolers;
-        private Label label24;
-        private Label label25;
         private Panel pnlCleaningSterilizing;
-        private Label picCleaningSterilizing;
-        private Label label27;
-        private Label label28;
+        private User_Controls.CustomDropDown cboSortBy;
     }
 }

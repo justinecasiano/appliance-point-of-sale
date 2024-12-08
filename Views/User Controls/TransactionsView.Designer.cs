@@ -37,6 +37,7 @@
             flpSummary = new Custom_Controls.CustomFlowLayout();
             lblGuide = new Label();
             pboTransaction = new PictureBox();
+            cboSortBy = new CustomDropDown();
             flpTransactionsList.SuspendLayout();
             pnlHeader.SuspendLayout();
             flpSummary.SuspendLayout();
@@ -50,7 +51,7 @@
             searchBox.Location = new Point(38, 29);
             searchBox.Name = "searchBox";
             searchBox.SearchEvent = null;
-            searchBox.Size = new Size(834, 33);
+            searchBox.Size = new Size(760, 33);
             searchBox.TabIndex = 34;
             // 
             // flpTransactionsList
@@ -148,12 +149,21 @@
             pboTransaction.Visible = false;
             pboTransaction.WaitOnLoad = true;
             // 
+            // cboSortBy
+            // 
+            cboSortBy.Location = new Point(804, 29);
+            cboSortBy.Name = "cboSortBy";
+            cboSortBy.Size = new Size(21, 28);
+            cboSortBy.TabIndex = 38;
+            cboSortBy.Title = "";
+            // 
             // TransactionsView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             BackgroundImage = Properties.Resources.mainview_bg;
+            Controls.Add(cboSortBy);
             Controls.Add(flpSummary);
             Controls.Add(flpTransactionsList);
             Controls.Add(searchBox);
@@ -177,5 +187,6 @@
         private Custom_Controls.CustomFlowLayout flpSummary;
         private Label lblGuide;
         private PictureBox pboTransaction;
+        private CustomDropDown cboSortBy;
     }
 }

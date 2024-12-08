@@ -4,6 +4,7 @@ namespace AppliancePointOfSale.Views.User_Controls;
 
 public partial class ApplianceItemView : UserControl
 {
+    public Appliance Appliance;
     public string ID { get => Name; set => Name = value; }
     public string ApplianceName { get => lblName.Text; set => lblName.Text = value; }
     public string Price { get => lblPrice.Text; set => lblPrice.Text = value; }
@@ -21,7 +22,6 @@ public partial class ApplianceItemView : UserControl
         }
     }
 
-    private Appliance appliance;
     private Action<Appliance> currentlyEditing;
     private EventHandler ApplianceSelectedEvent;
     private EventHandler AddLineItemEvent;
@@ -41,7 +41,7 @@ public partial class ApplianceItemView : UserControl
         Price = $"₱ {appliance.Price:N2}";
         Stocks = appliance.Stocks.ToString();
         Thumbnail = $"{appliance.Category}/{appliance.Name}";
-        this.appliance = appliance;
+        Appliance = appliance;
         this.currentlyEditing = currentlyEditing;
         numEditStocks.Value = appliance.Stocks;
 
@@ -66,7 +66,7 @@ public partial class ApplianceItemView : UserControl
     }
     private void btnEditAppliance_Click(object sender, EventArgs e)
     {
-        currentlyEditing(appliance);
+        currentlyEditing(Appliance);
         pnlEditStocks.Visible = true;
         pnlInfo.Visible = false;
         Height -= 26;
@@ -88,7 +88,7 @@ public partial class ApplianceItemView : UserControl
 
     private void btnConfirmEdit_Click(object sender, EventArgs e)
     {
-        appliance.Stocks = (int)numEditStocks.Value;
-        EditApplianceEvent.Invoke(appliance, e);
+        Appliance.Stocks = (int)numEditStocks.Value;
+        EditApplianceEvent.Invoke(Appliance, e);
     }
 }

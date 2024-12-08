@@ -86,18 +86,14 @@ public class CheckoutPresenter
     private void EditCustomerDetails(object? sender, EventArgs e)
     {
         CheckoutView.EditCustomerDetails(transaction.Customer);
-        if (transaction.Customer.FullName != null)
-        {
-            MessageBox.Show("Customer details successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
-            CheckoutView.UpdateSummary(transaction);
-        }
+        if (transaction.Customer.FullName != null) CheckoutView.UpdateSummary(transaction);
     }
 
     private void Payment(object? sender, EventArgs e)
     {
-        if (transaction.Customer.FullName == null) CheckoutView.Message = "Please provide customer details";
-        else if (transaction.LineItems.Count == 0) CheckoutView.Message = "Please add an appliance to checkout";
-        else
+        //if (transaction.Customer.FullName == null) CheckoutView.Message = "Please provide customer details";
+        //else if (transaction.LineItems.Count == 0) CheckoutView.Message = "Please add an appliance to checkout";
+        //else
         {
             CheckoutView.Payment(transaction);
             if (transaction.Status != "Success") return;
