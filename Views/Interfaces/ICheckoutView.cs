@@ -20,6 +20,7 @@ public interface ICheckoutView : INotifier
     void EditAppliance(Appliance appliance);
     void EditCustomerDetails(Customer customer);
     void Payment(Transaction transaction);
+    void ConfirmReceipt(Transaction transaction);
     void GenerateReceipt(Transaction transaction);
     bool ShouldReset(Transaction transaction);
     void ResetCheckout(Transaction transaction);

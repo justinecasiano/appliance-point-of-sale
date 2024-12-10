@@ -51,7 +51,7 @@
             lblTitle.AutoSize = true;
             lblTitle.BackColor = Color.White;
             lblTitle.Font = new Font("Inria Sans", 13F);
-            lblTitle.Location = new Point(1, 1);
+            lblTitle.Location = new Point(1, 3);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(0, 23);
             lblTitle.TabIndex = 2;

@@ -38,10 +38,12 @@
             lblGuide = new Label();
             pboTransaction = new PictureBox();
             cboSortBy = new CustomDropDown();
+            pictureBox1 = new PictureBox();
             flpTransactionsList.SuspendLayout();
             pnlHeader.SuspendLayout();
             flpSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pboTransaction).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // searchBox
@@ -157,12 +159,24 @@
             cboSortBy.TabIndex = 38;
             cboSortBy.Title = "";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.Image = Properties.Resources.search_icon;
+            pictureBox1.Location = new Point(764, 31);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(30, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 39;
+            pictureBox1.TabStop = false;
+            // 
             // TransactionsView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             BackgroundImage = Properties.Resources.mainview_bg;
+            Controls.Add(pictureBox1);
             Controls.Add(cboSortBy);
             Controls.Add(flpSummary);
             Controls.Add(flpTransactionsList);
@@ -174,6 +188,7 @@
             pnlHeader.PerformLayout();
             flpSummary.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pboTransaction).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -188,5 +203,6 @@
         private Label lblGuide;
         private PictureBox pboTransaction;
         private CustomDropDown cboSortBy;
+        private PictureBox pictureBox1;
     }
 }

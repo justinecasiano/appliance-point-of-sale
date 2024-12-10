@@ -57,6 +57,16 @@ public class JSONRepository : IRepository
         OnUpdateApplianceEvent.Invoke(this, EventArgs.Empty);
     }
 
+    public async void UpdateAppliances(List<Appliance> appliances)
+    {
+        foreach (Appliance appliance in appliances)
+            Appliances.Find(x => x.ID == appliance.ID).Stocks = appliance.Stocks;
+
+        await WriteJson("appliance", Appliances);
+        Appliances = (await GetAllAppliance()).ToList();
+        OnUpdateApplianceEvent.Invoke(this, EventArgs.Empty);
+    }
+
     public async Task<IEnumerable<Transaction>> GetAllTransactions() => await ReadJSON<List<Transaction>>("transaction");
 
     public Transaction GetTransaction(string id) =>

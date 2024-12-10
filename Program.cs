@@ -14,9 +14,10 @@ internal static class Program
     {
         // To customize application configuration such as set high DPI settings or default font,
         // see hjttps://aka.ms/applicationconfiguration.
+
         ApplicationConfiguration.Initialize();
         var repository = new JSONRepository("Assets/appliances.json", "Assets/transactions.json");
         var mainPresenter = new MainPresenter(repository, new MainView());
-        Application.Run((Form)mainPresenter.MainView);
+        Application.Run(new Login(mainPresenter));
     }
 }

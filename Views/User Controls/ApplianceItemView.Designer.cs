@@ -158,7 +158,6 @@
             numEditStocks.Font = new Font("Inria Sans", 12F, FontStyle.Bold);
             numEditStocks.ForeColor = Color.FromArgb(63, 63, 63);
             numEditStocks.Location = new Point(3, 0);
-            numEditStocks.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
             numEditStocks.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
             numEditStocks.Name = "numEditStocks";
             numEditStocks.RightToLeft = RightToLeft.No;

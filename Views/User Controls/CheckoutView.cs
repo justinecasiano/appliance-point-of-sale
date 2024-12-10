@@ -110,7 +110,7 @@ public partial class CheckoutView : UserControl, ICheckoutView
     {
         ToggleCategory();
         var view = appliances.Find(x => appliance.ID == x.ID);
-        view.Stocks = appliance.Stocks.ToString();
+        view.Stocks = $"{appliance.Stocks}";
         currentlyEditing = null;
     }
 
@@ -123,6 +123,12 @@ public partial class CheckoutView : UserControl, ICheckoutView
     public void Payment(Transaction transaction)
     {
         dialog.Add(new PaymentForm(dialog, transaction));
+        dialog.ShowDialog();
+    }
+
+    public void ConfirmReceipt(Transaction transaction)
+    {
+        dialog.Add(new ReceiptForm(dialog, transaction.ReceiptImagePath));
         dialog.ShowDialog();
     }
 
@@ -243,6 +249,14 @@ public partial class CheckoutView : UserControl, ICheckoutView
         }
     }
 
+    private void InitializeSortBy()
+    {
+        cboSortBy.Title = "Sort By: ";
+        cboSortBy.Items = ["Name ↑", "Name ↓", "Category ↑", "Category ↓", "Price ↑", "Price ↓", "Stocks ↑", "Stocks ↓"];
+        cboSortBy.MaxDropDownWidth = 115;
+        cboSortBy.SelectEvent += SortByEvent;
+    }
+
     private void SortBy(object? sender, EventArgs e)
     {
         if (currentlyEditing != null) return;
@@ -266,10 +280,14 @@ public partial class CheckoutView : UserControl, ICheckoutView
 
         if (currentSort == null && !isSame)
         {
-            if (sortValue == "Name") sortedAppliances = appliances.OrderBy(x => x.Appliance.Name).ToList();
-            else if (sortValue == "Category") sortedAppliances = appliances.OrderBy(x => x.Appliance.Category).ToList();
-            else if (sortValue == "Price") sortedAppliances = appliances.OrderBy(x => x.Appliance.Price).ToList();
-            else if (sortValue == "Stocks") sortedAppliances = appliances.OrderBy(x => x.Appliance.Stocks).ToList();
+            if (sortValue == "Name ↑") sortedAppliances = appliances.OrderBy(x => x.Appliance.Name).ToList();
+            else if (sortValue == "Name ↓") sortedAppliances = appliances.OrderByDescending(x => x.Appliance.Name).ToList();
+            else if (sortValue == "Category ↑") sortedAppliances = appliances.OrderBy(x => x.Appliance.Category).ToList();
+            else if (sortValue == "Category ↓") sortedAppliances = appliances.OrderByDescending(x => x.Appliance.Category).ToList();
+            else if (sortValue == "Price ↑") sortedAppliances = appliances.OrderBy(x => x.Appliance.Price).ToList();
+            else if (sortValue == "Price ↓") sortedAppliances = appliances.OrderByDescending(x => x.Appliance.Price).ToList();
+            else if (sortValue == "Stocks ↑") sortedAppliances = appliances.OrderBy(x => x.Appliance.Stocks).ToList();
+            else if (sortValue == "Stocks ↓") sortedAppliances = appliances.OrderByDescending(x => x.Appliance.Stocks).ToList();
             currentSort = sortValue;
         }
         RefreshListView(sortedAppliances);
@@ -289,7 +307,7 @@ public partial class CheckoutView : UserControl, ICheckoutView
             chkIsSeniorOrPwd.Checked = transaction.Customer.IsSeniorOrPwd;
             lblFullName.Text = $"Customer Name: {transaction.Customer.FullName}";
             lblContact.Text = transaction.Customer.ContactNumber ?? "Contact Number";
-            lblPaymentMode.Text = $"Payment Mode: {transaction.PaymentMode}";
+            lblPaymentMode.Text = $"Mode of Payment: {transaction.PaymentMode}";
             lblReferenceNo.Text = $"Reference #: {transaction.ReferenceNumber}";
             lblEmail.Text = transaction.Customer.Email ?? "Email Address";
             lblAddress.Text = transaction.Customer.Address ?? "Address";
@@ -310,13 +328,26 @@ public partial class CheckoutView : UserControl, ICheckoutView
     public void HideAndResizeElements()
     {
         btnReset.Visible = btnEdit.Visible = lblPayTotalAmount.Visible = false;
-        lblReferenceNo.Visible = pnlTotalPaid.Visible = pnlChange.Visible = true;
+        pnlTotalPaid.Visible = pnlChange.Visible = true;
+        if (lblPaymentMode.Text == "Mode of Payment: Pay with Cash") lblReferenceNo.Visible = false;
+        else lblReferenceNo.Visible = true;
 
         lblPay.Text = "SUCCESSFUL TRANSACTION!";
         lblPay.Font = new Font("Inria Sans", 15, FontStyle.Bold);
 
         int addtlHeight = 0, customerDetailsHeight = 0;
-        foreach (Control control in flpCustomer.Controls) customerDetailsHeight += control.Height;
+        flpCustomer.Width = 288;
+        foreach (Control control in flpCustomer.Controls)
+        {
+            if (control.Name == "lblReferenceNo" && lblPaymentMode.Text == "Mode of Payment: Pay with Cash") continue;
+            if (control.Name.Contains("lbl"))
+            {
+                control.MaximumSize = new Size(255, 0);
+                control.Width = 255;
+            }
+            customerDetailsHeight += control.Height;
+        }
+
         addtlHeight += customerDetailsHeight - flpCustomer.Height;
         flpCustomer.Height = customerDetailsHeight;
 
@@ -347,9 +378,19 @@ public partial class CheckoutView : UserControl, ICheckoutView
     {
         btnReset.Visible = btnEdit.Visible = lblPayTotalAmount.Visible = true;
         lblReferenceNo.Visible = pnlTotalPaid.Visible = pnlChange.Visible = false;
+
         lblPay.Text = "PAY";
         lblPay.Font = new Font("Inria Sans", 16, FontStyle.Bold);
 
+        flpCustomer.Width = 243;
+        foreach (Control control in flpCustomer.Controls)
+        {
+            if (control.Name.Contains("lbl"))
+            {
+                control.MaximumSize = new Size(210, 0);
+                control.Width = 210;
+            }
+        }
 
         foreach (LineItemView item in flpLineItems.Controls) item.UndoHideControls();
         flpCustomer.Height = 119;
@@ -358,13 +399,6 @@ public partial class CheckoutView : UserControl, ICheckoutView
         flpPlaceholder.Height = 515;
         pnlSummary.Height = 711;
         pnlSummary.Dock = DockStyle.Right;
-    }
-
-    private void InitializeSortBy()
-    {
-        cboSortBy.Title = "Sort By: ";
-        cboSortBy.Items = ["Name", "Category", "Price", "Stocks"];
-        cboSortBy.SelectEvent += SortByEvent;
     }
 
     private void SetClickEvents()

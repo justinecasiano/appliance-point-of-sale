@@ -28,57 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pnlQuantity = new Panel();
-            lblQuantity = new Label();
-            btnAdd = new Label();
             btnSubtract = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            lblApplianceName = new Label();
+            btnAdd = new Label();
+            lblQuantity = new Label();
+            pnlQuantity = new Panel();
             lblPrice = new Label();
+            lblApplianceName = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             pnlQuantity.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // pnlQuantity
-            // 
-            pnlQuantity.Controls.Add(lblQuantity);
-            pnlQuantity.Controls.Add(btnAdd);
-            pnlQuantity.Controls.Add(btnSubtract);
-            pnlQuantity.Dock = DockStyle.Left;
-            pnlQuantity.Location = new Point(0, 0);
-            pnlQuantity.Name = "pnlQuantity";
-            pnlQuantity.Size = new Size(89, 47);
-            pnlQuantity.TabIndex = 23;
-            // 
-            // lblQuantity
-            // 
-            lblQuantity.AutoSize = true;
-            lblQuantity.BackColor = Color.FromArgb(255, 214, 0);
-            lblQuantity.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
-            lblQuantity.ForeColor = Color.Black;
-            lblQuantity.Location = new Point(25, 9);
-            lblQuantity.MaximumSize = new Size(40, 30);
-            lblQuantity.MinimumSize = new Size(40, 30);
-            lblQuantity.Name = "lblQuantity";
-            lblQuantity.Size = new Size(40, 30);
-            lblQuantity.TabIndex = 16;
-            lblQuantity.Text = "1X";
-            lblQuantity.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnAdd
-            // 
-            btnAdd.AutoSize = true;
-            btnAdd.BackColor = Color.Transparent;
-            btnAdd.Cursor = Cursors.Hand;
-            btnAdd.Font = new Font("Inria Sans", 18F, FontStyle.Bold);
-            btnAdd.ForeColor = Color.FromArgb(56, 56, 56);
-            btnAdd.Location = new Point(64, 8);
-            btnAdd.Margin = new Padding(0);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(27, 30);
-            btnAdd.TabIndex = 17;
-            btnAdd.Text = "+";
-            btnAdd.Click += btnAdd_Click;
             // 
             // btnSubtract
             // 
@@ -95,28 +54,46 @@
             btnSubtract.Text = "-";
             btnSubtract.Click += btnSubtract_Click;
             // 
-            // flowLayoutPanel1
+            // btnAdd
             // 
-            flowLayoutPanel1.Controls.Add(lblApplianceName);
-            flowLayoutPanel1.Controls.Add(lblPrice);
-            flowLayoutPanel1.Dock = DockStyle.Right;
-            flowLayoutPanel1.Location = new Point(88, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(179, 47);
-            flowLayoutPanel1.TabIndex = 24;
+            btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.Transparent;
+            btnAdd.Cursor = Cursors.Hand;
+            btnAdd.Font = new Font("Inria Sans", 18F, FontStyle.Bold);
+            btnAdd.ForeColor = Color.FromArgb(56, 56, 56);
+            btnAdd.Location = new Point(64, 8);
+            btnAdd.Margin = new Padding(0);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(27, 30);
+            btnAdd.TabIndex = 17;
+            btnAdd.Text = "+";
+            btnAdd.Click += btnAdd_Click;
             // 
-            // lblApplianceName
+            // lblQuantity
             // 
-            lblApplianceName.AutoSize = true;
-            lblApplianceName.Dock = DockStyle.Top;
-            lblApplianceName.Font = new Font("Inria Sans", 10F, FontStyle.Bold);
-            lblApplianceName.ForeColor = Color.FromArgb(63, 63, 63);
-            lblApplianceName.Location = new Point(5, 5);
-            lblApplianceName.Margin = new Padding(5, 5, 5, 2);
-            lblApplianceName.Name = "lblApplianceName";
-            lblApplianceName.Size = new Size(66, 18);
-            lblApplianceName.TabIndex = 26;
-            lblApplianceName.Text = "Line Item";
+            lblQuantity.AutoSize = true;
+            lblQuantity.BackColor = Color.FromArgb(255, 214, 0);
+            lblQuantity.Font = new Font("Inria Sans", 13F, FontStyle.Bold);
+            lblQuantity.ForeColor = Color.Black;
+            lblQuantity.Location = new Point(25, 9);
+            lblQuantity.MaximumSize = new Size(40, 30);
+            lblQuantity.MinimumSize = new Size(40, 30);
+            lblQuantity.Name = "lblQuantity";
+            lblQuantity.Size = new Size(40, 30);
+            lblQuantity.TabIndex = 16;
+            lblQuantity.Text = "1X";
+            lblQuantity.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pnlQuantity
+            // 
+            pnlQuantity.Controls.Add(lblQuantity);
+            pnlQuantity.Controls.Add(btnAdd);
+            pnlQuantity.Controls.Add(btnSubtract);
+            pnlQuantity.Dock = DockStyle.Left;
+            pnlQuantity.Location = new Point(0, 0);
+            pnlQuantity.Name = "pnlQuantity";
+            pnlQuantity.Size = new Size(89, 47);
+            pnlQuantity.TabIndex = 23;
             // 
             // lblPrice
             // 
@@ -132,6 +109,29 @@
             lblPrice.TabIndex = 27;
             lblPrice.Text = "₱ 0.00";
             lblPrice.TextAlign = ContentAlignment.TopRight;
+            // 
+            // lblApplianceName
+            // 
+            lblApplianceName.AutoSize = true;
+            lblApplianceName.Dock = DockStyle.Top;
+            lblApplianceName.Font = new Font("Inria Sans", 10F, FontStyle.Bold);
+            lblApplianceName.ForeColor = Color.FromArgb(63, 63, 63);
+            lblApplianceName.Location = new Point(5, 5);
+            lblApplianceName.Margin = new Padding(5, 5, 5, 2);
+            lblApplianceName.Name = "lblApplianceName";
+            lblApplianceName.Size = new Size(66, 18);
+            lblApplianceName.TabIndex = 26;
+            lblApplianceName.Text = "Line Item";
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(lblApplianceName);
+            flowLayoutPanel1.Controls.Add(lblPrice);
+            flowLayoutPanel1.Dock = DockStyle.Right;
+            flowLayoutPanel1.Location = new Point(88, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(179, 47);
+            flowLayoutPanel1.TabIndex = 24;
             // 
             // LineItemView
             // 
@@ -152,12 +152,13 @@
         }
 
         #endregion
-        private Panel pnlQuantity;
-        private Label lblQuantity;
-        private Label btnAdd;
+
         private Label btnSubtract;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Label lblApplianceName;
+        private Label btnAdd;
+        private Label lblQuantity;
+        private Panel pnlQuantity;
         private Label lblPrice;
+        private Label lblApplianceName;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

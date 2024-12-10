@@ -35,10 +35,10 @@
             lblFullName = new Label();
             chkIsSeniorOrPwd = new CheckBox();
             lblContact = new Label();
-            lblReferenceNo = new Label();
             lblEmail = new Label();
             lblAddress = new Label();
             lblPaymentMode = new Label();
+            lblReferenceNo = new Label();
             btnEdit = new Label();
             panel3 = new Panel();
             label5 = new Label();
@@ -76,8 +76,6 @@
             pnlHighlight = new Panel();
             label2 = new Label();
             label6 = new Label();
-            flpAppliancesList = new Custom_Controls.CustomFlowLayout();
-            searchBox = new User_Controls.SearchBox();
             pnlAirConditioning = new Panel();
             pnlEntertainment = new Panel();
             pnlKitchen = new Panel();
@@ -85,6 +83,9 @@
             pnlGarmentCare = new Panel();
             pnlFansAndAirCoolers = new Panel();
             pnlCleaningSterilizing = new Panel();
+            pictureBox1 = new PictureBox();
+            searchBox = new User_Controls.SearchBox();
+            flpAppliancesList = new Custom_Controls.CustomFlowLayout();
             cboSortBy = new User_Controls.CustomDropDown();
             pnlSummary.SuspendLayout();
             flpPlaceholder.SuspendLayout();
@@ -98,6 +99,7 @@
             pnlChange.SuspendLayout();
             btnPay.SuspendLayout();
             pnlKitchen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnlSummary
@@ -140,10 +142,10 @@
             flpCustomer.Controls.Add(lblFullName);
             flpCustomer.Controls.Add(chkIsSeniorOrPwd);
             flpCustomer.Controls.Add(lblContact);
-            flpCustomer.Controls.Add(lblReferenceNo);
             flpCustomer.Controls.Add(lblEmail);
             flpCustomer.Controls.Add(lblAddress);
             flpCustomer.Controls.Add(lblPaymentMode);
+            flpCustomer.Controls.Add(lblReferenceNo);
             flpCustomer.FlowDirection = FlowDirection.TopDown;
             flpCustomer.Location = new Point(0, 0);
             flpCustomer.Margin = new Padding(0);
@@ -198,27 +200,12 @@
             lblContact.TabIndex = 10;
             lblContact.Text = "Contact Number";
             // 
-            // lblReferenceNo
-            // 
-            lblReferenceNo.AutoSize = true;
-            lblReferenceNo.Font = new Font("Inria Sans", 11F);
-            lblReferenceNo.ForeColor = Color.FromArgb(65, 65, 65);
-            lblReferenceNo.Location = new Point(3, 61);
-            lblReferenceNo.Margin = new Padding(3, 0, 5, 0);
-            lblReferenceNo.MaximumSize = new Size(210, 0);
-            lblReferenceNo.MinimumSize = new Size(210, 0);
-            lblReferenceNo.Name = "lblReferenceNo";
-            lblReferenceNo.Size = new Size(210, 19);
-            lblReferenceNo.TabIndex = 13;
-            lblReferenceNo.Text = "Reference #:";
-            lblReferenceNo.Visible = false;
-            // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Inria Sans", 11F);
             lblEmail.ForeColor = Color.FromArgb(65, 65, 65);
-            lblEmail.Location = new Point(3, 80);
+            lblEmail.Location = new Point(3, 61);
             lblEmail.Margin = new Padding(3, 0, 5, 0);
             lblEmail.MaximumSize = new Size(210, 0);
             lblEmail.MinimumSize = new Size(210, 0);
@@ -232,7 +219,7 @@
             lblAddress.AutoSize = true;
             lblAddress.Font = new Font("Inria Sans", 11F);
             lblAddress.ForeColor = Color.FromArgb(65, 65, 65);
-            lblAddress.Location = new Point(3, 99);
+            lblAddress.Location = new Point(3, 80);
             lblAddress.Margin = new Padding(3, 0, 5, 0);
             lblAddress.MaximumSize = new Size(210, 0);
             lblAddress.MinimumSize = new Size(210, 0);
@@ -246,7 +233,7 @@
             lblPaymentMode.AutoSize = true;
             lblPaymentMode.Font = new Font("Inria Sans", 11F);
             lblPaymentMode.ForeColor = Color.FromArgb(65, 65, 65);
-            lblPaymentMode.Location = new Point(3, 118);
+            lblPaymentMode.Location = new Point(3, 99);
             lblPaymentMode.Margin = new Padding(3, 0, 5, 0);
             lblPaymentMode.MaximumSize = new Size(210, 0);
             lblPaymentMode.MinimumSize = new Size(210, 0);
@@ -254,6 +241,21 @@
             lblPaymentMode.Size = new Size(210, 19);
             lblPaymentMode.TabIndex = 12;
             lblPaymentMode.Text = "Mode of Payment: ";
+            // 
+            // lblReferenceNo
+            // 
+            lblReferenceNo.AutoSize = true;
+            lblReferenceNo.Font = new Font("Inria Sans", 11F);
+            lblReferenceNo.ForeColor = Color.FromArgb(65, 65, 65);
+            lblReferenceNo.Location = new Point(3, 118);
+            lblReferenceNo.Margin = new Padding(3, 0, 5, 0);
+            lblReferenceNo.MaximumSize = new Size(210, 0);
+            lblReferenceNo.MinimumSize = new Size(210, 0);
+            lblReferenceNo.Name = "lblReferenceNo";
+            lblReferenceNo.Size = new Size(210, 19);
+            lblReferenceNo.TabIndex = 13;
+            lblReferenceNo.Text = "Reference #:";
+            lblReferenceNo.Visible = false;
             // 
             // btnEdit
             // 
@@ -292,18 +294,15 @@
             // flpLineItems
             // 
             flpLineItems.AutoScroll = true;
-            flpLineItems.FlowDirection = FlowDirection.TopDown;
-            flpLineItems.Location = new Point(3, 155);
-            flpLineItems.Margin = new Padding(3, 1, 3, 3);
+            flpLineItems.Location = new Point(3, 157);
             flpLineItems.Name = "flpLineItems";
             flpLineItems.Size = new Size(288, 197);
-            flpLineItems.TabIndex = 28;
-            flpLineItems.WrapContents = false;
+            flpLineItems.TabIndex = 0;
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(172, 172, 172);
-            panel1.Location = new Point(0, 355);
+            panel1.Location = new Point(0, 357);
             panel1.Margin = new Padding(0, 0, 0, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(288, 2);
@@ -319,7 +318,7 @@
             flpTransactionDetails.Controls.Add(pnlTotalPaid);
             flpTransactionDetails.Controls.Add(pnlChange);
             flpTransactionDetails.FlowDirection = FlowDirection.TopDown;
-            flpTransactionDetails.Location = new Point(3, 363);
+            flpTransactionDetails.Location = new Point(3, 365);
             flpTransactionDetails.Name = "flpTransactionDetails";
             flpTransactionDetails.Size = new Size(293, 96);
             flpTransactionDetails.TabIndex = 27;
@@ -549,7 +548,7 @@
             btnPay.Controls.Add(lblPayTotalAmount);
             btnPay.Controls.Add(lblPay);
             btnPay.Cursor = Cursors.Hand;
-            btnPay.Location = new Point(6, 465);
+            btnPay.Location = new Point(6, 467);
             btnPay.Margin = new Padding(6, 3, 3, 3);
             btnPay.Name = "btnPay";
             btnPay.Size = new Size(275, 45);
@@ -697,25 +696,6 @@
             label6.TabIndex = 14;
             label6.Text = "APPLIANCES LIST";
             // 
-            // flpAppliancesList
-            // 
-            flpAppliancesList.AutoScroll = true;
-            flpAppliancesList.BackColor = Color.Transparent;
-            flpAppliancesList.Location = new Point(63, 252);
-            flpAppliancesList.Name = "flpAppliancesList";
-            flpAppliancesList.Size = new Size(853, 443);
-            flpAppliancesList.TabIndex = 21;
-            // 
-            // searchBox
-            // 
-            searchBox.BackColor = Color.Transparent;
-            searchBox.Cursor = Cursors.Hand;
-            searchBox.Location = new Point(74, 29);
-            searchBox.Name = "searchBox";
-            searchBox.SearchEvent = null;
-            searchBox.Size = new Size(834, 33);
-            searchBox.TabIndex = 22;
-            // 
             // pnlAirConditioning
             // 
             pnlAirConditioning.BackColor = Color.FromArgb(251, 251, 251);
@@ -795,12 +775,42 @@
             pnlCleaningSterilizing.Size = new Size(130, 105);
             pnlCleaningSterilizing.TabIndex = 27;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.Image = Properties.Resources.search_icon;
+            pictureBox1.Location = new Point(875, 31);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(30, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 29;
+            pictureBox1.TabStop = false;
+            // 
+            // searchBox
+            // 
+            searchBox.BackColor = Color.Transparent;
+            searchBox.Cursor = Cursors.Hand;
+            searchBox.Location = new Point(72, 29);
+            searchBox.Name = "searchBox";
+            searchBox.SearchEvent = null;
+            searchBox.Size = new Size(836, 33);
+            searchBox.TabIndex = 35;
+            // 
+            // flpAppliancesList
+            // 
+            flpAppliancesList.AutoScroll = true;
+            flpAppliancesList.BackColor = Color.Transparent;
+            flpAppliancesList.Location = new Point(65, 248);
+            flpAppliancesList.Name = "flpAppliancesList";
+            flpAppliancesList.Size = new Size(865, 448);
+            flpAppliancesList.TabIndex = 36;
+            // 
             // cboSortBy
             // 
             cboSortBy.Location = new Point(235, 214);
             cboSortBy.Name = "cboSortBy";
-            cboSortBy.Size = new Size(21, 28);
-            cboSortBy.TabIndex = 0;
+            cboSortBy.Size = new Size(76, 28);
+            cboSortBy.TabIndex = 37;
             cboSortBy.Title = "";
             // 
             // CheckoutView
@@ -810,17 +820,18 @@
             BackColor = Color.LightGray;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             Controls.Add(cboSortBy);
+            Controls.Add(flpAppliancesList);
+            Controls.Add(pictureBox1);
             Controls.Add(pnlFansAndAirCoolers);
             Controls.Add(pnlCleaningSterilizing);
             Controls.Add(pnlKitchen);
             Controls.Add(pnlEntertainment);
             Controls.Add(pnlGarmentCare);
             Controls.Add(pnlAirConditioning);
-            Controls.Add(searchBox);
-            Controls.Add(flpAppliancesList);
             Controls.Add(label6);
             Controls.Add(label2);
             Controls.Add(pnlSummary);
+            Controls.Add(searchBox);
             Name = "CheckoutView";
             Size = new Size(1301, 711);
             pnlSummary.ResumeLayout(false);
@@ -846,6 +857,7 @@
             btnPay.PerformLayout();
             pnlKitchen.ResumeLayout(false);
             pnlKitchen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -908,6 +920,7 @@
         private Panel pnlGarmentCare;
         private Panel pnlFansAndAirCoolers;
         private Panel pnlCleaningSterilizing;
+        private PictureBox pictureBox1;
         private User_Controls.CustomDropDown cboSortBy;
     }
 }

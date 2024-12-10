@@ -13,6 +13,7 @@ public interface IRepository
     Appliance GetAppliance(string id);
     Task<IEnumerable<Appliance>> GetAllAppliance();
     void UpdateAppliance(Appliance appliance);
+    void UpdateAppliances(List<Appliance> appliances);
     Transaction GetTransaction(string id);
     Task<IEnumerable<Transaction>> GetAllTransactions();
     void AddTransaction(Transaction transaction);

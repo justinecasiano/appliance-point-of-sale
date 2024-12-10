@@ -6,7 +6,6 @@ namespace AppliancePointOfSale.Views.User_Controls;
 public partial class TransactionsView : UserControl, ITransactionsView
 {
     public event EventHandler ViewTransactionEvent;
-    public event EventHandler SearchEvent;
     public event EventHandler SortByEvent;
 
     private string currentSort;
@@ -25,6 +24,7 @@ public partial class TransactionsView : UserControl, ITransactionsView
 
     public void GenerateTransactionList(List<Transaction> transactions)
     {
+        if (selectedTransaction != null) TransactionSelected(selectedTransaction);
         this.transactions = new List<TransactionItemView>();
         foreach (Transaction transaction in transactions)
             this.transactions.Add(new TransactionItemView(transaction, ViewTransactionEvent));
@@ -70,13 +70,6 @@ public partial class TransactionsView : UserControl, ITransactionsView
         }
     }
 
-    private void InitializeSortBy()
-    {
-        cboSortBy.Title = "Sort By: ";
-        cboSortBy.Items = ["ID", "Name", "Date"];
-        cboSortBy.SelectEvent += SortByEvent;
-    }
-
     private void RefreshListView(List<TransactionItemView> transactions)
     {
         var header = flpTransactionsList.Controls.Find("pnlHeader", false).FirstOrDefault();
@@ -101,6 +94,14 @@ public partial class TransactionsView : UserControl, ITransactionsView
         RefreshListView(searchList);
     }
 
+    private void InitializeSortBy()
+    {
+        cboSortBy.Title = "Sort By: ";
+        cboSortBy.Items = ["ID ↑", "ID ↓", "Name ↑", "Name ↓", "Date ↑", "Date ↓"];
+        cboSortBy.MaxDropDownWidth = 94;
+        cboSortBy.SelectEvent += SortByEvent;
+    }
+
     private void SortBy(object? sender, EventArgs e)
     {
         searchBox.Clear();
@@ -121,9 +122,12 @@ public partial class TransactionsView : UserControl, ITransactionsView
 
         if (currentSort == null && !isSame)
         {
-            if (sortValue == "ID") sortedTransactions = transactions.OrderBy(x => x.ID).ToList();
-            else if (sortValue == "Name") sortedTransactions = transactions.OrderBy(x => x.CustomerName).ToList();
-            else if (sortValue == "Date") sortedTransactions = transactions.OrderBy(x => x.Date).ToList();
+            if (sortValue == "ID ↑") sortedTransactions = transactions.OrderBy(x => x.ID).ToList();
+            else if (sortValue == "ID ↓") sortedTransactions = transactions.OrderByDescending(x => x.ID).ToList();
+            else if (sortValue == "Name ↑") sortedTransactions = transactions.OrderBy(x => x.CustomerName).ToList();
+            else if (sortValue == "Name ↓") sortedTransactions = transactions.OrderByDescending(x => x.CustomerName).ToList();
+            else if (sortValue == "Date ↑") sortedTransactions = transactions.OrderBy(x => x.Date).ToList();
+            else if (sortValue == "Date ↓") sortedTransactions = transactions.OrderByDescending(x => x.Date).ToList();
             currentSort = sortValue;
         }
         RefreshListView(sortedTransactions);

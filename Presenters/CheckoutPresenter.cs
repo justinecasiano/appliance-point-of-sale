@@ -73,12 +73,14 @@ public class CheckoutPresenter
 
         if (appliance.Stocks < 0) CheckoutView.Message = "Stocks cannot be negative";
         else if (appliance.Stocks > 99) CheckoutView.Message = "Stocks cannot be greater than 99";
+        else if (transaction.LineItems.Where(x => x.ID == appliance.ID).Any())
+            CheckoutView.Message = "Cannot edit stocks of appliance";
         else
         {
             var edited = appliances.Find(x => x.ID == appliance.ID);
             edited.Stocks = appliance.Stocks;
-            Repository.UpdateAppliance(edited);
             CheckoutView.EditAppliance(appliance);
+            Repository.UpdateAppliance(edited);
             MessageBox.Show("Stocks successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
         }
     }
@@ -89,18 +91,33 @@ public class CheckoutPresenter
         if (transaction.Customer.FullName != null) CheckoutView.UpdateSummary(transaction);
     }
 
+    private void UpdateStocks(List<LineItem> lineItems)
+    {
+        List<Appliance> appliances = new List<Appliance>();
+        foreach (LineItem item in lineItems)
+        {
+            Appliance appliance = Repository.GetAppliance(item.ID);
+            appliance.Stocks -= item.Quantity;
+            appliances.Add(appliance);
+        }
+        Repository.UpdateAppliances(appliances);
+    }
+
     private void Payment(object? sender, EventArgs e)
     {
-        //if (transaction.Customer.FullName == null) CheckoutView.Message = "Please provide customer details";
-        //else if (transaction.LineItems.Count == 0) CheckoutView.Message = "Please add an appliance to checkout";
-        //else
+        if (transaction.Customer.FullName == null) CheckoutView.Message = "Please provide customer details";
+        else if (transaction.LineItems.Count == 0) CheckoutView.Message = "Please add an appliance to checkout";
+        else
         {
             CheckoutView.Payment(transaction);
             if (transaction.Status != "Success") return;
 
+            CheckoutView.UpdateSummary(transaction);
+            UpdateStocks(transaction.LineItems);
             CheckoutView.GenerateReceipt(transaction);
             Repository.AddTransaction(transaction);
-            //Show success message of transaction successful and added to the transaction history
+            CheckoutView.ConfirmReceipt(transaction);
+
             MessageBox.Show("Transaction successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
             ResetCheckout(sender, e);
         }

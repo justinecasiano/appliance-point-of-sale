@@ -328,7 +328,7 @@
             BackColor = Color.FromArgb(192, 52, 40);
             Controls.Add(panel1);
             Name = "CustomerForm";
-            Padding = new Padding(2);
+            Padding = new Padding(2, 2, 2, 2);
             Size = new Size(542, 549);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
